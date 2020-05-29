@@ -1,0 +1,36 @@
+@import '../../shared';
+
+.Nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 2em;
+  position: absolute;
+  left: 0;
+  top: 1em;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1em;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1em;
+  }
+
+  li {
+    display: inline;
+
+    a {
+      padding: 1em;
+      text-decoration: none;
+
+      &.active {
+        background: #ccc;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
