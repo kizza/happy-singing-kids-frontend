@@ -1,0 +1,24 @@
+@import '../../shared';
+
+.Dashboard {
+
+  text-align: center;
+  ul {
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  .Thankyou {
+    width: 16rem;
+    margin-bottom: 2em;
+  }
+
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1em;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1em;
+  }
+}

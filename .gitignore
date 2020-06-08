@@ -1,4 +1,5 @@
-.env
+.env*
 .serverless
+.DS_Store
 node_modules
 build

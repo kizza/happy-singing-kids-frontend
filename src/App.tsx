@@ -1,14 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
-import Nav from "./components/Nav";
+import styles from "./App.module.scss";
+import "./Typography.module.scss";
+/* import Nav from "./components/Nav"; */
 import routes from "./components/routes";
+import Logo from "./components/Logo";
 
 export default () => (
-  <div className="App">
+  <div className={styles.App}>
+    <div className={styles.Header}>
+      <Logo />
+    </div>
     <Router>
-      <Nav />
-      {routes}
+      {/* <Nav /> */}
+      <div className={styles.Content}>
+        <div className={styles.Inner}>{routes}</div>
+      </div>
     </Router>
   </div>
 );

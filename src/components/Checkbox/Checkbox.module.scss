@@ -1,0 +1,72 @@
+@import "../../shared";
+
+.Wrapper {
+}
+
+.Checkbox {
+  text-decoration: line-through;
+  color: #888;
+  list-style-type: none;
+  padding: 1rem 2rem;
+  display: block;
+  // background: #eee;
+  transition: color 0.2s;
+
+  &:hover {
+    // background: pink;
+    // border-color: red;
+    // text-decoration: underline;
+    text-decoration: none;
+  }
+
+  strong {
+    font-weight: normal;
+  }
+
+  img {
+    width: 2em;
+    height: 1.6em;
+    position: relative;
+    top: -0.2em;
+    padding-right: 0.6em;
+    float: left;
+  }
+
+  input {
+    display: none;
+  }
+
+  em {
+    display: none;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    img {
+    top: -0.1em;
+    padding-right: 1em;
+    }
+
+    em {
+      display: inline;
+      float: right;
+      text-decoration: line-through;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+  }
+}
+
+.Checked {
+  color: $text;
+  text-decoration: none;
+  em {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $primary;
+    background: #f3e1d6;
+    // border-color: red;
+  }
+}

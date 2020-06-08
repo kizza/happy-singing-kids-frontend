@@ -1,11 +1,20 @@
-name: demo-react-app
+name: happy-singing-kids-frontend
 
-website:
-  component: '@serverless/website'
-  inputs:
-    code:
-      src: build
-      hook: npm run build
-    region: us-east-1
-    bucketName: oleary-demo-react-app
-    # domain: www.serverlessmetrics.com
+component: website
+inputs:
+  src:
+    src: ./src
+    hook: npm run build
+    dist: ./build
+  bucketName: happy-singing-kids-frontend
+  domain: happysingingkids.com
+
+# website:
+#   component: '@serverless/website'
+#   inputs:
+#     code:
+#       src: build
+#       hook: npm run build
+#     region: us-east-1
+#     bucketName: oleary-demo-react-app
+#     # domain: purchase.happysingingkids.com

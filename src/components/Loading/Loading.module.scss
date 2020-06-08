@@ -1,0 +1,32 @@
+@import "../../shared";
+
+.Loading {
+  text-align: center;
+  position: relative;
+  top: 2em;
+
+  img {
+    animation: rotation 1.4s infinite linear;
+    width: 4em;
+  }
+
+  em {
+    display: block;
+    font-style: normal;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
