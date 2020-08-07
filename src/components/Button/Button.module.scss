@@ -1,25 +1,25 @@
 @import "../../shared";
 
 .Button {
+  @extend %button;
   font-size: 1em;
   color: $primary;
   font-weight: bold;
   border: solid 1px $primary;
   padding: 1em 3.6em;
+  margin: 0 1em;
   cursor: pointer;
   font-family: $header-font;
-  transition: box-shadow 0.2s ease-out, background 0.8s ease-out;
-  box-shadow: #999 0.2em 0.4em;
 
   &:hover {
+    text-decoration: underline;
     background2: $primary;
     background: #e3d3e2;
     color2: white;
-    text-decoration: underline;
-    box-shadow: #999 0.2em 0.2em;
   }
 
   @media (min-width: $breakpoint-tablet) {
+    margin: 0;
     padding: 0.6em 2em;
   }
 

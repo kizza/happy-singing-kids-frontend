@@ -34,6 +34,9 @@ export default (
       <Dashboard thankyou />
     </Route>
 
+    <Route exact path="/preview">
+      <Dashboard token="share" />
+    </Route>
     <Route exact path="/songs/:token">
       <Dashboard />
     </Route>

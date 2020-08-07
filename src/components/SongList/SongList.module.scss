@@ -4,32 +4,22 @@
   text-align: left;
   margin: 1.2em 0;
 
+  ul {
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
   label {
     cursor: pointer;
   }
 
-  .Link {
-    display: block;
-    color: $primary;
-    padding: 1rem;
-
-    &:hover {
-      background: #f3e1d6;
-    }
-
-    img {
-      width: 2em;
-      height: 1.6em;
-      position: relative;
-      top: -0.1em;
-      padding-right: 1em;
-      float: left;
-    }
-  }
-
   @media (min-width: $breakpoint-tablet) {
     border: dotted 4px purple;
-    margin: 2em auto 1em;
+    margin: 2em auto;
     max-width: 60%;
     max-width: 32rem;
     padding: 0.4em;

@@ -2,13 +2,14 @@ import { Stripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { api } from "../api";
 
-interface DisplayLineItem {
+export interface DisplayLineItem {
   priceId: string;
   productId: string;
   name: string;
   amount: number;
   currency: string;
   url: string | undefined;
+  filetype: string | undefined;
 }
 
 interface CreateSessionDto {

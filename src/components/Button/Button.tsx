@@ -3,15 +3,18 @@ import styles from "./Button.module.scss";
 import classnames from "classnames";
 
 interface Props {
-  label: string;
+  label?: string;
+  icon?: string;
   url?: string;
+  style?: string;
   disabled?: boolean;
   onClick?: () => void;
 }
 
 const noop = () => {};
 
-export default ({ label, url, onClick = noop, disabled = false }: Props) => {
+export default (props: Props) => {
+  const { style, label, icon, url, onClick = noop, disabled = false } = props;
   const type = url ? "button" : "submit";
 
   return (
@@ -19,8 +22,12 @@ export default ({ label, url, onClick = noop, disabled = false }: Props) => {
       onClick={onClick || null}
       type={type}
       disabled={disabled}
-      className={classnames(styles.Button, { [styles.Disabled]: disabled })}
+      className={classnames(styles.Button, {
+        [style + ""]: !!style,
+        [styles.Disabled]: disabled,
+      })}
     >
+      {icon && <i className={`fa fa-fw fa-lg fa-${icon}`}></i>}
       {label}
     </button>
   );

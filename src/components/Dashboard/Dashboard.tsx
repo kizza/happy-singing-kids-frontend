@@ -7,11 +7,28 @@ import styles from "./Dashboard.module.scss";
 import SongList from "../SongList";
 import success from "../../assets/success.svg";
 
-const Dashboard = (
-  props: RouteComponentProps<{ token: string }> & { thankyou?: boolean }
-) => {
-  const { thankyou, match } = props;
-  const [loading, error, dashboard] = useDashboard(match.params.token);
+interface Properties {
+  token?: string;
+  internal?: boolean;
+  thankyou?: boolean;
+}
+
+type Props = Properties & RouteComponentProps<{ token: string }>;
+
+const parseProps = (props: Props) => {
+  const { token, match } = props;
+  const internal = !!token;
+  return {
+    ...props,
+    internal,
+    token: internal ? token! : match.params.token, // Token can be passed as prop
+  };
+};
+
+const Dashboard = (props: Props) => {
+  const { token, internal } = parseProps(props);
+  const [loading, error, dashboard] = useDashboard(token);
+  const { thankyou } = props;
   const { items } = dashboard || {};
 
   const thanks = () => (
@@ -24,14 +41,26 @@ const Dashboard = (
     </>
   );
 
-  const renderItems = (links: CartItem[]) => (
-    <>
-      {thankyou && thanks()}
+  const instructions = () =>
+    internal ? (
+      <>
+        <p>
+          Thanks for having a look through the songs below
+          <br /> (right-click and click save).
+        </p>
+        <p> Look forward to hearing your thoughts!</p>
+      </>
+    ) : (
       <p>
         The links to download your mp3s are below. (right-click and click save).
         Thank you for supporting local music.
       </p>
+    );
 
+  const renderItems = (links: CartItem[]) => (
+    <>
+      {thankyou && thanks()}
+      {instructions()}
       <SongList items={links} />
     </>
   );
