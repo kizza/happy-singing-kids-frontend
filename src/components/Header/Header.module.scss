@@ -1,0 +1,127 @@
+@import "../../shared";
+
+.Header {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, #cceef0, #fff);
+  display: block;
+  float: left;
+
+  min-height: 17em;
+  @media (min-width: $breakpoint-tablet) {
+    min-height: 10em;
+  }
+
+  .Logo {
+    margin-top: 0.4em;
+  }
+
+  .Overlay {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+%floating {
+  position: absolute;
+}
+
+.Sky {
+  @extend %floating;
+  border: solid 1px blue;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.Clouds {
+  @extend %floating;
+  bottom: 0;
+  width: 60%;
+  margin-left: 8rem;
+  height: auto;
+  // animation-duration: 2s; /* don't forget to set a duration! */
+  // --animate-duration: 3s;
+  // --animate-delay: 1s;
+  // --animate-repeat: 1;
+}
+
+.Tree {
+  @extend %floating;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  @media (min-width: $breakpoint-desktop) {
+    display: none;
+  }
+}
+
+.Grass {
+  @extend %floating;
+  height: 18px;
+  width: 100%;
+  bottom: 0;
+  background: $grass;
+}
+
+.Foreground {
+  // width: 100%;
+  // height: auto;
+  width: 47rem;
+  position: relative;
+  float: left;
+  margin-top: -4em;
+  margin-left: -19rem;
+
+  // margin-left: -60vw;
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: -8em;
+    width: 68em;
+    margin-left: -10em;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    // width: 68rem;
+    // margin-left: 0;
+
+    width: 68rem;
+    margin-left: 8rem;
+  }
+}
+
+.Hamburger {
+  font-size: 2em;
+  position: absolute;
+  z-index: 100;
+  top: 0.4em;
+  left: 0.4em;
+  padding: 0.5em;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  // background: $orange;
+  background:#afdcde;
+  color: $primary;
+  text-decoration: none;
+
+  i {
+    display: block;
+    margin-left: -1px;
+    margin-top: 0.1em;
+    color: white;
+  }
+
+  &:hover {
+    background: $orange;
+    i {
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    right: -0.8em;
+  }
+}

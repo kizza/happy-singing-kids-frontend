@@ -8,7 +8,7 @@ import Success from "../Success";
 const Home = () => {
   return (
     <>
-      <p>Meow meow meow meow</p>
+      <p style={{ textAlign: "center" }}>Stay tuned...</p>
     </>
   );
 };

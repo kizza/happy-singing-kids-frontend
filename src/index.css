@@ -13,6 +13,7 @@ body {
   background: #ffefaa;
 
   background: url(assets/geometry.png);
+  max-width: 100%;
 }
 
 code {

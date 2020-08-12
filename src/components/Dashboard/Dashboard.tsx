@@ -1,4 +1,5 @@
-import React from "react";
+import classnames from "classnames";
+import React, { useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { CartItem } from "../../hooks/useCartItems";
 import { useDashboard } from "../../hooks/useDashboard";
@@ -6,6 +7,9 @@ import Loading from "../Loading";
 import styles from "./Dashboard.module.scss";
 import SongList from "../SongList";
 import success from "../../assets/success.svg";
+import { NowPlayingContext } from "../../hooks/useNowPlaying";
+import Popup from "../Popup";
+import { PopupContext } from "../../hooks/usePopup";
 
 interface Properties {
   token?: string;
@@ -44,11 +48,7 @@ const Dashboard = (props: Props) => {
   const instructions = () =>
     internal ? (
       <>
-        <p>
-          Thanks for having a look through the songs below
-          <br /> (right-click and click save).
-        </p>
-        <p> Look forward to hearing your thoughts!</p>
+        <p>Checkout the songs below and let me know what you think :)</p>
       </>
     ) : (
       <p>
@@ -59,22 +59,32 @@ const Dashboard = (props: Props) => {
 
   const renderItems = (links: CartItem[]) => (
     <>
-      {thankyou && thanks()}
-      {instructions()}
+      <div className={styles.Inner}>
+        {thankyou && thanks()}
+        {instructions()}
+      </div>
       <SongList items={links} />
     </>
   );
 
+  const [currentSong, setCurrentSong] = useState<string>("");
+  const nowPlayingValue = {
+    currentSong,
+    setCurrentSong,
+  };
+
   return (
     <div className={styles.Dashboard}>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {items && renderItems(items)}
-          {error && <div className="error">{error}</div>}
-        </>
-      )}
+      <NowPlayingContext.Provider value={nowPlayingValue}>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {items && renderItems(items)}
+            {error && <div className="error">{error}</div>}
+          </>
+        )}
+      </NowPlayingContext.Provider>
     </div>
   );
 };

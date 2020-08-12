@@ -6,18 +6,31 @@
   overflow: hidden;
 }
 
+em {
+  display: block;
+  color: $text;
+  position: relative;
+  left: -0.4em;
+  padding-top: 0.2em;
+  font-size: 90%;
+  &:before {
+    content: "\201C";
+  }
+  &:after {
+    content: "\201D";
+  }
+}
+
 $icon-colour: purple;
 
-$paddig-top: 0;
-
 %PlayPause {
-  transition: background ease-out 0.3s;
-  margin-right: 1em;
+  transition: padding ease-out 0.3s, background ease-out 0.3s;
+  // margin-right: 1.9em;
   text-decoration: none;
   position: relative;
   display: block;
   width: 100%;
-  padding: 1.3em 1em 1em;
+  padding: 1.6em 1em 1.3em;
   color: $primary;
 
   strong {
@@ -27,8 +40,8 @@ $paddig-top: 0;
   i {
     font-size: 1.2em;
     position: relative;
-    top: -0.5em + $paddig-top;
-    margin-right: 0.4em;
+    top: -0.5em;
+    margin-right: 0.6em;
     float: left;
     border: solid 2px $icon-colour;
     border-radius: 50%;
@@ -63,10 +76,16 @@ $paddig-top: 0;
 
 .Play {
   @extend %PlayPause;
+
+  .meta {
+    display: block;
+  }
 }
 
+// ie when playing
 .Pause {
   @extend %PlayPause;
+  padding-bottom: 4em;
   background: #e3d3e2;
   color: purple;
   strong {
@@ -82,12 +101,48 @@ $paddig-top: 0;
   }
 }
 
+.LyricsLink {
+  transition: opacity ease-out 0.8s;
+  opacity: 0.5;
+  display: block;
+  position: absolute;
+  text-decoration: none;
+  padding: 0.6em 1em 0.5em;
+  bottom: 0.4em;
+  left: 5em;
+  margin: 1em 0;
+  font-size: 80%;
+  color: $green;
+  background: #fff;
+  border-radius: 8px;
+
+  &:hover {
+    color: #fff;;
+    background: $orange;
+  }
+}
+
+.Paused {
+  .LyricsLink {
+    // visibility: hidden;
+    position: absolute;
+    height: 1px;
+    top: -99999px;
+  }
+}
+.Playing {
+  .LyricsLink {
+    display: block;
+    opacity: 1;
+  }
+}
+
 .DownloadLink {
   transition: color ease-out 0.3s;
   display: block;
   position: absolute;
   padding: 0.6em;
-  top: 0.6em;
+  top: 0.8em;
   right: 0.8em;
   color: $green;
 
@@ -100,3 +155,4 @@ $paddig-top: 0;
     top: 0.2em;
   }
 }
+

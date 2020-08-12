@@ -1,0 +1,103 @@
+@import "../../shared";
+
+.ShowingLyrics {
+  display: block !important;
+}
+
+.Popup {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+
+  --animate-duration: 0.3s;
+  font-size: 0.8em;
+
+  p {
+  }
+
+  .PopupInner {
+    position: relative;
+    background: #fff;
+    text-align: center;
+    color: $green;
+    box-shadow: 0 -1em 4em rgba(0, 0, 0, 0.5);
+
+    .PopupContent {
+      max-height: 60vh;
+      overflow-y: auto;
+      position: relative;
+      padding-bottom: 2em;
+    }
+  }
+
+  .PopupContentBlurb {
+    padding: 0 0 4em;
+    position: relative;
+    top: 0;
+  }
+
+  // Popup behaviour
+  bottom: 0;
+  @media (min-width: $breakpoint-tablet) {
+    top: 50%;
+    left: 50%;
+    width: 70%;
+  font-size: 1em;
+
+    .PopupInner {
+      transform: translate(-50%, -50%);
+
+      .PopupContent {
+        max-height: 50em;
+        overflow-x: hidden;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.8em;
+    color: $green;
+    padding: 1.1em 0 0.8em;
+    border-bottom: solid 1px purple;
+    margin: 0.2em auto 1em;
+    max-width: 80%;
+  }
+
+  p {
+    padding: 0 2em;
+  }
+
+  a {
+    font-size: 2em;
+    position: absolute;
+    z-index: 1;
+    top: -1.1em;
+    right: -0.1em;
+    padding: 0.5em;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    background: $orange;
+    color: $primary;
+    text-decoration: none;
+    box-shadow: 0em 0.2em 0.2em rgba(0, 0, 0, 0.2);
+
+    i {
+      display: block;
+      margin-left: -1px;
+      margin-top: 0.1em;
+      color: white;
+    }
+
+    &:hover {
+      background: $orange;
+      i {
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      right: -0.8em;
+    }
+  }
+}

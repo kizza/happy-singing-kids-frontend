@@ -15,47 +15,40 @@
   font-family: $boldfont;
 }
 
-$header-top: 12rem;
-
-.Header {
-  // background: #e2d3e2; //$primary;
-  // background: #388697;
-  // background: #abe8f5;
-  // background: radial-gradient(ellipse at top, #e66465, transparent),
-  //           radial-gradient(ellipse at bottom, #4d9f0c, transparent);
-
-  // background: radial-gradient(ellipse at bottom, #644294, #372058);
-
-  height: $header-top;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  overflow: hidden;
-  text-align: center;
-
-  // h1 {
-  //   font-size: 3em;
-  //   margin: 1.5em 0 0;
-  //   font-family: $font;
-  //   color: white;
-  // }
-
-  @media (min-width: $breakpoint-tablet) {
-    h1 {
-      margin: 1em 0 0;
-      font-size: 4em;
-    }
-  }
+.Blurred {
+  filter: blur(3px);
 }
 
+.Page {
+  // position: relative;
+  transform: filter ease-out 4.4s;
+}
+
+.Offset {
+      // transform: translate(+20%, 0);
+      // position: relative;
+      // left: 10em;
+}
+
+
+$header-top: 0; //12rem;
+
 .Content {
-  margin: $header-top 0 4rem;
+  // margin: $header-top 0 4rem;
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 3em 0 2em;
   z-index: 1;
-  background: url(assets/background.png);
-  background: url(assets/geometry.png);
+  color: $text;
+  // background: url(assets/background.png);
+  // background-size: cover;
+  // background: url(assets/geometry.png);
+
+  &:after {
+    content: "";
+    clear: both;
+  }
 
   .Inner {
     font-size: 120%;
@@ -66,6 +59,12 @@ $header-top: 12rem;
     @media (min-width: $breakpoint-tablet) {
       padding: 0 0 0 0;
     }
+  }
+
+  // Content gradient
+  background: linear-gradient(to bottom, $grass, #fafafa 10%);
+  @media (min-width: $breakpoint-tablet) {
+    background: linear-gradient(to bottom, $grass, #fafafa 50%);
   }
 }
 
@@ -122,6 +121,10 @@ p {
   margin: 0;
   font-size: 1.3em;
   font-family: inherit;
+  padding: 0 0.5em;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0;
+  }
 }
 
 h2 + p {
@@ -136,7 +139,6 @@ html {
   background2: #666;
   font-size: 16px;
 }
-
 
 /* */
 

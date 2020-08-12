@@ -3,6 +3,7 @@
 .SongList {
   text-align: left;
   margin: 1.2em 0;
+  background: url(../../assets/geometry.png);
 
   ul {
     margin: 0 !important;
@@ -23,5 +24,9 @@
     max-width: 60%;
     max-width: 32rem;
     padding: 0.4em;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 100%;
   }
 }

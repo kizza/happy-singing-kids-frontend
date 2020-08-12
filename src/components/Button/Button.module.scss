@@ -3,6 +3,7 @@
 .Button {
   @extend %button;
   font-size: 1em;
+  line-height: 1.6em;
   color: $primary;
   font-weight: bold;
   border: solid 1px $primary;

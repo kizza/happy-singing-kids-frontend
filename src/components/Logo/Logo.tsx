@@ -1,15 +1,13 @@
 import React from "react";
+import classnames from "classnames";
 import styles from "./Logo.module.scss";
-/* import logo from "../../assets/logo.png"; */
 
-/* interface Props { */
-/*   label: string; */
-/*   disabled: boolean; */
-/*   onClick?: () => void; */
-/* } */
+interface Props {
+  className: string;
+}
 
-export default () => (
-  <div className={styles.Logo}>
+export default ({ className }: Props) => (
+  <div className={classnames(styles.Logo, className)}>
     <h1>Happy Singing Kids</h1>
   </div>
 );
