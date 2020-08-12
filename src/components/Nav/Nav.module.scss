@@ -31,6 +31,7 @@
       display: block;
       text-decoration: none;
       color: $text;
+      @extend %no-tap-highlight;
 
       &.active {
         // background: #9e209e;

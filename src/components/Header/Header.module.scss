@@ -104,9 +104,11 @@
   height: 1.2em;
   border-radius: 50%;
   // background: $orange;
-  background:#afdcde;
+  background: #afdcde;
   color: $primary;
   text-decoration: none;
+
+  @extend %no-tap-highlight;
 
   i {
     display: block;

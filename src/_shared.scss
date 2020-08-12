@@ -13,6 +13,10 @@ $orange: #fa8234;
 $green: #0a898d;
 
 
+%no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}
+
 // Fonts
 
 // $font: "Luckiest Guy";
