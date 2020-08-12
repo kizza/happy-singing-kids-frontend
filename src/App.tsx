@@ -10,22 +10,7 @@ import "animate.css/animate.min.css";
 import { PopupContext } from "./hooks/usePopup";
 import Popup from "./components/Popup";
 import Mask from "./components/Mask";
-
-const useToggleState = () => {
-  const state = useState<"open" | "closing" | "closed">("closed");
-  const [toggleState, setToggleState] = state;
-  useEffect(() => {
-    let timer: any;
-    if (toggleState === "closing") {
-      timer = setTimeout(() => {
-        setToggleState("closed");
-      }, 500);
-    }
-    return () => clearTimeout(timer);
-  }, [toggleState]);
-
-  return state;
-};
+import { useToggleState } from "./hooks/useToggleState";
 
 export default () => {
   const [popupContent, setPopupContent] = useState<string>("");
