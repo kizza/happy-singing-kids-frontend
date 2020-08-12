@@ -1,15 +1,11 @@
-import classnames from "classnames";
 import React, { useState } from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { CartItem } from "../../hooks/useCartItems";
 import { useDashboard } from "../../hooks/useDashboard";
-import Loading from "../Loading";
-import styles from "./Dashboard.module.scss";
-import SongList from "../SongList";
-import success from "../../assets/success.svg";
 import { NowPlayingContext } from "../../hooks/useNowPlaying";
-import Popup from "../Popup";
-import { PopupContext } from "../../hooks/usePopup";
+import Loading from "../Loading";
+import SongList from "../SongList";
+import styles from "./Dashboard.module.scss";
 
 interface Properties {
   token?: string;
@@ -37,10 +33,9 @@ const Dashboard = (props: Props) => {
 
   const thanks = () => (
     <>
-      <img className={styles.Thankyou} src={success} alt="Success!" />
       <p>
         <b>Thank you for your support!</b>. An email with your download page has
-        been sent to {dashboard.email}
+        been sent to <span className={styles.Emphasis}>{dashboard.email}</span>
       </p>
     </>
   );
@@ -51,10 +46,14 @@ const Dashboard = (props: Props) => {
         <p>Checkout the songs below and let me know what you think :)</p>
       </>
     ) : (
-      <p>
-        The links to download your mp3s are below. (right-click and click save).
-        Thank you for supporting local music.
-      </p>
+      <>
+        <p>
+          You can listen below (and sing along with the lyrics), or click to
+          download a song. (right-click and click save).
+        </p>
+
+        <p>Thank you for supporting local music.</p>
+      </>
     );
 
   const renderItems = (links: CartItem[]) => (

@@ -16,13 +16,19 @@
 
   .Inner {
     padding: 0 1em;
+    font-size: 80%;
+  }
+
+  .Emphasis {
+    color: $aqua;
   }
 
   @media (min-width: $breakpoint-tablet) {
-    font-size: 1em;
+    .Inner {
+      font-size: 100%;
+    }
   }
 
   @media (min-width: $breakpoint-desktop) {
-    font-size: 1em;
   }
 }

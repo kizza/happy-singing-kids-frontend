@@ -30,6 +30,7 @@ export default (
     <Route path="/purchase/success">
       <Success />
     </Route>
+
     <Route path="/thankyou/:token">
       <Dashboard thankyou />
     </Route>
@@ -46,9 +47,6 @@ export default (
 
     <Route path="/about">
       <p>About page</p>
-    </Route>
-    <Route path="/faq">
-      <p>FAQ page</p>
     </Route>
   </Switch>
 );
