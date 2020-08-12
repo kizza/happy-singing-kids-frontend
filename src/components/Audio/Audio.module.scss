@@ -4,20 +4,20 @@
   display: block;
   position: relative;
   overflow: hidden;
-}
 
-em {
-  display: block;
-  color: $text;
-  position: relative;
-  left: -0.4em;
-  padding-top: 0.2em;
-  font-size: 90%;
-  &:before {
-    content: "\201C";
-  }
-  &:after {
-    content: "\201D";
+  em {
+    display: block;
+    color: $text;
+    position: relative;
+    left: -0.4em;
+    padding-top: 0.2em;
+    font-size: 90%;
+    &:before {
+      content: "\201C";
+    }
+    &:after {
+      content: "\201D";
+    }
   }
 }
 
