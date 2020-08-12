@@ -117,13 +117,12 @@
     color: white;
   }
 
-  &:hover {
-    background: $orange;
-    i {
-    }
-  }
-
   @media (min-width: $breakpoint-tablet) {
     right: -0.8em;
+    &:hover {
+      background: $orange;
+      i {
+      }
+    }
   }
 }
