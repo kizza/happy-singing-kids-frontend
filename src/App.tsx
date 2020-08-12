@@ -68,17 +68,17 @@ export default () => {
 
   const showMask = popupState === "open" || menuState === "open";
 
+  const bodyClasses = classnames(styles.Page, {
+    [styles.Blurred]: showMask,
+    [styles.Offset]: menuState === "open",
+    [styles.Closing]: menuState === "closing",
+  });
+
   return (
     <div className={styles.App}>
       <PopupContext.Provider value={popupValue}>
         <Router>
-          <div
-            className={classnames(styles.Page, {
-              [styles.Blurred]: showMask,
-              [styles.Offset]: menuState === "open",
-              [styles.Closing]: menuState === "closing",
-            })}
-          >
+          <div className={bodyClasses}>
             <Header openMenu={openMenu} />
             <div
               className={classnames(styles.Content, showMask && styles.Blurred)}
