@@ -62,7 +62,7 @@ type UseCartItems = [
   CartItem[],
   CartTotal | undefined,
   (item: CartItem) => void,
-  () => Promise<void | { error: any; sessionId: string }>
+  (items: CartItem[]) => Promise<void | { error: any; sessionId: string }>
 ];
 
 const activeCartItems = (item: CartItem) => !!item.enabled;
@@ -98,11 +98,11 @@ export const useCartItems = (stripe: Stripe): UseCartItems => {
       .catch(e => setError("Could not retrieve items"));
   }, []);
 
-  const openCheckoutSession = async () =>
+  const openCheckoutSession = async (rawItems: CartItem[]) =>
     Promise.resolve()
       .then(() => setProcessing(true))
       .then(() =>
-        api("sessions", createSessionDto(items))
+        api("sessions", createSessionDto(rawItems))
           .then(async ({ id: sessionId }) => {
             const { error: sessionError } = await stripe!.redirectToCheckout({
               sessionId,

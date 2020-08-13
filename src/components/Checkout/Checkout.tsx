@@ -24,7 +24,7 @@ const Checkout = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    await openCheckoutSession();
+    await openCheckoutSession(items);
   };
 
   const renderForm = () => (
