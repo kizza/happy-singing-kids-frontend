@@ -1,13 +1,13 @@
 import classnames from "classnames";
-import React, { useState, useContext } from "react";
-import { CartItem, DisplayLineItem } from "../../hooks/useCartItems";
-import Audio from "../Audio";
-import Checkbox from "../Checkbox";
-import styles from "./SongList.module.scss";
-import Button from "../Button";
+import React, { useContext } from "react";
 import allLyrics from "../../assets/lyrics";
+import { CartItem, DisplayLineItem } from "../../hooks/useCartItems";
 import { NowPlayingContext } from "../../hooks/useNowPlaying";
 import { PopupContext } from "../../hooks/usePopup";
+import Audio from "../Audio";
+import Button from "../Button";
+import Checkbox from "../Checkbox";
+import styles from "./SongList.module.scss";
 
 interface Props {
   items: CartItem[];

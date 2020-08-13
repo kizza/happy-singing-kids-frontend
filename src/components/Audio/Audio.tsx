@@ -1,13 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
 import classnames from "classnames";
-import styles from "./Audio.module.scss";
-
+import React, { useEffect, useRef } from "react";
 // import Song from "./Song";
 // import Play from "./Play";
 // import Pause from "./Pause";
 // // import Bar from "./Bar";
-
 import useAudioPlayer from "../../hooks/useAudioPlayer";
+import styles from "./Audio.module.scss";
 
 interface Props {
   label: string;

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { CartItem } from "../../hooks/useCartItems";
 import { useDashboard } from "../../hooks/useDashboard";
-import { NowPlayingContext } from "../../hooks/useNowPlaying";
 import Loading from "../Loading";
 import SongList from "../SongList";
 import styles from "./Dashboard.module.scss";
@@ -66,24 +65,16 @@ const Dashboard = (props: Props) => {
     </>
   );
 
-  const [currentSong, setCurrentSong] = useState<string>("");
-  const nowPlayingValue = {
-    currentSong,
-    setCurrentSong,
-  };
-
   return (
     <div className={styles.Dashboard}>
-      <NowPlayingContext.Provider value={nowPlayingValue}>
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            {items && renderItems(items)}
-            {error && <div className="error">{error}</div>}
-          </>
-        )}
-      </NowPlayingContext.Provider>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {items && renderItems(items)}
+          {error && <div className="error">{error}</div>}
+        </>
+      )}
     </div>
   );
 };
