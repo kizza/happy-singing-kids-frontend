@@ -12,7 +12,7 @@ import { useDashboard } from "../../hooks/useDashboard";
 const packOne = {
   priceId: "price_1HFSo4FbHwwHDg3DK1i4YblC",
   enabled: true,
-  amount: 1200,
+  amount: 2000,
   currency: "aud",
 } as any;
 
@@ -30,7 +30,7 @@ const Home = () => {
     openCheckoutSession,
   ] = useCartItems(stripe!);
 
-  const [loading, error, dashboard] = useDashboard("preview");
+  /* const [loading, error, dashboard] = useDashboard("preview"); */
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -108,15 +108,11 @@ const Home = () => {
 
         <p>
           To listen to the full versions of all the songs above - grab the
-          entire happy pack below
+          entire happy pack below {formatPrice(packOne)}
         </p>
         <p>
           <Button
-            label={
-              processing
-                ? "One moment…"
-                : `Buy the entire 'Happy Pack' ${formatPrice(packOne)}`
-            }
+            label={processing ? "One moment…" : `Buy the 'Happy Pack'`}
             disabled={processing || !stripe}
           ></Button>
         </p>
@@ -124,17 +120,15 @@ const Home = () => {
     </form>
   );
 
-  return (
-    <div className={styles.Checkout}>
-      {error ? (
-        <p>Sorry, womething went wrong</p>
-      ) : loading ? (
-        <Loading />
-      ) : (
-        renderForm()
-      )}
-    </div>
-  );
+  /* {error ? ( */
+  /*   <p>Sorry, womething went wrong</p> */
+  /* ) : loading ? ( */
+  /*   <Loading /> */
+  /* ) : ( */
+  /*   renderForm() */
+  /* )} */
+
+  return <div className={styles.Checkout}>{renderForm()}</div>;
 };
 
 export default () => {

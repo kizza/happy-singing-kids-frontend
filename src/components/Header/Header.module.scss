@@ -12,6 +12,9 @@
   @media (min-width: $breakpoint-tablet) {
     min-height: 10em;
   }
+  @media (min-width: $breakpoint-desktop) {
+    min-height: 26vw;
+  }
 
   .Logo {
     margin-top: 0.4em;

@@ -12,7 +12,7 @@ export const useToggleState = () => {
       }, 500);
     }
     return () => clearTimeout(timer);
-  }, [toggleState]);
+  }, [toggleState, setToggleState]);
 
   return state;
 };
