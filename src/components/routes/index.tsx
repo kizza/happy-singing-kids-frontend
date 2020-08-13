@@ -4,14 +4,7 @@ import Checkout from "../Checkout";
 import Dashboard from "../Dashboard";
 import Download from "../Download";
 import Success from "../Success";
-
-const Home = () => {
-  return (
-    <>
-      <p style={{ textAlign: "center" }}>Stay tuned...</p>
-    </>
-  );
-};
+import Home from "../Home";
 
 const Purchase = () => (
   <>
@@ -22,6 +15,9 @@ const Purchase = () => (
 export default (
   <Switch>
     <Route exact path="/(cancel)?">
+      <p style={{ textAlign: "center" }}>Meow meow meow meow</p>
+    </Route>
+    <Route exact path="/home">
       <Home />
     </Route>
     <Route exact path="/purchase(/cancel)?">
