@@ -12,6 +12,7 @@ import styles from "./SongList.module.scss";
 interface Props {
   items: CartItem[];
   toggleItem?: (item: CartItem) => void;
+  preview?: boolean;
 }
 
 /* const audioOnly = (items: any[]) => */
@@ -23,7 +24,7 @@ const downloadOmitted = (items: any[]) =>
 const downloadOnly = (items: any[]) =>
   items.filter(each => each.filetype === "download");
 
-export default ({ items, toggleItem }: Props) => {
+export default ({ items, toggleItem, preview }: Props) => {
   const renderCartItem = (item: CartItem) =>
     toggleItem && (
       <Checkbox
