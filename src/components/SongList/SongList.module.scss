@@ -28,7 +28,7 @@
     cursor: pointer;
   }
 
-  border: dotted 4px purple;
+  border: dotted 4px $purple;
 
   @media (min-width: $breakpoint-tablet) {
     margin: 2em auto;

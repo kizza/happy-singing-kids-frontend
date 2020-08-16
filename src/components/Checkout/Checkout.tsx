@@ -44,8 +44,9 @@ const Checkout = () => {
         {error && <div className="error">{error}</div>}
 
         <Button
+          icon={processing ? "cog fa-spin" : undefined}
           label={processing ? "One moment…" : "Purchase"}
-          disabled={activeItems.length === 0 || processing || !stripe}
+          disabled={processing || !stripe}
         ></Button>
       </div>
     </form>

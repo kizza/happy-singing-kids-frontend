@@ -86,7 +86,12 @@ const Home = () => {
 
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
-      <p>Fun and catchy, homemade songs for happy singing kids!</p>
+      {/* <p>Fun and catchy, homemade songs for happy singing kids!</p> */}
+      <h2>
+        Kids songs you'll love to sing!
+        <br />
+        (they're a little bit different)
+      </h2>
 
       <SongList preview items={items} />
 
@@ -95,14 +100,22 @@ const Home = () => {
         {/* {error && <div className="error">{error}</div>} */}
 
         <p>
-          To listen to the full versions of all the songs above - grab the
-          entire happy pack below {formatPrice(packOne)}
+          Purchase the "Happy Pack" below to get the full version of the songs (
+          {formatPrice(packOne)})
         </p>
-        <p>
+        <p className={styles.WithButton}>
           <Button
-            label={processing ? "One moment…" : `Buy the 'Happy Pack'`}
+            icon={processing ? "cog fa-spin" : undefined}
+            label={processing ? "One moment…" : "Buy the Happy Pack"}
             disabled={processing || !stripe}
           ></Button>
+        </p>
+        <p className={styles.Small}>
+          You'll get access to your own page identical to this listing the full
+          version of each song.
+        </p>
+        <p className={styles.Small}>
+          (Your support goes towards supporting more happy music 😃)
         </p>
       </div>
     </form>
@@ -116,7 +129,7 @@ const Home = () => {
   /*   renderForm() */
   /* )} */
 
-  return <div className={styles.Checkout}>{renderForm()}</div>;
+  return <div className={styles.Home}>{renderForm()}</div>;
 };
 
 export default () => {

@@ -1,17 +1,24 @@
 @import "../../shared";
 
-.Checkout {
+.Home {
   text-align: center;
+  padding-bottom: 3em;
 
-  .Total {
-    text-align: center;
-    font-weight: bold;
-    font-style: italic;
-    margin: 1rem 0.4rem 2rem;
-    @media (min-width: $breakpoint-tablet) {
-      text-align: right;
-      margin: 1em 2.6em 2em;
-    }
+  h2 {
+    font-size: 1.6em;
+    font-family: $font;
+    font-weight: normal;
+  }
+
+  .WithButton {
+      border-bottom: solid 1px #bbb;
+    padding-bottom: 2em;
+    margin-bottom: 1em;
+  }
+
+  .Small {
+    font-size: 0.9em;
+    // line-height: 1em;
   }
 
   @media (min-width: $breakpoint-tablet) {

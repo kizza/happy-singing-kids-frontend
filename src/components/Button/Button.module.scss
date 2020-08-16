@@ -4,18 +4,21 @@
   @extend %button;
   font-size: 1em;
   line-height: 1.6em;
-  color: $primary;
   font-weight: bold;
-  border: solid 1px $primary;
   padding: 1em 2em;
   margin: 0 1em;
   cursor: pointer;
   font-family: $header-font;
 
+  color: white;
+  // color: $primary;
+  background: $purple;
+  border: none;
+
   &:hover {
     text-decoration: underline;
-    background2: $primary;
-    background: #e3d3e2;
+    background: $text;
+    // background: #e3d3e2;
     color2: white;
   }
 
