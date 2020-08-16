@@ -2,12 +2,11 @@ import { Elements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import React, { useRef } from "react";
 import { formatPrice } from "../../helpers";
-import { useCartItems, CartItem } from "../../hooks/useCartItems";
+import { CartItem } from "../../hooks/useCartItems";
+import { useStripeCheckout } from "../../hooks/useStripeCheckout";
 import Button from "../Button";
-import Loading from "../Loading";
 import SongList from "../SongList";
 import styles from "./Home.module.scss";
-import { useDashboard } from "../../hooks/useDashboard";
 
 const packOne = {
   priceId: "price_1HFSo4FbHwwHDg3DK1i4YblC",
@@ -19,18 +18,7 @@ const packOne = {
 const Home = () => {
   const stripe = useStripe();
 
-  const [
-    _loading,
-    processing,
-    _error,
-    _items,
-    _activeItems,
-    _total,
-    _toggleItem,
-    openCheckoutSession,
-  ] = useCartItems(stripe!);
-
-  /* const [loading, error, dashboard] = useDashboard("preview"); */
+  const [processing, _error, openCheckoutSession] = useStripeCheckout(stripe!);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();

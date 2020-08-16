@@ -7,20 +7,25 @@ import Button from "../Button";
 import Loading from "../Loading";
 import SongList from "../SongList";
 import styles from "./Checkout.module.scss";
+import { useStripeCheckout } from "../../hooks/useStripeCheckout";
 
 const Checkout = () => {
   const stripe = useStripe();
 
   const [
     loading,
-    processing,
-    error,
+    loadingError,
     items,
     activeItems,
     total,
     toggleItem,
-    openCheckoutSession,
-  ] = useCartItems(stripe!);
+  ] = useCartItems();
+
+  const [processing, checkoutError, openCheckoutSession] = useStripeCheckout(
+    stripe!
+  );
+
+  const error = loadingError || checkoutError;
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();

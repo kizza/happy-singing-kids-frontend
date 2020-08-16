@@ -44,25 +44,13 @@ const getCatalogueItems = (): Promise<DisplayLineItem[]> =>
     });
 // .then(({ items }) => items);
 
-const createSessionDto = (items: CartItem[]): CreateSessionDto => ({
-  description: "Foo bar",
-  items: items
-    .filter(item => !!item.enabled)
-    .map(item => ({
-      price: item.priceId,
-      quantity: 1,
-    })),
-});
-
 type UseCartItems = [
-  boolean,
   boolean,
   string | undefined,
   CartItem[],
   CartItem[],
   CartTotal | undefined,
-  (item: CartItem) => void,
-  (items: CartItem[]) => Promise<void | { error: any; sessionId: string }>
+  (item: CartItem) => void
 ];
 
 const activeCartItems = (item: CartItem) => !!item.enabled;
@@ -76,11 +64,10 @@ const calculateTotal = (items: CartItem[]) => ({
     .reduce((_acc, { currency }) => currency, "aud"),
 });
 
-export const useCartItems = (stripe: Stripe): UseCartItems => {
+export const useCartItems = (): UseCartItems => {
   const [items, setItems] = useState<CartItem[]>([]);
   const [total, setTotal] = useState<CartTotal | undefined>();
   const [error, setError] = useState<string | undefined>();
-  const [processing, setProcessing] = useState(false);
   const isLoadingItems = items.length === 0;
 
   const updateCart = (newItems: CartItem[]) => {
@@ -98,29 +85,6 @@ export const useCartItems = (stripe: Stripe): UseCartItems => {
       .catch(e => setError("Could not retrieve items"));
   }, []);
 
-  const openCheckoutSession = async (rawItems: CartItem[]) =>
-    Promise.resolve()
-      .then(() => setProcessing(true))
-      .then(() =>
-        api("sessions", createSessionDto(rawItems))
-          .then(async ({ id: sessionId }) => {
-            const { error: sessionError } = await stripe!.redirectToCheckout({
-              sessionId,
-            });
-            if (sessionError) {
-              setError(`Could not create session ${sessionError.message}`);
-            }
-            return { error, sessionId };
-          })
-          .catch(e => {
-            console.log("Error creating checkout session", e);
-            setError("Could not create checkout session");
-          })
-          .finally(() => {
-            setProcessing(false);
-          })
-      );
-
   const toggleItem = ({ productId, enabled }: CartItem) =>
     updateCart(
       items.map(item =>
@@ -130,12 +94,10 @@ export const useCartItems = (stripe: Stripe): UseCartItems => {
 
   return [
     isLoadingItems,
-    processing,
     error,
     items,
     items.filter(activeCartItems),
     total,
     toggleItem,
-    openCheckoutSession,
   ];
 };
