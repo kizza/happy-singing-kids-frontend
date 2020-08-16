@@ -96,7 +96,7 @@ export default ({ items, toggleItem, preview }: Props) => {
 
   return (
     <>
-      <div className={classnames(styles.SongList)}>
+      <div className={classnames(styles.SongList, preview && styles.Preview)}>
         <ul>
           {downloadOmitted(items).map(
             toggleItem ? renderCartItem : renderLinkItem

@@ -5,6 +5,15 @@
   margin: 1.2em 0;
   background: url(../../assets/geometry.png);
   font-size: 110%;
+  position: relative;
+
+  h2 {
+    background: $purple;
+    color: $text;
+    margin: 0;
+    padding: 1em;
+    font-size: 1.2em;
+  }
 
   ul {
     margin: 0 !important;
@@ -19,15 +28,40 @@
     cursor: pointer;
   }
 
+  border: dotted 4px purple;
+
   @media (min-width: $breakpoint-tablet) {
-    border: dotted 4px purple;
     margin: 2em auto;
     max-width: 60%;
     max-width: 32rem;
-    padding: 0.4em;
+    ul {
+      padding: 0.4em;
+    }
   }
 
   @media (min-width: $breakpoint-desktop) {
     max-width: 100%;
+  }
+}
+
+.Preview {
+  margin-top: 2em;
+
+  &:before {
+    position: absolute;
+    z-index: 1;
+    content: "Preview";
+    font-family: 1.2em;
+    background: $purple;
+    color: white;
+    right: -1em;
+    top: -1.6em;
+    padding: 0.4em 2em;
+    transform: rotate(4deg);
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.2);
+
+    @media (min-width: $breakpoint-tablet) {
+      top: -1em;
+    }
   }
 }
