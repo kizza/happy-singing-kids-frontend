@@ -12,14 +12,27 @@ const Purchase = () => (
   </>
 );
 
+const happyPackOne = {
+  priceId: process.env.REACT_APP_HAPPY_PACK_1,
+  enabled: true,
+  amount: 2000,
+  currency: "aud",
+} as any;
+
+const happyPackOneTest = {
+  ...happyPackOne,
+  priceId: process.env.REACT_APP_HAPPY_PACK_1_TEST,
+};
+
 export default (
   <Switch>
     <Route exact path="/(cancel)?">
-      <p style={{ textAlign: "center" }}>Meow meow meow meow</p>
+      <Home happyPackOne={happyPackOne} />
     </Route>
-    <Route exact path="/home">
-      <Home />
+    <Route exact path="/test">
+      <Home happyPackOne={happyPackOneTest} />
     </Route>
+
     <Route exact path="/purchase(/cancel)?">
       <Purchase />
     </Route>

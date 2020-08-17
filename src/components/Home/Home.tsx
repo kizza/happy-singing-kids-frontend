@@ -8,21 +8,18 @@ import Button from "../Button";
 import SongList from "../SongList";
 import styles from "./Home.module.scss";
 
-const packOne = {
-  priceId: "price_1HFSo4FbHwwHDg3DK1i4YblC",
-  enabled: true,
-  amount: 2000,
-  currency: "aud",
-} as any;
+interface Props {
+  happyPackOne: CartItem;
+}
 
-const Home = () => {
+const Home = ({ happyPackOne }: Props) => {
   const stripe = useStripe();
 
   const [processing, _error, openCheckoutSession] = useStripeCheckout(stripe!);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    await openCheckoutSession([packOne]);
+    await openCheckoutSession([happyPackOne]);
   };
 
   const items = [
@@ -101,7 +98,7 @@ const Home = () => {
 
         <p>
           Purchase the "Happy Pack" below to get the full version of the songs (
-          {formatPrice(packOne)})
+          {formatPrice(happyPackOne)})
         </p>
         <p className={styles.WithButton}>
           <Button
@@ -112,10 +109,10 @@ const Home = () => {
         </p>
         <p className={styles.Small}>
           You'll get access to your own page identical to this listing the full
-          version of each song.
+          version of each song. <br />
         </p>
         <p className={styles.Small}>
-          (Your support goes towards supporting more happy music 😃)
+          (Your support goes towards creating more happy music 😃)
         </p>
       </div>
     </form>
@@ -132,14 +129,14 @@ const Home = () => {
   return <div className={styles.Home}>{renderForm()}</div>;
 };
 
-export default () => {
+export default (props: Props) => {
   const stripePromise = useRef<Promise<Stripe | null>>(
     loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY!)
   );
 
   return (
     <Elements stripe={stripePromise.current}>
-      <Home />
+      <Home {...props} />
     </Elements>
   );
 };
