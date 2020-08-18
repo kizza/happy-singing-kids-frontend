@@ -95,7 +95,8 @@ const Home = ({ happyPackOne }: Props) => {
 
       <div className={styles.Inner}>
         <p>
-          Purchase the "Happy Pack" below to get the full version of the songs!
+          Purchase the "Happy Pack" below <br />
+          to get the full version of the songs!
         </p>
       </div>
 

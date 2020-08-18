@@ -21,8 +21,8 @@ export default ({ openMenu }: Props) => (
     {/* <div className={styles.Sky} /> */}
     <Clouds
       className={classnames(
-        "animate__slideInLeft",
-        "animate__animated",
+        /* "animate__slideInLeft", */
+        /* "animate__animated", */
         styles.Clouds
       )}
     />
