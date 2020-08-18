@@ -55,15 +55,15 @@ export default ({
         Your browser does not support the <code>audio</code> element.
       </audio>
 
-      <a
+      <button
+        type="button"
         className={!playing ? styles.Play : styles.Pause}
-        href="#play"
         onClick={clickedButton}
       >
         <i className={`fa fa-2x fa-fw fa-${icon}`}></i>
         <strong>{label}</strong>
         {/* <em>Such a grumpy gumplestiltskin</em> */}
-      </a>
+      </button>
 
       <a
         className={styles.DownloadLink}
@@ -74,9 +74,9 @@ export default ({
         <i className="fa fa-lg fa-download"></i>
       </a>
 
-      <a className={styles.LyricsLink} href="#lyrics" onClick={openLyrics}>
+      <button type="button" className={styles.LyricsLink} onClick={openLyrics}>
         <strong>Sing along</strong>
-      </a>
+      </button>
 
       {/* <Song */}
       {/*   songName="Instant Crush" */}

@@ -43,7 +43,7 @@
     top: 50%;
     left: 50%;
     width: 70%;
-  font-size: 1em;
+    font-size: 1em;
 
     .PopupInner {
       transform: translate(-50%, -50%);
@@ -68,25 +68,25 @@
     padding: 0 2em;
   }
 
-  a {
-    font-size: 2em;
+  button {
+    font-size: 2.2em;
     position: absolute;
     z-index: 1;
     top: -1.1em;
     right: -0.1em;
     padding: 0.5em;
-    width: 1.2em;
-    height: 1.2em;
+    width: 2.4em;
+    height: 2.3em;
     border-radius: 50%;
     background: $orange;
     color: $primary;
     text-decoration: none;
     box-shadow: 0em 0.2em 0.2em rgba(0, 0, 0, 0.2);
+    display: block;
+    @extend %link-button;
 
     i {
       display: block;
-      margin-left: -1px;
-      margin-top: 0.1em;
       color: white;
     }
 

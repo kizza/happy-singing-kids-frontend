@@ -23,6 +23,16 @@ $light-green: #ddeeba;
   font-size: 80%;
 }
 
+%link-button {
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
 // Fonts
 
 // $font: "Luckiest Guy";

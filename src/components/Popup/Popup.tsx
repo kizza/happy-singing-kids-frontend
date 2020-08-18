@@ -26,9 +26,9 @@ export default ({ showing, closing, content, onClose }: Props) => {
         })}
       >
         <div className={styles.PopupInner}>
-          <a href="#close" onClick={onClose}>
+          <button type="button" onClick={onClose}>
             <i className="fa fa-fw fa-close"></i>
-          </a>
+          </button>
           <div
             className={styles.PopupContent}
             dangerouslySetInnerHTML={{ __html: content }}
