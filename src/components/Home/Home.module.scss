@@ -18,7 +18,14 @@
   }
 
   .WithButton {
-    margin: 1em 0;
+    margin: 1em 0 0;
+  }
+
+  .CurrencyPicker {
+    margin-bottom: 1em;
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 2em;
+    }
   }
 
   .Small {

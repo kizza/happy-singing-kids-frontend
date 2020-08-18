@@ -28,8 +28,10 @@
     cursor: pointer;
   }
 
-  border: dotted 4px $purple;
 
+  // Mobile only
+  margin-top: 3em;
+    border: dotted 4px $purple;
   @media (min-width: $breakpoint-tablet) {
     margin: 2em auto;
     max-width: 60%;
@@ -51,17 +53,21 @@
     position: absolute;
     z-index: 1;
     content: "Preview";
-    font-family: 1.2em;
     background: $purple;
     color: white;
     right: -1em;
     top: -1.6em;
-    padding: 0.4em 2em;
+    padding: 0.6em 2em;
     transform: rotate(4deg);
     box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.2);
 
     @media (min-width: $breakpoint-tablet) {
       top: -1em;
+      background: white;
+      color: $purple;
+      font-size: 1.2em;
+      // border: dotted 4px $purple;
+      border: solid 1px $purple;
     }
   }
 }

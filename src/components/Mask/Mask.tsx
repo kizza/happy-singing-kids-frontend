@@ -15,7 +15,7 @@ export default ({ showing, onClose, closing }: Props) => {
 
   return (
     <div
-      onClick={onClose}
+      onMouseDown={onClose}
       className={classnames({
         [styles.Modal]: true,
         [styles.Showing]: showing,

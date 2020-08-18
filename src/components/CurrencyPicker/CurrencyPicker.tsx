@@ -39,7 +39,7 @@ export default ({ currency, change }: Props) => {
     currencies
       .filter(each => each !== currency)
       .map(each => (
-        <li>
+        <li key={each}>
           <a
             href={`#${each.toLowerCase()}`}
             onClick={() => {

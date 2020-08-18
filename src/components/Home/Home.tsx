@@ -49,29 +49,28 @@ const Home = ({ happyPackOne }: Props) => {
         </p>
       </div>
 
-      <div>
-        <p className={styles.WithButton}>
-          <Button
-            icon={processing ? "cog fa-spin" : undefined}
-            label={
-              processing
-                ? "One moment…"
-                : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
-            }
-            disabled={processing || !stripe}
-          ></Button>
-
-          <CurrencyPicker change={changeCurrency} currency={currency} />
-        </p>
-        <p className={styles.Small}>
-          You'll get access to your own page identical to this, listing the full
-          version of each song. <br />
-        </p>
-        <p className={styles.Small}>
-          (Your support is massively appreciated and goes towards creating more
-          happy music 😃)
-        </p>
+      <p className={styles.WithButton}>
+        <Button
+          icon={processing ? "cog fa-spin" : undefined}
+          label={
+            processing
+              ? "One moment…"
+              : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
+          }
+          disabled={processing || !stripe}
+        ></Button>
+      </p>
+      <div className={styles.CurrencyPicker}>
+        <CurrencyPicker change={changeCurrency} currency={currency} />
       </div>
+      <p className={styles.Small}>
+        You'll get access to your own page identical to this, listing the full
+        version of each song. <br />
+      </p>
+      <p className={styles.Small}>
+        (Your support is massively appreciated and goes towards creating more
+        happy music 😃)
+      </p>
     </form>
   );
 
