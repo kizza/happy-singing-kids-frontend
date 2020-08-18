@@ -1,6 +1,6 @@
 import { Elements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { formatPrice } from "../../helpers";
 import { CartItem } from "../../hooks/useCartItems";
 import { useStripeCheckout } from "../../hooks/useStripeCheckout";
@@ -10,6 +10,7 @@ import styles from "./Home.module.scss";
 import CurrencyPicker from "../CurrencyPicker";
 import items from "./songs";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
+import useCookie from "../../hooks/useCookie";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -19,7 +20,7 @@ const Home = ({ happyPackOne }: Props) => {
   const stripe = useStripe();
 
   const [processing, _error, openCheckoutSession] = useStripeCheckout(stripe!);
-  const [currency, setCurrency] = useState<Currency>("AUD");
+  const [currency, setCurrency] = useCookie<Currency>("currency", "AUD");
 
   const purchaseItem = happyPackOne[currency];
 
