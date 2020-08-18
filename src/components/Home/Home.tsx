@@ -1,85 +1,34 @@
 import { Elements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { formatPrice } from "../../helpers";
 import { CartItem } from "../../hooks/useCartItems";
 import { useStripeCheckout } from "../../hooks/useStripeCheckout";
 import Button from "../Button";
 import SongList from "../SongList";
 import styles from "./Home.module.scss";
+import CurrencyPicker from "../CurrencyPicker";
+import items from "./songs";
+import { Currency } from "../CurrencyPicker/CurrencyPicker";
 
 interface Props {
-  happyPackOne: CartItem;
+  happyPackOne: Record<Currency, CartItem>;
 }
 
 const Home = ({ happyPackOne }: Props) => {
   const stripe = useStripe();
 
   const [processing, _error, openCheckoutSession] = useStripeCheckout(stripe!);
+  const [currency, setCurrency] = useState<Currency>("AUD");
+
+  const purchaseItem = happyPackOne[currency];
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    await openCheckoutSession([happyPackOne]);
+    await openCheckoutSession([purchaseItem]);
   };
 
-  const items = [
-    {
-      productId: "prod_HOdRUkZgB5CFmH",
-      name: "Uh oh spaghetti oh",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Uh+oh+spaghetti+oh+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HOdRq4x692ERsA",
-      name: "Grumplestiltskin",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Grumplestiltskin+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HmVUV2SprbAo9h",
-      name: "Lullaby Angel",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Lullaby+Angel+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HRh1JWoeQ6Etnj",
-      name: "Bummer mummy",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Bummer+mummy+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HRgyCTMF0a5tUo",
-      name: "Butterfly flaps its wings",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Butterfly+flaps+its+wings+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HmVVaM78OF7B35",
-      name: "The Wind",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/The+Wind+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HmVVnVWod9t63R",
-      name: "Go to bed",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Go+to+bed+(preview).mp3",
-      filetype: "audio",
-    },
-    {
-      productId: "prod_HmVWh5V6yJyCBE",
-      name: "Greetings song",
-      url:
-        "https://happy-singing-kids-preview.s3.amazonaws.com/Greetings+song+(preview).mp3",
-      filetype: "audio",
-    },
-  ] as CartItem[];
+  const changeCurrency = (newValue: Currency) => setCurrency(newValue);
 
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
@@ -107,13 +56,15 @@ const Home = ({ happyPackOne }: Props) => {
             label={
               processing
                 ? "One moment…"
-                : `Buy the Happy Pack ${formatPrice(happyPackOne)}`
+                : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
             }
             disabled={processing || !stripe}
           ></Button>
+
+          <CurrencyPicker change={changeCurrency} currency={currency} />
         </p>
         <p className={styles.Small}>
-          You'll get access to your own page identical to this listing the full
+          You'll get access to your own page identical to this, listing the full
           version of each song. <br />
         </p>
         <p className={styles.Small}>

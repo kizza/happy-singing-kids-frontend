@@ -5,6 +5,7 @@ import Dashboard from "../Dashboard";
 import Download from "../Download";
 import Success from "../Success";
 import Home from "../Home";
+import { Currency } from "../CurrencyPicker/CurrencyPicker";
 
 const Purchase = () => (
   <>
@@ -13,11 +14,25 @@ const Purchase = () => (
 );
 
 const happyPackOne = {
-  priceId: process.env.REACT_APP_HAPPY_PACK_1,
-  enabled: true,
-  amount: 999,
-  currency: "aud",
-} as any;
+  AUD: {
+    priceId: process.env.REACT_APP_HAPPY_PACK_1_AUD,
+    enabled: true,
+    amount: 999,
+    currency: "aud",
+  },
+  USD: {
+    priceId: process.env.REACT_APP_HAPPY_PACK_1_USD,
+    enabled: true,
+    amount: 799,
+    currency: "usd",
+  },
+  GBP: {
+    priceId: process.env.REACT_APP_HAPPY_PACK_1_GBP,
+    enabled: true,
+    amount: 599,
+    currency: "gbp",
+  },
+} as Record<Currency, any>;
 
 const happyPackOneTest = {
   ...happyPackOne,

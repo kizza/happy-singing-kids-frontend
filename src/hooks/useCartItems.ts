@@ -1,4 +1,3 @@
-import { Stripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { api } from "../api";
 
@@ -10,14 +9,6 @@ export interface DisplayLineItem {
   currency: string;
   url: string | undefined;
   filetype: string | undefined;
-}
-
-interface CreateSessionDto {
-  description: string;
-  items: {
-    price: string;
-    quantity: number;
-  }[];
 }
 
 export interface CartItem extends DisplayLineItem {
