@@ -14,7 +14,7 @@ export default ({ openMenu }: Props) => (
   <div className={styles.Header}>
     <div className={styles.Overlay}>
       <Logo className={styles.Logo} />
-      <a className={styles.Hamburger} href="#menu" onClick={openMenu}>
+      <a className={styles.Hamburger} href="#menu" onMouseDown={openMenu}>
         <i className="fa fa-fw fa-bars"></i>
       </a>
     </div>

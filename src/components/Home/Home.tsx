@@ -83,27 +83,31 @@ const Home = ({ happyPackOne }: Props) => {
 
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
-      {/* <p>Fun and catchy, homemade songs for happy singing kids!</p> */}
-      <h2>
-        Kids songs you'll love to sing!
-        <br />
-        (they're a little bit different)
-      </h2>
+      <div className={styles.Inner}>
+        <h2>
+          Kids songs you'll love to sing!
+          <br />
+          (they're a little bit different)
+        </h2>
+      </div>
 
       <SongList preview items={items} />
 
-      <div className={styles.Details}>
-        {/* {total && <p className={styles.Total}>Total {formatPrice(total)}</p>} */}
-        {/* {error && <div className="error">{error}</div>} */}
-
+      <div className={styles.Inner}>
         <p>
-          Purchase the "Happy Pack" below to get the full version of the songs (
-          {formatPrice(happyPackOne)})
+          Purchase the "Happy Pack" below to get the full version of the songs!
         </p>
+      </div>
+
+      <div>
         <p className={styles.WithButton}>
           <Button
             icon={processing ? "cog fa-spin" : undefined}
-            label={processing ? "One moment…" : "Buy the Happy Pack"}
+            label={
+              processing
+                ? "One moment…"
+                : `Buy the Happy Pack ${formatPrice(happyPackOne)}`
+            }
             disabled={processing || !stripe}
           ></Button>
         </p>
@@ -112,7 +116,8 @@ const Home = ({ happyPackOne }: Props) => {
           version of each song. <br />
         </p>
         <p className={styles.Small}>
-          (Your support goes towards creating more happy music 😃)
+          (Your support is massively appreciated and goes towards creating more
+          happy music 😃)
         </p>
       </div>
     </form>

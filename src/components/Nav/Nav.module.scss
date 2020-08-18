@@ -34,9 +34,7 @@
       @extend %no-tap-highlight;
 
       &.active {
-        // background: #9e209e;
-        // border: solid 1px $purple;
-        text-decoration: underline;
+        background: #e4ecec;
       }
 
       &:hover {

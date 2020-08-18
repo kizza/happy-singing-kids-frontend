@@ -15,7 +15,7 @@ const Purchase = () => (
 const happyPackOne = {
   priceId: process.env.REACT_APP_HAPPY_PACK_1,
   enabled: true,
-  amount: 2000,
+  amount: 999,
   currency: "aud",
 } as any;
 

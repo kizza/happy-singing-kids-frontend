@@ -10,15 +10,20 @@
     font-weight: normal;
   }
 
+  .Inner {
+    @extend %text-content;
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 1em;
+    }
+  }
+
   .WithButton {
-      border-bottom: solid 1px #bbb;
     padding-bottom: 2em;
-    margin-bottom: 1em;
+    margin: 1em 0;
   }
 
   .Small {
     font-size: 0.9em;
-    // line-height: 1em;
   }
 
   @media (min-width: $breakpoint-tablet) {
