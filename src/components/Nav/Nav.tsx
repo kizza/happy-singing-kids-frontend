@@ -39,6 +39,15 @@ export default ({ open, closing, closeMenu }: Props) => (
           About
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/contact"
+          onClick={closeMenu}
+          activeClassName={styles.active}
+        >
+          Contact
+        </NavLink>
+      </li>
     </ul>
   </>
 );

@@ -13,15 +13,19 @@ $orange: #fa8234;
 $green: #0a898d;
 $aqua: #0a898d;
 
-
 %no-tap-highlight {
   -webkit-tap-highlight-color: transparent;
+}
+
+%text-content {
+  padding: 0 1em;
+  font-size: 80%;
 }
 
 // Fonts
 
 // $font: "Luckiest Guy";
- $font: 'Noto Serif', 'Balsamiq Sans', cursive;
+$font: "Noto Serif", "Balsamiq Sans", cursive;
 $font: "Balsamiq Sans", cursive;
 
 // $boldfont: "Noto Serif", "Balsamiq Sans", cursive;

@@ -15,8 +15,7 @@
   }
 
   .Inner {
-    padding: 0 1em;
-    font-size: 80%;
+    @extend %text-content;
   }
 
   .Emphasis {

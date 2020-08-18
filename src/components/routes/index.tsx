@@ -65,5 +65,16 @@ export default (
         singing kids as well.
       </p>
     </Route>
+
+    <Route path="/contact">
+      <p style={{ textAlign: "center" }}>
+        Get it touch at{" "}
+        <a href="mailto:happysingingkids@gmail.com">
+          happysingingkids@gmail.com
+        </a>
+        ,
+        <br /> we'd love to hear your from you!
+      </p>
+    </Route>
   </Switch>
 );
