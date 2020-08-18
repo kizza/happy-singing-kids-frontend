@@ -12,6 +12,7 @@ import { NowPlayingContext } from "./hooks/useNowPlaying";
 import { PopupContext } from "./hooks/usePopup";
 import { useToggleState } from "./hooks/useToggleState";
 import "./Typography.module.scss";
+import Footer from "./components/Footer";
 
 export default () => {
   const [popupContent, setPopupContent] = useState<string>("");
@@ -74,6 +75,7 @@ export default () => {
                 <div className={styles.Inner}>{routes}</div>
               </NowPlayingContext.Provider>
             </div>
+            <Footer />
           </div>
 
           <Nav
