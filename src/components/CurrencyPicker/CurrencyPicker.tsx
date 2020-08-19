@@ -4,6 +4,7 @@ import classnames from "classnames";
 import ausFlag from "../../assets/flags/australia.svg";
 import ukFlag from "../../assets/flags/uk.svg";
 import usaFlag from "../../assets/flags/usa.svg";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 export type Currency = "AUD" | "GBP" | "USD";
 
@@ -29,11 +30,22 @@ const flags: Record<Currency, string> = {
 export default ({ currency, change }: Props) => {
   const symbol = currency === "GBP" ? "£" : "$";
   const [open, setOpen] = useState<boolean>(false);
+  const { trackEvent } = useAnalytics();
 
   const toggle = () => setOpen(!open);
   const flag = (key: Currency) => (
     <img className={styles.Flag} src={flags[key]} alt={`${key} flag`} />
   );
+
+  const clickCurrency = (clicked: Currency) => {
+    setOpen(false);
+    change(clicked);
+    trackEvent({
+      category: "Music",
+      action: "Changed currency",
+      label: currency,
+    });
+  };
 
   const renderList = () =>
     currencies
@@ -42,10 +54,7 @@ export default ({ currency, change }: Props) => {
         <li key={each}>
           <a
             href={`#${each.toLowerCase()}`}
-            onClick={() => {
-              setOpen(false);
-              change(each);
-            }}
+            onClick={() => clickCurrency(each)}
           >
             {flag(each)}
             {labels[each]}
