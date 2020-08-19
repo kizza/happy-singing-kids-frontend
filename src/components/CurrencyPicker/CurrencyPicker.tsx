@@ -52,13 +52,10 @@ export default ({ currency, change }: Props) => {
       .filter(each => each !== currency)
       .map(each => (
         <li key={each}>
-          <a
-            href={`#${each.toLowerCase()}`}
-            onClick={() => clickCurrency(each)}
-          >
+          <button type="button" onClick={() => clickCurrency(each)}>
             {flag(each)}
             {labels[each]}
-          </a>
+          </button>
         </li>
       ));
 
@@ -68,10 +65,10 @@ export default ({ currency, change }: Props) => {
         [styles.Open]: open,
       })}
     >
-      <a className={styles.PickerLink} href="#currency" onClick={toggle}>
+      <button type="button" className={styles.PickerLink} onClick={toggle}>
         {symbol}
         {currency} <i className="fa fa-chevron-down"></i>
-      </a>
+      </button>
       <div
         className={classnames({
           animate__animated: open,

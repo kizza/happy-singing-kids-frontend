@@ -10,6 +10,8 @@ $width: 12em;
 
   .PickerLink {
     @extend %no-tap-highlight;
+    @extend %link-button;
+    text-align: center;
     color: $text;
     width: $width;
     text-decoration: underline;
@@ -38,11 +40,17 @@ $width: 12em;
 }
 
 .List {
-  a {
-    padding: 0.8em;
+  button {
+    padding: 1.0em 0.8em 0.6em;
     clear: both;
     display: block;
     text-decoration: none;
+    @extend %no-tap-highlight;
+    @extend %link-button;
+    width: $width;
+    &:hover {
+      background: $light-green;
+    }
   }
 }
 
@@ -50,6 +58,7 @@ $width: 12em;
   width: 2em;
   position: relative;
   float: left;
+  top: -0.1em;
   margin-right: 0.4em;
 }
 
@@ -65,20 +74,13 @@ $width: 12em;
 
 .Options {
   position: absolute;
-  top: 3em;
+  top: 2.4em;
   background: white;
   left: 50%;
   transform: translate(-50%, 0);
   margin: 0 auto;
   box-shadow: 0 0.8em 1em rgba(100, 100, 100, 0.5);
   text-align: left;
-
-  a {
-    width: $width;
-    &:hover {
-      background: $light-green;
-    }
-  }
 
   font-size: 1.4em;
   @media (min-width: $breakpoint-tablet) {
