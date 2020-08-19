@@ -16,7 +16,7 @@ const trackModal = (route: string) => {
 
 const trackEvent = (event: EventArgs) => {
   ga("send", {
-    hitType: event,
+    hitType: "event",
     eventCategory: event.category,
     eventAction: event.action,
     eventLabel: event.label,
