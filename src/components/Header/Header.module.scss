@@ -17,8 +17,8 @@
 
   .Logo {
     margin-top: 3em;
-    @media (min-width: $breakpoint-desktop) {
-      margin-top: 0;
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 0.5em;
     }
   }
 
@@ -53,9 +53,6 @@
   // --animate-duration: 3s;
   // --animate-delay: 1s;
   // --animate-repeat: 1;
-  @media (min-width: $breakpoint-desktop) {
-    margin-left: 20em;
-  }
 }
 
 .Tree {
@@ -98,8 +95,8 @@
   }
 
   @media (min-width: $breakpoint-wide) {
-    width: 44rem;
-    margin-left: 19rem;
+    width: 62rem;
+    margin-left: 14rem;
   }
 }
 
