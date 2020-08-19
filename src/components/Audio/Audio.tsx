@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 // import Pause from "./Pause";
 // // import Bar from "./Bar";
 import useAudioPlayer from "../../hooks/useAudioPlayer";
+import useAudioElement from "../../hooks/useAudioElement";
 import styles from "./Audio.module.scss";
 
 interface Props {
@@ -22,7 +23,12 @@ export default ({
   label,
   url,
 }: Props) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const {
+    loaded,
+    audioRef,
+    renderAudioElement,
+    loadAudioElement,
+  } = useAudioElement(url);
 
   const {
     // curTime,
@@ -37,6 +43,9 @@ export default ({
   });
 
   const clickedButton = () => {
+    if (!loaded) {
+      loadAudioElement();
+    }
     setNowPlaying(label);
     setPlaying(!playing);
   };
@@ -50,10 +59,7 @@ export default ({
         playing ? styles.Playing : styles.Paused
       )}
     >
-      <audio ref={audioRef}>
-        <source src={url} />
-        Your browser does not support the <code>audio</code> element.
-      </audio>
+      {renderAudioElement()}
 
       <button
         type="button"
