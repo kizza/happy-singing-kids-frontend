@@ -1,29 +1,36 @@
-import { useEffect } from "react";
-import ReactGA, { EventArgs } from "react-ga";
+declare var ga: any;
+
+interface EventArgs {
+  category: string;
+  action: string;
+  label: string;
+}
+
+const trackPageView = (route: string) => {
+  ga("send", "pageview", `/${route}`);
+};
 
 const trackModal = (route: string) => {
-  ReactGA.modalview(route);
+  ga("send", "pageview", `/modal/${route}`);
 };
 
 const trackEvent = (event: EventArgs) => {
-  ReactGA.event(event);
+  ga("send", {
+    hitType: event,
+    eventCategory: event.category,
+    eventAction: event.action,
+    eventLabel: event.label,
+  });
 };
 
 interface Hook {
+  trackPageView: (route: string) => void;
   trackEvent: (event: EventArgs) => void;
   trackModal: (route: string) => void;
 }
 
-export const useAnalytics = (initialise?: boolean): Hook => {
-  useEffect(() => {
-    if (initialise) {
-      ReactGA.initialize("UA-151750527-2", {
-        debug: process.env.REACT_APP_IS_DEV === "true",
-        titleCase: false,
-        useExistingGa: true,
-      });
-    }
-  }, []);
-
-  return { trackEvent, trackModal };
-};
+export const useAnalytics = (): Hook => ({
+  trackPageView,
+  trackEvent,
+  trackModal,
+});

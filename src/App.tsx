@@ -19,7 +19,7 @@ export default () => {
   const [popupContent, setPopupContent] = useState<string>("");
   const [menuState, setMenuState] = useToggleState();
   const [popupState, setPopupState] = useToggleState();
-  const { trackEvent, trackModal } = useAnalytics(true);
+  const { trackEvent, trackModal } = useAnalytics();
 
   const openPopup = (content: any, trackingRoute?: string) => {
     document.body.style.overflow = "hidden";
