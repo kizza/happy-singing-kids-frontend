@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./Header.module.scss";
 import Logo from "../Logo";
 import { Clouds } from "../Hero/Background";
-import background from "../../assets/hero/happy-singing-kids.svg";
-import tree from "../../assets/hero/Tree.svg";
+import background from "../../assets/hero/happy-singing-kids.png";
+import tree from "../../assets/hero/Tree.png";
 
 interface Props {
   openMenu: () => void;
