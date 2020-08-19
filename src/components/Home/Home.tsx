@@ -63,7 +63,7 @@ const Home = ({ happyPackOne }: Props) => {
           label={
             processing
               ? "One moment…"
-              : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
+              : `Get the Happy Pack ${formatPrice(purchaseItem)}`
           }
           disabled={processing || !stripe}
         ></Button>
@@ -76,8 +76,7 @@ const Home = ({ happyPackOne }: Props) => {
         version of each song. <br />
       </p>
       <p className={styles.Small}>
-        (Your support is massively appreciated and goes towards creating more
-        happy music 😃)
+        (Your support goes towards creating more happy music 😃)
       </p>
     </form>
   );
