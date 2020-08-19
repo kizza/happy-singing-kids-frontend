@@ -11,6 +11,7 @@ import CurrencyPicker from "../CurrencyPicker";
 import items from "./songs";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -23,9 +24,15 @@ const Home = ({ happyPackOne }: Props) => {
   const [currency, setCurrency] = useCookie<Currency>("currency", "AUD");
 
   const purchaseItem = happyPackOne[currency];
+  const { trackEvent } = useAnalytics();
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    trackEvent({
+      category: "Music",
+      action: "Clicked purchase",
+      label: "Happy Pack 1",
+    });
     await openCheckoutSession([purchaseItem]);
   };
 

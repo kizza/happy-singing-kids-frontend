@@ -13,12 +13,14 @@ interface Hook {
   trackModal: (route: string) => void;
 }
 
-export const useAnalytics = (): Hook => {
-  ReactGA.initialize("UA-151750527-2", {
-    debug: process.env.REACT_APP_IS_DEV === "true",
-    titleCase: false,
-    useExistingGa: true,
-  });
+export const useAnalytics = (initialise?: boolean): Hook => {
+  if (initialise) {
+    ReactGA.initialize("UA-151750527-2", {
+      debug: process.env.REACT_APP_IS_DEV === "true",
+      titleCase: false,
+      useExistingGa: true,
+    });
+  }
 
   return { trackEvent, trackModal };
 };
