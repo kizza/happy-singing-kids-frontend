@@ -10,14 +10,16 @@
 
   min-height: 15em;
   @media (min-width: $breakpoint-tablet) {
-    min-height: 10em;
+    min-height: 11em;
   }
   @media (min-width: $breakpoint-desktop) {
-    min-height: 26vw;
   }
 
   .Logo {
-    margin-top: 0.4em;
+    margin-top: 3em;
+    @media (min-width: $breakpoint-desktop) {
+      margin-top: 0;
+    }
   }
 
   .Overlay {
@@ -51,6 +53,9 @@
   // --animate-duration: 3s;
   // --animate-delay: 1s;
   // --animate-repeat: 1;
+  @media (min-width: $breakpoint-desktop) {
+    margin-left: 20em;
+  }
 }
 
 .Tree {
@@ -67,7 +72,7 @@
   @extend %floating;
   height: 24px;
   width: 100%;
-  bottom: 0;
+  bottom: -0.5em;
   background: $grass;
 }
 
@@ -77,7 +82,7 @@
   width: 47rem;
   position: relative;
   float: left;
-  margin-top: -4em;
+  margin-top: -2em;
   margin-left: -19rem;
 
   // margin-left: -60vw;
@@ -88,16 +93,18 @@
   }
 
   @media (min-width: $breakpoint-desktop) {
-    // width: 68rem;
-    // margin-left: 0;
-
     width: 68rem;
     margin-left: 8rem;
+  }
+
+  @media (min-width: $breakpoint-wide) {
+    width: 44rem;
+    margin-left: 19rem;
   }
 }
 
 .Hamburger {
-  font-size: 2em;
+  font-size: 1.8em;
   position: absolute;
   z-index: 100;
   top: 0.4em;
@@ -121,6 +128,7 @@
   }
 
   @media (min-width: $breakpoint-tablet) {
+    font-size: 2.2em;
     right: -0.8em;
     &:hover {
       background: $orange;

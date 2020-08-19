@@ -4,7 +4,7 @@
   list-style-type: none;
   --animate-duration: 0.3s;
   margin: 0;
-  padding: 2em;
+  padding: 1.2em;
   position: fixed;
   z-index: 100;
   left: 0;
@@ -15,12 +15,10 @@
   font-size: 1.2em;
 
   @media (min-width: $breakpoint-tablet) {
-    // font-size: 1em;
     width: 12em;
   }
 
   @media (min-width: $breakpoint-desktop) {
-    // font-size: 1em;
   }
 
   li {

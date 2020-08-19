@@ -28,10 +28,9 @@
     cursor: pointer;
   }
 
-
   // Mobile only
   margin-top: 3em;
-    border: dotted 4px $purple;
+  border: dotted 4px $purple;
   @media (min-width: $breakpoint-tablet) {
     margin: 2em auto;
     max-width: 60%;
@@ -48,6 +47,9 @@
 
 .Preview {
   margin-top: 2em;
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 3em;
+  }
 
   &:before {
     position: absolute;
@@ -62,7 +64,7 @@
     box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.2);
 
     @media (min-width: $breakpoint-tablet) {
-      top: -1em;
+      top: -1.6em;
       background: white;
       color: $purple;
       font-size: 1.2em;

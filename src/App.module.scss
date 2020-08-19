@@ -66,7 +66,7 @@ $header-top: 0; //12rem;
   }
 
   // Content gradient
-  background: linear-gradient(to bottom, $grass, #fafafa 10%);
+  background: linear-gradient(to bottom, $grass, #fafafa 30%);
   @media (min-width: $breakpoint-tablet) {
     background: linear-gradient(to bottom, $grass, #fafafa 50%);
   }
