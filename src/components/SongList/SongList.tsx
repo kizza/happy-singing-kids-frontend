@@ -53,7 +53,7 @@ export default ({ items, toggleItem, preview }: Props) => {
 
   const { openPopup } = useContext(PopupContext);
   const openLyrics = () => {
-    openPopup(formattedLyrics());
+    openPopup(formattedLyrics(), `lyrics/${currentSong}`);
   };
 
   const registerStopPlaying = (callback: StopPlayingSong) => {

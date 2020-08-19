@@ -13,16 +13,22 @@ import { PopupContext } from "./hooks/usePopup";
 import { useToggleState } from "./hooks/useToggleState";
 import "./Typography.module.scss";
 import Footer from "./components/Footer";
+import { useAnalytics } from "./hooks/useAnalytics";
 
 export default () => {
   const [popupContent, setPopupContent] = useState<string>("");
   const [menuState, setMenuState] = useToggleState();
   const [popupState, setPopupState] = useToggleState();
+  const { trackEvent, trackModal } = useAnalytics();
 
-  const openPopup = (content: any) => {
+  const openPopup = (content: any, trackingRoute?: string) => {
     document.body.style.overflow = "hidden";
     setPopupState("open");
     setPopupContent(content);
+
+    if (trackingRoute) {
+      trackModal(trackingRoute);
+    }
   };
 
   const closePopup = () => {
@@ -57,9 +63,17 @@ export default () => {
 
   // Now playing
   const [currentSong, setCurrentSong] = useState<string>("");
+
   const nowPlayingValue = {
     currentSong,
-    setCurrentSong,
+    setCurrentSong: (newSong: string) => {
+      setCurrentSong(newSong);
+      trackEvent({
+        category: "Music",
+        action: "Played song",
+        label: newSong,
+      });
+    },
   };
 
   return (
