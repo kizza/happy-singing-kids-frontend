@@ -69,7 +69,7 @@ export default () => {
     setCurrentSong: (newSong: string) => {
       setCurrentSong(newSong);
       trackEvent({
-        category: "Music",
+        category: "Listening",
         action: "Played song",
         label: newSong,
       });

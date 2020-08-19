@@ -29,7 +29,7 @@ const Home = ({ happyPackOne }: Props) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     trackEvent({
-      category: "Music",
+      category: "Purchasing",
       action: "Clicked purchase",
       label: "Happy Pack 1",
     });

@@ -41,7 +41,7 @@ export default ({ currency, change }: Props) => {
     setOpen(false);
     change(clicked);
     trackEvent({
-      category: "Music",
+      category: "Purchasing",
       action: "Changed currency",
       label: currency,
     });
