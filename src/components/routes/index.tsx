@@ -7,12 +7,6 @@ import Success from "../Success";
 import Home from "../Home";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
 
-const Purchase = () => (
-  <>
-    <Checkout />
-  </>
-);
-
 const happyPackOne = {
   AUD: {
     priceId: process.env.REACT_APP_HAPPY_PACK_1_AUD,
@@ -49,7 +43,7 @@ export default (
     </Route>
 
     <Route exact path="/purchase(/cancel)?">
-      <Purchase />
+      <Checkout />
     </Route>
     <Route path="/purchase/success">
       <Success />

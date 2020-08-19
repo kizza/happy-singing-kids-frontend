@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ReactGA, { EventArgs } from "react-ga";
 
 const trackModal = (route: string) => {
@@ -14,13 +15,15 @@ interface Hook {
 }
 
 export const useAnalytics = (initialise?: boolean): Hook => {
-  if (initialise) {
-    ReactGA.initialize("UA-151750527-2", {
-      debug: process.env.REACT_APP_IS_DEV === "true",
-      titleCase: false,
-      useExistingGa: true,
-    });
-  }
+  useEffect(() => {
+    if (initialise) {
+      ReactGA.initialize("UA-151750527-2", {
+        debug: process.env.REACT_APP_IS_DEV === "true",
+        titleCase: false,
+        useExistingGa: true,
+      });
+    }
+  }, []);
 
   return { trackEvent, trackModal };
 };
