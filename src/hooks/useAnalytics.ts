@@ -7,7 +7,7 @@ interface EventArgs {
 }
 
 const trackPageView = (route: string) => {
-  ga("send", "pageview", `/${route}`);
+  ga("send", "pageview", route);
 };
 
 const trackModal = (route: string) => {
