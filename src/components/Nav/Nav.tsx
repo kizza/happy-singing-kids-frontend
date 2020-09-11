@@ -49,13 +49,22 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
         </li>
         <li>
           <NavLink
-            to="/about"
+            to="/resources"
             onClick={closeMenu}
             activeClassName={styles.active}
           >
-            About
+            Resources
           </NavLink>
         </li>
+        {/* <li> */}
+        {/*   <NavLink */}
+        {/*     to="/about" */}
+        {/*     onClick={closeMenu} */}
+        {/*     activeClassName={styles.active} */}
+        {/*   > */}
+        {/*     About */}
+        {/*   </NavLink> */}
+        {/* </li> */}
         <li>
           <NavLink
             to="/contact"

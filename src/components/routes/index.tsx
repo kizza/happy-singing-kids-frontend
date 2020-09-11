@@ -63,6 +63,12 @@ export default (
       <Download />
     </Route>
 
+    <Route path="/resources">
+      <p style={{ textAlign: "center" }}>
+        Coming soon (stay tuned for all the sheet music!)
+      </p>
+    </Route>
+
     <Route path="/about">
       <p>
         This is the "covid project" of a musician and mother. A labour of love,
