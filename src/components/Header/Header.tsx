@@ -26,8 +26,16 @@ export default ({ openMenu }: Props) => (
         styles.Clouds
       )}
     />
-    <img src={tree} className={styles.Tree} />
+    <img
+      src={tree}
+      className={styles.Tree}
+      alt="Happy singing kids around a tree"
+    />
     <div className={styles.Grass}></div>
-    <img src={background} className={styles.Foreground} />
+    <img
+      src={background}
+      className={styles.Foreground}
+      alt="Children singing music"
+    />
   </div>
 );
