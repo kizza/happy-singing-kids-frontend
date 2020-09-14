@@ -82,12 +82,12 @@ export default (
 
     <Route path="/contact">
       <p style={{ textAlign: "center" }}>
-        Get it touch at{" "}
+        Get in touch at{" "}
         <a href="mailto:happysingingkids@gmail.com">
           happysingingkids@gmail.com
         </a>
         ,
-        <br /> we'd love to hear your from you!
+        <br /> we'd love to hear from you!
       </p>
     </Route>
   </Switch>
