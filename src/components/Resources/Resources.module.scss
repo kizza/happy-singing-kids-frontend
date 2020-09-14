@@ -1,0 +1,35 @@
+@import "../../shared";
+
+.Home {
+  text-align: center;
+  padding-bottom: 3em;
+
+  h2 {
+    font-size: 1.6em;
+    font-family: $font;
+    font-weight: normal;
+  }
+
+  .Inner {
+    @extend %text-content;
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 1em;
+    }
+  }
+
+  .WithButton {
+    margin: 1em 0 0;
+  }
+
+  .Small {
+    font-size: 1.1em;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1em;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1em;
+  }
+}

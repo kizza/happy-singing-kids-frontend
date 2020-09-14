@@ -1,0 +1,56 @@
+@import "../../shared";
+
+.ResourceList {
+  text-align: left;
+  margin: 1.2em 0 2.6em;
+  font-size: 110%;
+  position: relative;
+
+  h2 {
+    background: $purple;
+    color: $text;
+    margin: 0;
+    padding: 1em;
+    font-size: 1.2em;
+  }
+
+  ul {
+    margin: 0 !important;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+      a {
+        font-size: 1.1em;
+        display: block;
+        padding: 1em 1em 1em 1.4em;
+        transition: background ease-out 0.3s;
+        border-radius: $radius;
+
+        &:hover {
+          background: #fff;
+        }
+
+        i {
+          padding-right: 0.6em;
+        }
+      }
+    }
+  }
+
+  // Mobile only
+  margin-top: 3em;
+  @media (min-width: $breakpoint-tablet) {
+    margin: 2em auto;
+    max-width: 60%;
+    max-width: 32rem;
+    ul {
+      padding: 0.4em;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 100%;
+  }
+}

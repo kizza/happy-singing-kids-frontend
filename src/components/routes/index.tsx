@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Checkout from "../Checkout";
 import Dashboard from "../Dashboard";
 import Download from "../Download";
+import Resources from "../Resources";
 import Success from "../Success";
 import Home from "../Home";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
@@ -64,9 +65,7 @@ export default (
     </Route>
 
     <Route path="/resources">
-      <p style={{ textAlign: "center" }}>
-        Coming soon (stay tuned for all the sheet music!)
-      </p>
+      <Resources />
     </Route>
 
     <Route path="/about">
