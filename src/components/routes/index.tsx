@@ -34,10 +34,14 @@ const happyPackOneTest = {
   priceId: process.env.REACT_APP_HAPPY_PACK_1_TEST,
 };
 
+{
+  /* <Home happyPackOne={happyPackOne} /> */
+}
+
 export default (
   <Switch>
     <Route exact path="/(cancel)?">
-      <Home happyPackOne={happyPackOne} />
+      <p style={{ textAlign: "center" }}>Coming soon</p>
     </Route>
     <Route exact path="/test">
       <Home happyPackOne={happyPackOneTest} />
