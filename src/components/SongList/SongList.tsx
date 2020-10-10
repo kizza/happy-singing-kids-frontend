@@ -8,6 +8,7 @@ import Audio from "../Audio";
 import Button from "../Button";
 import Checkbox from "../Checkbox";
 import styles from "./SongList.module.scss";
+import { useAnalytics } from "../../hooks/useAnalytics";
 
 interface Props {
   items: CartItem[];
@@ -42,6 +43,8 @@ export default ({ items, toggleItem, preview }: Props) => {
 
   const { currentSong, setCurrentSong } = useContext(NowPlayingContext);
 
+  const { trackEvent } = useAnalytics();
+
   // Now playing (register all the stop callbacks)
   type StopPlayingSong = () => void;
   const stopPlayings: StopPlayingSong[] = [];
@@ -75,9 +78,26 @@ export default ({ items, toggleItem, preview }: Props) => {
     />
   );
 
-  const renderFileItem = (item: DisplayLineItem) => (
-    <Button key={item.name} icon="download" label={item.name} url={item.url!} />
-  );
+  const renderFileItem = (item: DisplayLineItem) => {
+    const onClick = () => {
+      trackEvent({
+        category: "Listening",
+        action: "Downloaded zip",
+        label: "Happy Pack 1",
+      });
+      window.location.href = item.url!;
+    };
+
+    return (
+      <Button
+        key={item.name}
+        icon="download"
+        label={item.name}
+        onClick={onClick}
+        url={item.url!}
+      />
+    );
+  };
 
   const formatText = (text: string) =>
     `<p>${text
