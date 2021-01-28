@@ -15,5 +15,5 @@ export default {
   "The Wind": wind,
   "Go to bed": goToBed,
   "Greetings song": greetingsSong,
-  "Uh oh spaghetti oh": spaghetti,
+  "Uh oh spaghetti-oh": spaghetti,
 } as Record<string, string>;

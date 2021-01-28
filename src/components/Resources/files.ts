@@ -1,10 +1,10 @@
-import { ResourceItem } from "../ResourceList/ResourceList";
+import {ResourceItem} from "../ResourceList/ResourceList";
 
 export default [
   {
-    name: "Uh oh spaghetti oh",
+    name: "Uh oh spaghetti-oh",
     url:
-      "https://happy-singing-kids-resources.s3.amazonaws.com/Uh+oh+spaghetti+oh.pdf",
+      "https://happy-singing-kids-resources.s3.amazonaws.com/Uh+oh+spaghetti-oh.pdf",
   },
   {
     name: "Bummer mummy",

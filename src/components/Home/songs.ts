@@ -1,11 +1,11 @@
-import { CartItem } from "../../hooks/useCartItems";
+import {CartItem} from "../../hooks/useCartItems";
 
 export default [
   {
     productId: "prod_HOdRUkZgB5CFmH",
-    name: "Uh oh spaghetti oh",
+    name: "Uh oh spaghetti-oh",
     url:
-      "https://happy-singing-kids-preview.s3.amazonaws.com/Uh+oh+spaghetti+oh+(preview).mp3",
+      "https://happy-singing-kids-preview.s3.amazonaws.com/Uh+oh+spaghetti-oh+(preview).mp3",
     filetype: "audio",
   },
   {

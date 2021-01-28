@@ -17,7 +17,7 @@ const buildCatalogueResponse = () => ({
     {
       priceId: "price_1GpqAIFbHwwHDg3Dhx1c5KKl",
       productId: "2",
-      name: "Oh Oh Spaghettio",
+      name: "Oh Oh Spaghetti-oh",
       amount: 400,
       currency: "aud",
       type: "display",
