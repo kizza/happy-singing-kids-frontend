@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import About from "../About";
 import Checkout from "../Checkout";
 import Dashboard from "../Dashboard";
 import Download from "../Download";
@@ -73,15 +74,7 @@ export default (
     </Route>
 
     <Route path="/about">
-      <p>
-        This is the "covid project" of a musician and mother. A labour of love,
-        sharing the songs that manifest around the house with her husband and
-        two young daughters.
-      </p>
-      <p>
-        Here's hoping it brings your home, school or playground a bunch of happy
-        singing kids as well.
-      </p>
+      <About />
     </Route>
 
     <Route path="/contact">

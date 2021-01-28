@@ -48,15 +48,6 @@ const Dashboard = (props: Props) => {
           <br />
           (they're a little bit different)
         </h2>
-        <p>
-          Happy Singing Kids is the "covid project" of a musician and mother. A
-          labour of love, sharing the songs that come to life around the house
-          with her husband and two young daughters.
-        </p>
-        <p>
-          Here's hoping it brings your home, school or playground a bunch of
-          happy singing kids as well.
-        </p>
       </>
     ) : (
       <>
