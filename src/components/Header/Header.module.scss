@@ -110,8 +110,7 @@
   width: 1.2em;
   height: 1.2em;
   border-radius: 50%;
-  // background: $orange;
-  background: #afdcde;
+  background: transparent;
   color: $primary;
   text-decoration: none;
 
@@ -121,12 +120,21 @@
     display: block;
     margin-left: -1px;
     margin-top: 0.1em;
-    color: white;
+    color: $text;
+    color: #90b838;
+    color: #08898d;
   }
 
   @media (min-width: $breakpoint-tablet) {
+    background: #afdcde;
+    color: $primary;
     font-size: 2.2em;
     right: -0.8em;
+
+    i {
+      color: white;
+    }
+
     &:hover {
       background: $orange;
       i {
