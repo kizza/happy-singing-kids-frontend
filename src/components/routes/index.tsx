@@ -13,19 +13,19 @@ const happyPackOne = {
   AUD: {
     priceId: process.env.REACT_APP_HAPPY_PACK_1_AUD,
     enabled: true,
-    amount: 999,
+    amount: 1699,
     currency: "aud",
   },
   USD: {
     priceId: process.env.REACT_APP_HAPPY_PACK_1_USD,
     enabled: true,
-    amount: 799,
+    amount: 1299,
     currency: "usd",
   },
   GBP: {
     priceId: process.env.REACT_APP_HAPPY_PACK_1_GBP,
     enabled: true,
-    amount: 599,
+    amount: 999,
     currency: "gbp",
   },
 } as Record<Currency, any>;
@@ -35,7 +35,7 @@ const happyPackOneTest = {
   TEST: {
     priceId: process.env.REACT_APP_HAPPY_PACK_1_TEST,
     enabled: true,
-    amount: 20,
+    amount: 50,
     currency: "aud",
   },
 } as Record<Currency, any>;
