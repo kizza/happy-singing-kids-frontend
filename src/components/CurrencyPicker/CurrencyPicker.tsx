@@ -6,25 +6,30 @@ import ukFlag from "../../assets/flags/uk.svg";
 import usaFlag from "../../assets/flags/usa.svg";
 import { useAnalytics } from "../../hooks/useAnalytics";
 
-export type Currency = "AUD" | "GBP" | "USD";
+export type Currency = "AUD" | "GBP" | "USD" | "TEST";
 
 interface Props {
   currency: Currency;
   change: (currency: Currency) => void;
 }
 
-const currencies: Currency[] = ["AUD", "USD", "GBP"];
+console.log(process.env.REACT_APP_IS_DEV === "true")
+const currencies = [
+  "AUD", "USD", "GBP", process.env.REACT_APP_IS_DEV && "TEST"
+].filter(Boolean) as Currency[]
 
 const labels: Record<Currency, string> = {
   AUD: "Australian Dollar",
   USD: "US Dollar",
   GBP: "British Pound",
+  TEST: "Test",
 };
 
 const flags: Record<Currency, string> = {
   AUD: ausFlag,
   USD: usaFlag,
   GBP: ukFlag,
+  TEST: ausFlag,
 };
 
 export default ({ currency, change }: Props) => {

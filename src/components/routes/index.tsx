@@ -32,8 +32,13 @@ const happyPackOne = {
 
 const happyPackOneTest = {
   ...happyPackOne,
-  priceId: process.env.REACT_APP_HAPPY_PACK_1_TEST,
-};
+  TEST: {
+    priceId: process.env.REACT_APP_HAPPY_PACK_1_TEST,
+    enabled: true,
+    amount: 20,
+    currency: "aud",
+  },
+} as Record<Currency, any>;
 
 {
   /* <Home happyPackOne={happyPackOne} /> */
