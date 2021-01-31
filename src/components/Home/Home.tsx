@@ -46,15 +46,6 @@ const Home = ({ happyPackOne }: Props) => {
           <br />
           (they're a little bit different)
         </h2>
-        <p>
-          Happy Singing Kids is the "covid project" of a musician and mother. A
-          labour of love, sharing the songs that come to life around the house
-          with her husband and two young daughters.
-        </p>
-        <p>
-          Here's hoping it brings your home, school or playground a bunch of
-          happy singing kids as well.
-        </p>
       </div>
 
       <SongList preview items={items} />
@@ -62,7 +53,7 @@ const Home = ({ happyPackOne }: Props) => {
       <div className={styles.Inner}>
         <p>
           Purchase the "Happy Pack" below <br />
-          to get the full version of the songs!
+          to <strong>get the full versions</strong> of the songs as well as the <strong>chord charts</strong>!
         </p>
       </div>
 
@@ -80,12 +71,16 @@ const Home = ({ happyPackOne }: Props) => {
       <div className={styles.CurrencyPicker}>
         <CurrencyPicker change={changeCurrency} currency={currency} />
       </div>
-      <p className={styles.Small}>
-        You'll get access to your own page identical to this, listing the full
-        version of each song. <br />
+      <p className={styles.Access}>
+        You'll be emailed a link to your own page (like this one), but with the addition of...
       </p>
+      <ul className={styles.Small}>
+        <li>Full versions of each song</li>
+        <li>PDF chord charts for each song</li>
+        <li>Everything can be streamed online or downloaded (as mp3s and pdfs)</li>
+      </ul>
       <p className={styles.Small}>
-        (Your support goes towards creating more happy music 😃)
+        Your support goes towards creating more happy music <span role="img" aria-label="Smiley face">😃</span>
       </p>
     </form>
   );

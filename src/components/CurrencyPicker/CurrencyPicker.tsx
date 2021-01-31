@@ -15,7 +15,7 @@ interface Props {
 
 console.log(process.env.REACT_APP_IS_DEV === "true")
 const currencies = [
-  "AUD", "USD", "GBP", process.env.REACT_APP_IS_DEV && "TEST"
+  "AUD", "USD", "GBP", process.env.REACT_APP_IS_DEV === "true" && "TEST"
 ].filter(Boolean) as Currency[]
 
 const labels: Record<Currency, string> = {

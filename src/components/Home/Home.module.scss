@@ -2,12 +2,20 @@
 
 .Home {
   text-align: center;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
 
   h2 {
     font-size: 1.6em;
     font-family: $font;
     font-weight: normal;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  ul {
+    text-align: left;
   }
 
   .Inner {
@@ -26,6 +34,12 @@
     @media (min-width: $breakpoint-tablet) {
       margin-bottom: 2em;
     }
+  }
+
+  .Access {
+    font-size: 0.9em;
+    text-align: left;
+    margin: 0 1em;
   }
 
   .Small {

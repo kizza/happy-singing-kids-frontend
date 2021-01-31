@@ -47,8 +47,10 @@ const happyPackOneTest = {
 export default (
   <Switch>
     <Route exact path="/(cancel)?">
-      <p style={{ textAlign: "center" }}>Coming soon</p>
+      {/* <p style={{ textAlign: "center" }}>Coming soon</p> */}
+      <Home happyPackOne={happyPackOne} />
     </Route>
+
     <Route exact path="/test">
       <Home happyPackOne={happyPackOneTest} />
     </Route>
