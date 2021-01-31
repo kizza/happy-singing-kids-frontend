@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import About from "../About";
-import Checkout from "../Checkout";
-import Dashboard from "../Dashboard";
-import Download from "../Download";
-import Resources from "../Resources";
-import Success from "../Success";
-import Home from "../Home";
-import { Currency } from "../CurrencyPicker/CurrencyPicker";
+import About from "../components/About";
+import Checkout from "../components/Checkout";
+import Dashboard from "../components/Dashboard";
+import Download from "../components/Download";
+import Resources from "../components/Resources";
+import Success from "../components/Success";
+import Home from "../components/Home";
+import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
 
 const happyPackOne = {
   AUD: {

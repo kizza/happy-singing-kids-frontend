@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Mask from "./components/Mask";
 import Nav from "./components/Nav";
 import Popup from "./components/Popup";
-import routes from "./components/routes";
+import routes from "./routes";
 import { NowPlayingContext } from "./hooks/useNowPlaying";
 import { PopupContext } from "./hooks/usePopup";
 import { useToggleState } from "./hooks/useToggleState";
