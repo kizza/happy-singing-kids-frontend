@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./About.module.scss";
+import me from "../../assets/me-chalk.jpg";
 
 export default () => (
   <div className={styles.About}>
@@ -14,6 +15,11 @@ export default () => (
         Here's hoping it brings your home, school or playground a bunch of happy
         singing kids as well.
       </p>
+      <img
+        src={me}
+        className={styles.Me}
+        alt="Me"
+      />
     </div>
   </div>
 );
