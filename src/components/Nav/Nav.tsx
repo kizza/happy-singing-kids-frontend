@@ -56,15 +56,15 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
             About
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/resources"
-            onClick={closeMenu}
-            activeClassName={styles.active}
-          >
-            Resources
-          </NavLink>
-        </li>
+        {/* <li> */}
+        {/*   <NavLink */}
+        {/*     to="/resources" */}
+        {/*     onClick={closeMenu} */}
+        {/*     activeClassName={styles.active} */}
+        {/*   > */}
+        {/*     Resources */}
+        {/*   </NavLink> */}
+        {/* </li> */}
         <li>
           <NavLink
             to="/contact"
