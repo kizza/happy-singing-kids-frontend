@@ -4,6 +4,7 @@
   display: block;
   position: relative;
   overflow: hidden;
+  @extend %no-tap-highlight;
 
   em {
     display: block;
