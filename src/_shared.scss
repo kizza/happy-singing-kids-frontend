@@ -48,7 +48,7 @@ $header-font: "Noto Serif", "Balsamiq Sans", cursive;
 
 // A raised button
 %button {
-  transition: box-shadow 0.2s ease-out, background 0.8s ease-out;
+  transition: box-shadow 0.2s ease-out; //, background 0.8s ease-out;
   box-shadow: #999 0.1em 0.3em 0.4em;
 
   &:hover {

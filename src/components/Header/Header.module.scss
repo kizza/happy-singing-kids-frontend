@@ -46,13 +46,17 @@
 .Clouds {
   @extend %floating;
   bottom: 0;
-  width: 60%;
-  margin-left: 8rem;
+  width: 120%;
+  margin-left: -10rem;
   height: auto;
   // animation-duration: 2s; /* don't forget to set a duration! */
   // --animate-duration: 3s;
   // --animate-delay: 1s;
   // --animate-repeat: 1;
+  @media (min-width: $breakpoint-tablet) {
+    width: 60%;
+    margin-left: 10rem;
+  }
 }
 
 .Tree {
@@ -81,6 +85,10 @@
   float: left;
   margin-top: -2em;
   margin-left: -19rem;
+
+  // width: 52em;
+  // margin-top: -4em;
+  // margin-left: -29rem;
 
   // margin-left: -60vw;
   @media (min-width: $breakpoint-tablet) {

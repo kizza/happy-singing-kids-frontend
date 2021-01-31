@@ -12,6 +12,7 @@ import items from "./songs";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
 import { useAnalytics } from "../../hooks/useAnalytics";
+import kids from "../../assets/hero/happy-singing-kids.png";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -53,7 +54,8 @@ const Home = ({ happyPackOne }: Props) => {
       <div className={styles.Inner}>
         <p>
           Purchase the "Happy Pack" below <br />
-          to <strong>get the full versions</strong> of the songs as well as the <strong>chord charts</strong>!
+          to <strong>get the full versions</strong> of the songs as well as the{" "}
+          <strong>chord charts</strong>!
         </p>
       </div>
 
@@ -72,15 +74,21 @@ const Home = ({ happyPackOne }: Props) => {
         <CurrencyPicker change={changeCurrency} currency={currency} />
       </div>
       <p className={styles.Access}>
-        You'll be emailed a link to your own page (like this one), but with the addition of...
+        You'll be emailed a link to your own page (like this one), but with the
+        addition of...
       </p>
       <ul className={styles.Small}>
         <li>Full versions of each song</li>
         <li>PDF chord charts for each song</li>
-        <li>Everything can be streamed online or downloaded (as mp3s and pdfs)</li>
+        <li>
+          Everything can be streamed online or downloaded (as mp3s and pdfs)
+        </li>
       </ul>
       <p className={styles.Small}>
-        Your support goes towards creating more happy music <span role="img" aria-label="Smiley face">😃</span>
+        Your support goes towards creating more happy music{" "}
+        <span role="img" aria-label="Smiley face">
+          😃
+        </span>
       </p>
     </form>
   );
