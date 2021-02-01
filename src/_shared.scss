@@ -40,10 +40,10 @@ $light-green: #ddeeba;
 
 // $font: "Luckiest Guy";
 $font: "Noto Serif", "Balsamiq Sans", cursive;
-$font: "Balsamiq Sans", cursive;
+$font: inherit, cursive;
 
 // $boldfont: "Noto Serif", "Balsamiq Sans", cursive;
-$boldfont: "Balsamiq Sans", cursive;
+$boldfont: inherit;
 $header-font: "Noto Serif", "Balsamiq Sans", cursive;
 
 // A raised button
