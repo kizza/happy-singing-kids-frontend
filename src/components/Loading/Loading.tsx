@@ -1,6 +1,7 @@
 import React from "react";
-import loading from "../../assets/loading.svg";
 import styles from "./Loading.module.scss";
+
+const loading = "/loading.svg";
 
 interface Props {
   label?: string;
