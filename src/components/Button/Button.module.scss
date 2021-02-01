@@ -2,8 +2,9 @@
 
 .Button {
   @extend %button;
-  font-size: 1em;
+  @extend %no-tap-highlight;
   line-height: 1.6em;
+  font-size: 0.84em;
   font-weight: bold;
   padding: 1em 2em;
   margin: 0 0.4em;
@@ -13,8 +14,11 @@
 
   color: white;
   // color: $primary;
+  border-radius: 0.3em;
   background: $purple;
   border: none;
+
+  white-space: nowrap;
 
   &:hover {
     text-decoration: underline;
@@ -24,6 +28,7 @@
   }
 
   @media (min-width: $breakpoint-tablet) {
+    font-size: 1em;
     margin: 0;
     padding: 0.6em 2em;
   }

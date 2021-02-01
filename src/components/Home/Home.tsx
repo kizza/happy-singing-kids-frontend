@@ -12,7 +12,7 @@ import items from "./songs";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
 import { useAnalytics } from "../../hooks/useAnalytics";
-import kids from "../../assets/hero/happy-singing-kids.png";
+import download from "../../assets/download.png";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -59,13 +59,19 @@ const Home = ({ happyPackOne }: Props) => {
         </p>
       </div>
 
+      <img
+        src={download}
+        className={styles.DownloadImage}
+        alt="Download MP3s and PDFs"
+      />
+
       <p className={styles.WithButton}>
         <Button
           icon={processing ? "cog fa-spin" : undefined}
           label={
             processing
               ? "One moment…"
-              : `Get the Happy Pack ${formatPrice(purchaseItem)}`
+              : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
           }
           disabled={processing || !stripe}
         ></Button>
@@ -73,23 +79,22 @@ const Home = ({ happyPackOne }: Props) => {
       <div className={styles.CurrencyPicker}>
         <CurrencyPicker change={changeCurrency} currency={currency} />
       </div>
-      <p className={styles.Access}>
-        You'll be emailed a link to your own page (like this one), but with the
-        addition of...
-      </p>
-      <ul className={styles.Small}>
-        <li>Full versions of each song</li>
-        <li>PDF chord charts for each song</li>
-        <li>
-          Everything can be streamed online or downloaded (as mp3s and pdfs)
-        </li>
-      </ul>
-      <p className={styles.Small}>
-        Your support goes towards creating more happy music{" "}
-        <span role="img" aria-label="Smiley face">
-          😃
-        </span>
-      </p>
+      <div className={styles.Access}>
+        <p>
+          You'll be emailed a link to your own page (like this one), but with
+          the addition of...
+        </p>
+        <ul>
+          <li>Full versions of each song (to stream or download)</li>
+          <li>Chord charts for each song (as pdfs)</li>
+          <li>
+            Your support goes towards creating more happy music{" "}
+            <span role="img" aria-label="Smiley face">
+              😃
+            </span>
+          </li>
+        </ul>
+      </div>
     </form>
   );
 

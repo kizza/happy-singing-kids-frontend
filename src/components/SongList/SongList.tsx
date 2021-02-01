@@ -9,6 +9,7 @@ import Button from "../Button";
 import Checkbox from "../Checkbox";
 import styles from "./SongList.module.scss";
 import { useAnalytics } from "../../hooks/useAnalytics";
+import download from "../../assets/download.png";
 
 interface Props {
   items: CartItem[];
@@ -126,8 +127,16 @@ export default ({ items, toggleItem, preview }: Props) => {
 
       {downloads.length > 0 && (
         <>
-          <p>You can download them all as a ".zip" file below</p>
-          <ul>{downloads.map(renderFileItem)}</ul>
+          <p>
+            If you wish you can download all the audio files
+            <br /> and chord charts using the link below
+          </p>
+          <img
+            src={download}
+            className={styles.DownloadImage}
+            alt="Download MP3s and PDFs"
+          />
+          <p>{downloads.map(renderFileItem)}</p>
         </>
       )}
     </>
