@@ -36,8 +36,11 @@
 
   .LoadingIcon {
     position: absolute;
-    top: 0.1em;
     left: 1em;
+    top: 0.4em;
+    @media (min-width: $breakpoint-tablet) {
+      top: 0.1em;
+    }
   }
 
   .WithButton {
