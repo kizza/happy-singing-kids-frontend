@@ -13,6 +13,7 @@ import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
 import { useAnalytics } from "../../hooks/useAnalytics";
 import download from "../../assets/download.png";
+import Loading from "../Loading";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -67,14 +68,16 @@ const Home = ({ happyPackOne }: Props) => {
 
       <p className={styles.WithButton}>
         <Button
-          icon={processing ? "cog fa-spin" : undefined}
+          style={processing ? styles.Button : ""}
           label={
             processing
               ? "One moment…"
               : `Buy the Happy Pack ${formatPrice(purchaseItem)}`
           }
           disabled={processing || !stripe}
-        ></Button>
+        >
+          {processing && <Loading className={styles.LoadingIcon} />}
+        </Button>
       </p>
       <div className={styles.CurrencyPicker}>
         <CurrencyPicker change={changeCurrency} currency={currency} />

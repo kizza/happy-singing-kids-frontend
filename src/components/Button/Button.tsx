@@ -9,12 +9,21 @@ interface Props {
   style?: string;
   disabled?: boolean;
   onClick?: () => void;
+  children?: any;
 }
 
 const noop = () => {};
 
 export default (props: Props) => {
-  const { style, label, icon, url, onClick = noop, disabled = false } = props;
+  const {
+    children,
+    style,
+    label,
+    icon,
+    url,
+    onClick = noop,
+    disabled = false,
+  } = props;
   const type = url ? "button" : "submit";
 
   return (
@@ -29,6 +38,7 @@ export default (props: Props) => {
     >
       {icon && <i className={`fa fa-fw fa-lg fa-${icon}`}></i>}
       {label}
+      {children}
     </button>
   );
 };

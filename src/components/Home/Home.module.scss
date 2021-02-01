@@ -30,8 +30,21 @@
     }
   }
 
+  .Button {
+    padding-left: 4em;
+  }
+
+  .LoadingIcon {
+    position: absolute;
+    top: 0.1em;
+    left: 1em;
+  }
+
   .WithButton {
     margin: 0 0 0 0;
+    img {
+      max-width: 2em;
+    }
   }
 
   .CurrencyPicker {
