@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Creating checkout session"
+
+curl -X POST -s -d '{"description":"Foo bar","items":[{"price":"price_1HFSo4FbHwwHDg3DK1i4YblC","quantity":1}]}' http://localhost:3000/sessions | jq .id

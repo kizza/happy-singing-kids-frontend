@@ -29,6 +29,8 @@
     "deploy": "serverless",
     "destroy": "serverless remove",
     "test-broken": "react-scripts test",
+    "e2e": "cypress open",
+    "cypress:open": "cypress open",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen --silent --watchAll=false",
     "test:watch": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
