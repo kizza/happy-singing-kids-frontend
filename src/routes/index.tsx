@@ -8,6 +8,7 @@ import Resources from "../components/Resources";
 import Success from "../components/Success";
 import Home from "../components/Home";
 import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
+import ExternalRedirect from "../components/ExternalRedirect";
 
 const happyPackOne = {
   AUD: {
@@ -97,37 +98,17 @@ export default (
 
     {/* Redirect urls */}
 
-    <Route
-      path="/spotify"
-      component={() => {
-        window.location.href =
-          "https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ";
-        return null;
-      }}
-    />
-    <Route
-      path="/amazon"
-      component={() => {
-        window.location.href =
-          "https://music.amazon.com/albums/B08WH6SYP6?marketplaceId=ATVPDKIKX0DER";
-        return null;
-      }}
-    />
-    <Route
-      path="/apple"
-      component={() => {
-        window.location.href =
-          "https://music.apple.com/us/album/uh-oh-spaghetti-oh/1553353479";
-        return null;
-      }}
-    />
-    <Route
-      path="/google"
-      component={() => {
-        window.location.href =
-          "https://music.youtube.com/playlist?list=OLAK5uy_mukftXWpZWQY0lWq7-7uxL49OrAdbBpEc";
-        return null;
-      }}
-    />
+    <Route path="/spotify">
+      <ExternalRedirect url="https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ" />
+    </Route>
+    <Route path="/amazon">
+      <ExternalRedirect url="https://music.amazon.com/albums/B08WH6SYP6?marketplaceId=ATVPDKIKX0DER" />
+    </Route>
+    <Route path="/apple">
+      <ExternalRedirect url="https://music.apple.com/us/album/uh-oh-spaghetti-oh/1553353479" />
+    </Route>
+    <Route path="/google">
+      <ExternalRedirect url="https://music.youtube.com/playlist?list=OLAK5uy_mukftXWpZWQY0lWq7-7uxL49OrAdbBpEc" />
+    </Route>
   </Switch>
 );
