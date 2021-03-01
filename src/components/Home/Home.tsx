@@ -13,7 +13,11 @@ import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
 import { useAnalytics } from "../../hooks/useAnalytics";
 import download from "../../assets/download.png";
+import spotify from "../../assets/spotify.png";
+import apple from "../../assets/apple.png";
+import amazon from "../../assets/amazon.png";
 import Loading from "../Loading";
+import { SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -50,13 +54,23 @@ const Home = ({ happyPackOne }: Props) => {
         </h2>
       </div>
 
-      <SongList preview items={items} />
+      <div className={styles.Stores}>
+        <a href={SPOTIFY_URL}>
+          <img src={spotify} alt="Listen now on Spotify" />
+        </a>
+        <a href={AMAZON_URL}>
+          <img src={amazon} alt="Listen now on Amazon Music" />
+        </a>
+        <a href={APPLE_URL}>
+          <img src={apple} alt="Listen now on Apple Music" />
+        </a>
+      </div>
 
       <div className={styles.Inner}>
         <p>
           Purchase the "Happy Pack" below <br />
-          to <strong>get the full versions</strong> of the songs as well as the{" "}
-          <strong>chord charts</strong>!
+          to <strong>get the full chord charts</strong> as well as{" "}
+          <strong>downloadable mp3s</strong>!
         </p>
       </div>
 
@@ -83,10 +97,6 @@ const Home = ({ happyPackOne }: Props) => {
         <CurrencyPicker change={changeCurrency} currency={currency} />
       </div>
       <div className={styles.Access}>
-        <p>
-          You'll be emailed a link to your own page (like this one), but with
-          the addition of...
-        </p>
         <ul>
           <li>Full versions of each song (to stream or download)</li>
           <li>Chord charts for each song (as pdfs)</li>

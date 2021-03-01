@@ -9,6 +9,7 @@ import Success from "../components/Success";
 import Home from "../components/Home";
 import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
 import ExternalRedirect from "../components/ExternalRedirect";
+import { SPOTIFY_URL, AMAZON_URL, APPLE_URL, GOOGLE_URL } from "../consts";
 
 const happyPackOne = {
   AUD: {
@@ -102,16 +103,16 @@ export default (
     {/* Redirect urls */}
 
     <Route path="/spotify">
-      <ExternalRedirect url="https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ" />
+      <ExternalRedirect url={SPOTIFY_URL} />
     </Route>
     <Route path="/amazon">
-      <ExternalRedirect url="https://music.amazon.com/albums/B08WH6SYP6?marketplaceId=ATVPDKIKX0DER" />
+      <ExternalRedirect url={AMAZON_URL} />
     </Route>
     <Route path="/apple">
-      <ExternalRedirect url="https://music.apple.com/us/album/uh-oh-spaghetti-oh/1553353479" />
+      <ExternalRedirect url={APPLE_URL} />
     </Route>
     <Route path="/google">
-      <ExternalRedirect url="https://music.youtube.com/playlist?list=OLAK5uy_mukftXWpZWQY0lWq7-7uxL49OrAdbBpEc" />
+      <ExternalRedirect url={GOOGLE_URL} />
     </Route>
   </Switch>
 );
