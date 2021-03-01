@@ -44,7 +44,7 @@ $icon-colour: purple;
     position: relative;
     margin-right: 0.6em;
     float: left;
-    border: solid 2px $icon-colour;
+    border: solid 3px $icon-colour;
     border-radius: 50%;
     height: 0.6em;
     width: 0.6em;
@@ -52,7 +52,7 @@ $icon-colour: purple;
 
     &:before {
       position: relative;
-      top: -0.2em;
+      top: -0.15em;
     }
   }
 
