@@ -8,14 +8,17 @@ export default () => (
       <a href="https://www.facebook.com/happysingingkids">
         <i className="fa fa-lg fa-fw fa-facebook"></i>
       </a>
+      <a href="https://www.instagram.com/happysingingkids">
+        <i className="fa fa-lg fa-fw fa-instagram"></i>
+      </a>
       <a href={SPOTIFY_URL}>
         <i className="fa fa-lg fa-fw fa-spotify"></i>
       </a>
       <a href={AMAZON_URL}>
         <i className="fa fa-lg fa-fw fa-amazon"></i>
       </a>
-      <a href="https://www.instagram.com/happysingingkids">
-        <i className="fa fa-lg fa-fw fa-instagram"></i>
+      <a href="https://music.youtube.com/playlist?list=OLAK5uy_mukftXWpZWQY0lWq7-7uxL49OrAdbBpEc">
+        <i className="fa fa-lg fa-fw fa-youtube"></i>
       </a>
     </div>
   </div>
