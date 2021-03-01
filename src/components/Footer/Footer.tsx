@@ -1,4 +1,5 @@
 import React from "react";
+import { AMAZON_URL, SPOTIFY_URL } from "../../consts";
 import styles from "./Footer.module.scss";
 
 export default () => (
@@ -6,6 +7,12 @@ export default () => (
     <div className={styles.Social}>
       <a href="https://www.facebook.com/happysingingkids">
         <i className="fa fa-lg fa-fw fa-facebook"></i>
+      </a>
+      <a href={SPOTIFY_URL}>
+        <i className="fa fa-lg fa-fw fa-spotify"></i>
+      </a>
+      <a href={AMAZON_URL}>
+        <i className="fa fa-lg fa-fw fa-amazon"></i>
       </a>
       <a href="https://www.instagram.com/happysingingkids">
         <i className="fa fa-lg fa-fw fa-instagram"></i>
