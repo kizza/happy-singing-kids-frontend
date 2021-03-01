@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import About from "../components/About";
 import Checkout from "../components/Checkout";
 import Dashboard from "../components/Dashboard";
@@ -69,7 +69,7 @@ export default (
     </Route>
 
     <Route exact path="/preview">
-      <ExternalRedirect url="https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ" />
+      <Redirect to="/" />
     </Route>
     <Route exact path="/packs">
       <Dashboard token="share" />
