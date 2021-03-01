@@ -68,6 +68,9 @@ export default (
     </Route>
 
     <Route exact path="/preview">
+      <ExternalRedirect url="https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ" />
+    </Route>
+    <Route exact path="/packs">
       <Dashboard token="share" />
     </Route>
     <Route exact path="/songs/:token">
