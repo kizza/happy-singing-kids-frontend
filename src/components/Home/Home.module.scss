@@ -33,13 +33,18 @@
   .Stores {
     margin: 1em;
     margin-bottom: 2em;
-    a {
-     img {
-        max-width: 70%;
-        @media (min-width: $breakpoint-tablet) {
-          max-width: 30%;
-        }
-     }
+    button {
+      @extend %link-button;
+      text-align: center;
+      display: inline;
+      padding: 0;
+      max-width: 70%;
+      @media (min-width: $breakpoint-tablet) {
+        max-width: 30%;
+      }
+      img {
+        max-width: 100%;
+      }
     }
   }
 

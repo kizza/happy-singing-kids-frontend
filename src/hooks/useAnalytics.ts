@@ -1,7 +1,7 @@
 declare var ga: any;
 
 interface EventArgs {
-  category: "Listening" | "Purchasing" | "Resources";
+  category: "Redirect" | "Listening" | "Purchasing" | "Resources";
   action: string;
   label: string;
 }

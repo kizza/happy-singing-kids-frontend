@@ -42,6 +42,15 @@ const Home = ({ happyPackOne }: Props) => {
     await openCheckoutSession([purchaseItem]);
   };
 
+  const redirectToService = (label: string, url: string) => () => {
+    trackEvent({
+      category: "Redirect",
+      action: "Click",
+      label: label,
+    });
+    window.location.href = url;
+  };
+
   const changeCurrency = (newValue: Currency) => setCurrency(newValue);
 
   const renderForm = () => (
@@ -55,15 +64,18 @@ const Home = ({ happyPackOne }: Props) => {
       </div>
 
       <div className={styles.Stores}>
-        <a href={SPOTIFY_URL}>
+        <button
+          onClick={redirectToService("Spotify", SPOTIFY_URL)}
+          type="button"
+        >
           <img src={spotify} alt="Listen now on Spotify" />
-        </a>
-        <a href={AMAZON_URL}>
+        </button>
+        <button onClick={redirectToService("Amazon", AMAZON_URL)} type="button">
           <img src={amazon} alt="Listen now on Amazon Music" />
-        </a>
-        <a href={APPLE_URL}>
+        </button>
+        <button onClick={redirectToService("Apple", APPLE_URL)} type="button">
           <img src={apple} alt="Listen now on Apple Music" />
-        </a>
+        </button>
       </div>
 
       <div className={styles.Inner}>
