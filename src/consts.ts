@@ -1,5 +1,5 @@
 export const SPOTIFY_URL =
-  "https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP?si=oH71mnFkQW28CWKDiIzmdQ";
+  "https://open.spotify.com/album/4vzOqW9ZCHRLva3VPgzMBP";
 export const AMAZON_URL =
   "https://music.amazon.com/albums/B08WH6SYP6?marketplaceId=ATVPDKIKX0DER";
 export const APPLE_URL =
