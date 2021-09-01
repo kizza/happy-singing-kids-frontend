@@ -11,18 +11,17 @@
   }
 
   .Me {
-    text-align: center;
-    img {
-      margin-top: 2em;
-      max-width: 70%;
-      box-shadow: 0 0.6em 2em #cbdea0;
-      border: solid 2px #fff;
-      @media (min-width: $breakpoint-tablet) {
-        box-shadow: 0.6em 0.6em 1em #cbdea0;
-        margin-top: 0;
-        margin-left: 2em;
-        max-width: 100%;
-      }
+    margin: 1.2em 0;
+    max-width: 100%;
+    box-shadow: 0 0.6em 2em #cbdea0;
+    border: solid 2px #fff;
+    display: block;
+    @media (min-width: $breakpoint-tablet) {
+      box-shadow: 0.6em 0.6em 1em #cbdea0;
+      margin: 0 0 1em 1em;
+      max-width: 40%;
+      display: inline;
+      float: right;
     }
   }
 
@@ -38,6 +37,13 @@
 
     .Text {
       text-align: left;
+      @media (min-width: $breakpoint-tablet) {
+        p:first-child {
+          font-size: 1.6em;
+          margin-bottom: 1em;
+        }
+        font-size: 0.8em;
+      }
     }
   }
 
