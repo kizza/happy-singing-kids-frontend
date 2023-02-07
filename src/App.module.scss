@@ -55,13 +55,13 @@ $header-top: 0; //12rem;
   .Inner {
     font-size: 110%;
     position: relative;
-    max-width: 40rem;
     margin: 0 auto;
     text-align: center;
 
     @media (min-width: $breakpoint-tablet) {
       text-align: left;
       padding: 0 0 0 0;
+      max-width: 54em;
     }
   }
 

@@ -19,11 +19,14 @@
   }
 
   .Videos {
-    border: solid 4px rgba(255, 255, 255, 0.5);
-    background: #e5f0cd;
-    padding: 2em;
-    border-radius: 2em;
     margin-bottom: 4em;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: 2em;
+      border: solid 4px rgba(255, 255, 255, 0.5);
+      background: #e5f0cd;
+      border-radius: 2em;
+    }
   }
 
   .DownloadImage {
@@ -47,9 +50,16 @@
       display: inline;
       padding: 0;
       max-width: 70%;
+      border-radius: 1em;
+
       @media (min-width: $breakpoint-tablet) {
         max-width: 30%;
+
+        &:hover {
+          background: #d2ed99;
+        }
       }
+
       img {
         max-width: 100%;
       }

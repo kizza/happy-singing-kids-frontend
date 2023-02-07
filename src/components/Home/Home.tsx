@@ -57,37 +57,6 @@ const Home = ({ happyPackOne }: Props) => {
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
       <div className={styles.Inner}>
-        <h2>
-          Kids songs you'll love to sing!
-          <br />
-          (they're a little bit different)
-        </h2>
-      </div>
-
-      <div className={styles.Stores}>
-        <button
-          onClick={redirectToService("Spotify", SPOTIFY_URL)}
-          type="button"
-        >
-          <img src={spotify} alt="Listen now on Spotify" />
-        </button>
-        <button onClick={redirectToService("Amazon", AMAZON_URL)} type="button">
-          <img src={amazon} alt="Listen now on Amazon Music" />
-        </button>
-        <button onClick={redirectToService("Apple", APPLE_URL)} type="button">
-          <img src={apple} alt="Listen now on Apple Music" />
-        </button>
-      </div>
-
-      <div className={styles.Videos}>
-        <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
-
-        <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
-
-        <YouTube id="eCyfYEGlZyE" title="Squished Bananas" />
-      </div>
-
-      <div className={styles.Inner}>
         <p>
           Purchase the "Happy Pack" below <br />
           to <strong>get the full chord charts</strong> as well as{" "}
@@ -140,7 +109,40 @@ const Home = ({ happyPackOne }: Props) => {
   /*   renderForm() */
   /* )} */
 
-  return <div className={styles.Home}>{renderForm()}</div>;
+  return <div className={styles.Home}>
+    <div className={styles.Inner}>
+      <h2>
+        Kids songs you'll love to sing!
+        <br />
+        (they're a little bit different)
+      </h2>
+    </div>
+
+    <div className={styles.Stores}>
+      <button
+        onClick={redirectToService("Spotify", SPOTIFY_URL)}
+        type="button"
+      >
+        <img src={spotify} alt="Listen now on Spotify" />
+      </button>
+      <button onClick={redirectToService("Amazon", AMAZON_URL)} type="button">
+        <img src={amazon} alt="Listen now on Amazon Music" />
+      </button>
+      <button onClick={redirectToService("Apple", APPLE_URL)} type="button">
+        <img src={apple} alt="Listen now on Apple Music" />
+      </button>
+    </div>
+
+    <div className={styles.Videos}>
+      <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
+
+      <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
+
+      <YouTube id="eCyfYEGlZyE" title="Squished Bananas" />
+    </div>
+
+    {renderForm()}
+  </div>;
 };
 
 export default (props: Props) => {
