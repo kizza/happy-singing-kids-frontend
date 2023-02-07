@@ -26,7 +26,7 @@ const buildCatalogueResponse = () => ({
 });
 
 describe("useCartItems", () => {
-  it("works", async done => {
+  it("works", async () => {
     const SESSION_ID = "abcdef";
 
     const apiSpy = mockApi(path => {
@@ -42,31 +42,23 @@ describe("useCartItems", () => {
     var stripeSpy = mockStripe({
       redirectToCheckout: checkoutArgs => {
         expect(checkoutArgs.sessionId).toEqual(SESSION_ID);
-        done();
         return Promise.resolve({ error: null });
       },
     });
 
-    await act(async () => {
+    return act(async () => {
       const { getByText } = render(<Checkout />);
       await waitFor(() => getByText("Grumplestiltskin"));
 
       fireEvent.click(getByText("Purchase"));
-    });
-
-    /* await new Promise(resolve => { */
-    /*   setTimeout(() => { */
-    /*     console.log("At the end"); */
-    /*     resolve(); */
-    /*   }, 500); */
-    /* }); */
-
-    apiSpy.mockRestore();
-    stripeSpy.mockRestore();
+    }).then(() => {
+      apiSpy.mockRestore();
+      stripeSpy.mockRestore();
+    })
   });
 
   describe("Checkout interactions", () => {
-    it("can toggle/remove items", async done => {
+    it("can toggle/remove items", async () => {
       const apiSpy = mockApi(path => {
         if (path === "catalogue") {
           return Promise.resolve(buildCatalogueResponse());
@@ -75,17 +67,16 @@ describe("useCartItems", () => {
         throw new Error(`Unexpected api request /${path}`);
       });
 
-      await act(async () => {
+      return act(async () => {
         const { getByText } = render(<Checkout />);
         await waitFor(() => getByText("Total A$8.00"));
 
         fireEvent.click(getByText("Grumplestiltskin"));
 
         await waitFor(() => getByText("Total A$4.00"));
-        done();
-      });
-
-      apiSpy.mockRestore();
+      }).then(() => {
+        apiSpy.mockRestore();
+      })
     });
   });
 });

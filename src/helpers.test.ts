@@ -16,7 +16,7 @@ describe("Helpers", () => {
         });
     };
 
-    it("will succeed after retries", async done => {
+    it("will succeed after retries", done => {
       retry<string>(buildFlakeyPromise(3), 3)
         .then(result => {
           console.log("Got the result", result);
@@ -28,7 +28,7 @@ describe("Helpers", () => {
         });
     });
 
-    it("will fail after too many retries", async done => {
+    it("will fail after too many retries", done => {
       retry<string>(buildFlakeyPromise(4), 2)
         .then(() => {
           done("Should not have resolved");
