@@ -18,6 +18,7 @@ import apple from "../../assets/apple.png";
 import amazon from "../../assets/amazon.png";
 import Loading from "../Loading";
 import { SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
+import YouTube from "../YouTube";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -76,6 +77,14 @@ const Home = ({ happyPackOne }: Props) => {
         <button onClick={redirectToService("Apple", APPLE_URL)} type="button">
           <img src={apple} alt="Listen now on Apple Music" />
         </button>
+      </div>
+
+      <div className={styles.Videos}>
+        <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
+
+        <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
+
+        <YouTube id="eCyfYEGlZyE" title="Squished Bananas" />
       </div>
 
       <div className={styles.Inner}>
