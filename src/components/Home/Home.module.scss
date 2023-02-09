@@ -34,18 +34,11 @@
     margin-top: 1em;
   }
 
-  .Inner {
-    @extend %text-content;
-    @media (min-width: $breakpoint-tablet) {
-      font-size: 1em;
-    }
-  }
-
+  .ABCKidsListen,
   .Stores {
-    margin: 1em;
-    margin-bottom: 2em;
     button {
       @extend %link-button;
+      cursor: pointer;
       text-align: center;
       display: inline;
       padding: 0;
@@ -64,6 +57,32 @@
         max-width: 100%;
       }
     }
+  }
+
+  .ABCKidsListen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+
+    button {
+      max-width: 80%;
+      @media (min-width: $breakpoint-tablet) {
+        max-width: 40%;
+      }
+    }
+  }
+
+  .Inner {
+    @extend %text-content;
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 1em;
+    }
+  }
+
+  .Stores {
+    margin: 1em;
+    margin-bottom: 2em;
   }
 
   .Button {

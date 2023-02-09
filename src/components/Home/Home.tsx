@@ -12,12 +12,13 @@ import items from "./songs";
 import { Currency } from "../CurrencyPicker/CurrencyPicker";
 import useCookie from "../../hooks/useCookie";
 import { useAnalytics } from "../../hooks/useAnalytics";
+import abcKidsListen from "../../assets/abc-kids-listen.png";
 import download from "../../assets/download.png";
 import spotify from "../../assets/spotify.png";
 import apple from "../../assets/apple.png";
 import amazon from "../../assets/amazon.png";
 import Loading from "../Loading";
-import { SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
+import { ABC_KIDS_URL, SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
 import YouTube from "../YouTube";
 
 interface Props {
@@ -118,7 +119,19 @@ const Home = ({ happyPackOne }: Props) => {
       </h2>
     </div>
 
+    <p className={styles.ABCKidsListen}>
+      Now playing on
+      <button
+        onClick={redirectToService("ABCKids", ABC_KIDS_URL)}
+        style={{padding: ".5em 1em"}}
+        type="button"
+      >
+        <img src={abcKidsListen} alt="ABC Kids Listen" />
+      </button>
+    </p>
+
     <div className={styles.Stores}>
+      <p>Or listen now via...</p>
       <button
         onClick={redirectToService("Spotify", SPOTIFY_URL)}
         type="button"
