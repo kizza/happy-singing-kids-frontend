@@ -154,8 +154,6 @@ const Home = ({ happyPackOne }: Props) => {
       <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
 
       <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
-
-      <YouTube id="eCyfYEGlZyE" title="Squished Bananas" />
     </div>
 
     {renderForm()}
