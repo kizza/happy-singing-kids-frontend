@@ -155,10 +155,10 @@ const Home = ({ happyPackOne }: Props) => {
 
       <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
     </div>
-
-    {renderForm()}
   </div>;
 };
+
+    // {renderForm()}
 
 export default (props: Props) => {
   const stripePromise = useRef<Promise<Stripe | null>>(
