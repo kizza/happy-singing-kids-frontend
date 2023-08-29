@@ -147,6 +147,10 @@ const Home = ({ happyPackOne }: Props) => {
     </div>
 
     <div className={styles.Videos}>
+      <YouTube src="https://www.youtube.com/embed/videoseries?si=JodT8qCQ1gOCbyIR&amp;list=PL9mOhnHTMV-G_oTvYfDZYFvQxs5gHQDrx" title="Happy Highlights: Fun Favourites from Happy Singing Kids" />
+
+      <YouTube src="https://www.youtube.com/embed/videoseries?si=EF44vLkT0Vy_6MR0&amp;list=PL9mOhnHTMV-FdwyAe35qQnawNUcfu8GKm" title="Mystery Alphabet Reveal Series" />
+
       <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
 
       <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />

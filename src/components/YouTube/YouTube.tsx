@@ -2,12 +2,23 @@ import React from "react";
 import styles from "./YouTube.module.scss";
 
 interface Props {
-  id: string;
-    title: string
+  id?: string;
+  src?: string;
+  title: string
 }
 
-const YouTube = ({id, title}: Props) => {
-  const src = `https://www.youtube.com/embed/${id}`
+interface PropsWithId extends Props {
+  id: string
+}
+
+interface PropsWithSrc extends Props {
+  src: string
+}
+
+const YouTube = ({id, src, title}: PropsWithId | PropsWithSrc) => {
+  if (id) {
+    src = `https://www.youtube.com/embed/${id}`
+  }
 
   return (
     <div className={styles.YouTube}>
