@@ -9,20 +9,20 @@ const Footer = () => (
       <a href="https://www.facebook.com/happysingingkids">
         <i className="fab fa-lg fa-fw fa-facebook"></i>
       </a>
+      <a href={YOUTUBE_URL}>
+        <i className="fab fa-lg fa-fw fa-youtube"></i>
+      </a>
       <a href="https://www.instagram.com/happysingingkids">
         <i className="fab fa-lg fa-fw fa-instagram"></i>
       </a>
       <a href={SPOTIFY_URL}>
         <i className="fab fa-lg fa-fw fa-spotify"></i>
       </a>
-      <a href={AMAZON_URL}>
-        <i className="fab fa-lg fa-fw fa-amazon"></i>
-      </a>
-      <a href={YOUTUBE_URL}>
-        <i className="fab fa-lg fa-fw fa-youtube"></i>
-      </a>
       <a href={TIKTOK_URL}>
         <i className="fab fa-lg fa-fw fa-tiktok"></i>
+      </a>
+      <a href={AMAZON_URL}>
+        <i className="fab fa-lg fa-fw fa-amazon"></i>
       </a>
     </div>
   </div>
