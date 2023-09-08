@@ -4,6 +4,7 @@ import styles from "./Footer.module.scss";
 
 const Footer = () => (
   <div className={styles.Footer}>
+    <h4>Find more on</h4>
     <div className={styles.Social}>
       <a href="https://www.facebook.com/happysingingkids">
         <i className="fab fa-lg fa-fw fa-facebook"></i>
