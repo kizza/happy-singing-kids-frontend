@@ -102,6 +102,9 @@ export default (
 
     {/* Redirect urls */}
 
+    <Route path="/uh-oh-spaghetti-oh">
+      <ExternalRedirect url="https://youtu.be/fdd5Wd6mDB4?si=Z2Z9NhulcMzvWa-D" />
+    </Route>
     <Route path="/spotify">
       <ExternalRedirect url={SPOTIFY_URL} />
     </Route>
