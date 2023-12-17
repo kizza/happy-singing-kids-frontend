@@ -1,15 +1,16 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import About from "../components/About";
 import Checkout from "../components/Checkout";
+import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
 import Dashboard from "../components/Dashboard";
 import Download from "../components/Download";
+import ExternalRedirect from "../components/ExternalRedirect";
+import Home from "../components/Home";
 import Resources from "../components/Resources";
 import Success from "../components/Success";
-import Home from "../components/Home";
-import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
-import ExternalRedirect from "../components/ExternalRedirect";
-import { SPOTIFY_URL, AMAZON_URL, APPLE_URL, GOOGLE_URL } from "../consts";
+import { AMAZON_URL, APPLE_URL, GOOGLE_URL, SPOTIFY_URL } from "../consts";
+import UhOhSpaghettiOh from "../pages/UhOhSpaghettiOh/UhOhSpaghettiOh";
 
 const happyPackOne = {
   AUD: {
@@ -103,7 +104,7 @@ export default (
     {/* Redirect urls */}
 
     <Route path="/uh-oh-spaghetti-oh">
-      <ExternalRedirect url="https://youtu.be/fdd5Wd6mDB4?si=Z2Z9NhulcMzvWa-D" />
+      <UhOhSpaghettiOh />
     </Route>
     <Route path="/spotify">
       <ExternalRedirect url={SPOTIFY_URL} />
