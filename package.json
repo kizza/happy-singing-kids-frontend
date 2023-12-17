@@ -26,7 +26,7 @@
     "start": "NODE_ENV=production PORT=8080 react-scripts start",
     "build": "react-scripts build",
     "predeploy": "yarn test && yarn build",
-    "deploy": "serverless",
+    "deploy": "serverless deploy",
     "destroy": "serverless remove",
     "test-broken": "react-scripts test",
     "e2e": "cypress open",
