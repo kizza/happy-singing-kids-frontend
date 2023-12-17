@@ -1,4 +1,4 @@
-declare var ga: any;
+declare var gtag: any;
 
 interface EventArgs {
   category: "Redirect" | "Listening" | "Purchasing" | "Resources";
@@ -7,19 +7,17 @@ interface EventArgs {
 }
 
 const trackPageView = (route: string) => {
-  ga("send", "pageview", route);
+  gtag("event", "page_view", {page_path: route})
 };
 
 const trackModal = (route: string) => {
-  ga("send", "pageview", `/modal/${route}`);
+  gtag("event", "page_view", {page_path: `/modal/${route}`});
 };
 
 const trackEvent = (event: EventArgs) => {
-  ga("send", {
-    hitType: "event",
-    eventCategory: event.category,
-    eventAction: event.action,
-    eventLabel: event.label,
+  gtag("event", event.action, {
+    "event_category": event.category,
+    "event_label": event.label,
   });
 };
 
