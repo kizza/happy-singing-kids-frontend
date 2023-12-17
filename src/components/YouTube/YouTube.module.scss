@@ -1,6 +1,11 @@
 @import "../../shared";
 
 .YouTube {
+  h4 {
+    font-size: 1.4rem;
+    margin-top: 0.8em;
+  }
+
   iframe {
     aspect-ratio: 16 / 9;
     width: 100%;

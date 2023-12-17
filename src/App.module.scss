@@ -66,9 +66,9 @@ $header-top: 0; //12rem;
   }
 
   // Content gradient
-  background: linear-gradient(to bottom, $grass, #fafafa 30%);
+  background: linear-gradient(180deg, $grass, #fafafa 20rem);
   @media (min-width: $breakpoint-tablet) {
-    background: linear-gradient(to bottom, $grass, #fafafa 50%);
+    background: linear-gradient(180, $grass, #fafafa 100%, #fafafa 16rem);
   }
 }
 
@@ -117,16 +117,32 @@ h1 {
 }
 
 h2 {
-  font-size: 2.2em;
-  margin: 0 0 1em;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 2.2rem;
+  }
+}
+
+h4 {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1.6rem;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1.4rem;
+  }
 }
 
 p {
   margin: 0;
-  font-size: 1.3em;
+  font-size: 1em;
   font-family: inherit;
   padding: 0 0.5em;
   @media (min-width: $breakpoint-tablet) {
+    font-size: 1.3em;
     padding: 0;
   }
 }

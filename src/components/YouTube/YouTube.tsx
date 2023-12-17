@@ -29,7 +29,7 @@ const YouTube = ({id, src, title}: PropsWithId | PropsWithSrc) => {
         frameBorder="false"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
       </iframe>
-      <h3>{title}</h3>
+      <h4 className="text-aqua">{title}</h4>
     </div>
   );
 };

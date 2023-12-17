@@ -4,13 +4,13 @@ import styles from "./Footer.module.scss";
 
 const Footer = () => (
   <div className={styles.Footer}>
-    <h4>Find more on</h4>
-    <div className={styles.Social}>
-      <a href="https://www.facebook.com/happysingingkids">
-        <i className="fab fa-lg fa-fw fa-facebook"></i>
-      </a>
+    <h4>Find more <span className="hidden md:inline">content</span> at</h4>
+    <div className="flex text-3xl items-center flex-wrap justify-center gap-6">
       <a href={YOUTUBE_URL}>
         <i className="fab fa-lg fa-fw fa-youtube"></i>
+      </a>
+      <a href="https://www.facebook.com/happysingingkids">
+        <i className="fab fa-lg fa-fw fa-facebook"></i>
       </a>
       <a href="https://www.instagram.com/happysingingkids">
         <i className="fab fa-lg fa-fw fa-instagram"></i>

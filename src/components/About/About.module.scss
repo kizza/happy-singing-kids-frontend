@@ -4,12 +4,6 @@
   text-align: center;
   padding-bottom: 3em;
 
-  h2 {
-    font-size: 1.6em;
-    font-family: $font;
-    font-weight: normal;
-  }
-
   .Me {
     margin: 1.2em 0;
     max-width: 100%;
@@ -37,21 +31,9 @@
 
     .Text {
       text-align: left;
-      @media (min-width: $breakpoint-tablet) {
-        p:first-child {
-          font-size: 1.6em;
-          margin-bottom: 1em;
-        }
-        font-size: 0.8em;
+      p {
+        font-size: 1.1rem;
       }
     }
-  }
-
-  @media (min-width: $breakpoint-tablet) {
-    font-size: 1em;
-  }
-
-  @media (min-width: $breakpoint-desktop) {
-    font-size: 1em;
   }
 }

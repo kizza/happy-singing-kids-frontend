@@ -20,6 +20,11 @@ import amazon from "../../assets/amazon.png";
 import Loading from "../Loading";
 import { ABC_KIDS_URL, SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
 import YouTube from "../YouTube";
+import { ReactComponent as AmazonIcon } from "../../assets/icons/amazon.svg";
+import { ReactComponent as AppleIcon } from "../../assets/icons/apple.svg";
+import { ReactComponent as SpotifyIcon } from "../../assets/icons/spotify.svg";
+import { ReactComponent as YouTubeIcon } from "../../assets/icons/youtube.svg";
+import IconLink from "../../components/IconLink";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -110,50 +115,46 @@ const Home = ({ happyPackOne }: Props) => {
   /*   renderForm() */
   /* )} */
 
-  return <div className={styles.Home}>
-    <div className={styles.Inner}>
-      <h2>
-        Kids songs you'll love to sing!
-        <br />
-        (they're a little bit different)
-      </h2>
+  return <div className={[styles.Home, "flex flex-col text-center space-y-10 px-2"].join(" ")}>
+    <div className="px-2 space-y-2 leading-relaxed">
+      <h2 className="font-bold">Kids songs you'll love to sing!</h2>
+      <p className="text-2xl">(they're a little bit different)</p>
     </div>
 
-    <p className={styles.ABCKidsListen}>
-      Now playing on
-      <button
-        onClick={redirectToService("ABCKids", ABC_KIDS_URL)}
-        style={{padding: ".5em 1em"}}
-        type="button"
-      >
-        <img src={abcKidsListen} alt="ABC Kids Listen" />
-      </button>
-    </p>
-
-    <div className={styles.Stores}>
-      <p>Or listen now via...</p>
-      <button
-        onClick={redirectToService("Spotify", SPOTIFY_URL)}
-        type="button"
-      >
-        <img src={spotify} alt="Listen now on Spotify" />
-      </button>
-      <button onClick={redirectToService("Amazon", AMAZON_URL)} type="button">
-        <img src={amazon} alt="Listen now on Amazon Music" />
-      </button>
-      <button onClick={redirectToService("Apple", APPLE_URL)} type="button">
-        <img src={apple} alt="Listen now on Apple Music" />
-      </button>
+    <div>
+      <h4 className="text-grape">Now playing on</h4>
+      <p className={styles.ABCKidsListen}>
+        <button
+          onClick={redirectToService("ABCKids", ABC_KIDS_URL)}
+          style={{padding: ".5em 1em"}}
+          type="button"
+        >
+          <img src={abcKidsListen} alt="ABC Kids Listen" />
+        </button>
+      </p>
     </div>
 
-    <div className={styles.Videos}>
-      <YouTube src="https://www.youtube.com/embed/videoseries?si=EF44vLkT0Vy_6MR0&amp;list=PL9mOhnHTMV-FdwyAe35qQnawNUcfu8GKm" title="Mystery Alphabet Reveal Series" />
+    <div className="space-y-6">
+      <h4 className="text-grape">Streaming live via...</h4>
+      <div className="flex justify-center flex-wrap gap-4 px-4 md:px-1">
+        <IconLink icon={YouTubeIcon} label="YouTube" href="https://www.youtube.com/@happysingingkids" />
+        <IconLink icon={SpotifyIcon} label="Spotify" href={SPOTIFY_URL} />
+        <IconLink icon={AmazonIcon} label="Amazon Music" href={AMAZON_URL} />
+        <IconLink icon={AppleIcon} label="Apple Music" href={APPLE_URL} />
+      </div>
+    </div>
 
-      <YouTube src="https://www.youtube.com/embed/videoseries?si=JodT8qCQ1gOCbyIR&amp;list=PL9mOhnHTMV-G_oTvYfDZYFvQxs5gHQDrx" title="Happy Highlights: Fun Favourites from Happy Singing Kids" />
+    <div>
+      <h4 className="text-grape mb-6">Or start watching below...</h4>
+      <div className={styles.Videos}>
+        <YouTube src="https://www.youtube.com/embed/videoseries?si=EF44vLkT0Vy_6MR0&amp;list=PL9mOhnHTMV-FdwyAe35qQnawNUcfu8GKm" title="Mystery Alphabet Reveal Series" />
 
-      <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
+        <YouTube src="https://www.youtube.com/embed/videoseries?si=JodT8qCQ1gOCbyIR&amp;list=PL9mOhnHTMV-G_oTvYfDZYFvQxs5gHQDrx" title="Happy Highlights: Fun Favourites from Happy Singing Kids" />
 
-      <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
+        <YouTube id="ffcZOl1QKMc" title="Teddy Bear you're the best!" />
+
+        <YouTube id="fdd5Wd6mDB4" title="Uh oh spaghetti-oh!" />
+      </div>
     </div>
   </div>;
 };
