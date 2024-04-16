@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import About from "../components/About";
+import About from "../pages/About";
 import Checkout from "../components/Checkout";
 import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
 import Dashboard from "../components/Dashboard";
