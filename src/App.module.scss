@@ -36,16 +36,8 @@
 $header-top: 0; //12rem;
 
 .Content {
-  // margin: $header-top 0 4rem;
-  float: left;
-  width: 100%;
-  margin: 0;
-  padding: 3em 0 2em;
   z-index: 1;
   color: $text;
-  // background: url(assets/background.png);
-  // background-size: cover;
-  // background: url(assets/geometry.png);
 
   &:after {
     content: "";
@@ -63,12 +55,6 @@ $header-top: 0; //12rem;
       padding: 0 0 0 0;
       max-width: 54em;
     }
-  }
-
-  // Content gradient
-  background: linear-gradient(180deg, $grass, #fafafa 20rem);
-  @media (min-width: $breakpoint-tablet) {
-    background: linear-gradient(180, $grass, #fafafa 100%, #fafafa 16rem);
   }
 }
 
@@ -140,10 +126,8 @@ p {
   margin: 0;
   font-size: 1em;
   font-family: inherit;
-  padding: 0 0.5em;
   @media (min-width: $breakpoint-tablet) {
     font-size: 1.3em;
-    padding: 0;
   }
 }
 
@@ -161,9 +145,11 @@ html {
 }
 
 a {
-  color: $text;
+  color: $purple;
+  text-decoration: underline;
+
   &:hover {
-    color: $purple;
+    color: $orange;
   }
 }
 

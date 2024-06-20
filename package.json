@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=production PORT=8080 react-scripts start",
+    "info": "serverless info",
     "build": "react-scripts build",
     "predeploy": "yarn test && yarn build",
     "deploy": "serverless deploy",

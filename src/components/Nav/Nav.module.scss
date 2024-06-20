@@ -41,11 +41,50 @@
     }
   }
   display: none;
+
+  // Display navigation inline
+  @media (min-width: $breakpoint-tablet) {
+    position: absolute;
+    display: block;
+    margin: auto;
+    bottom: auto;
+    pointer-events: none;
+    background: transparent;
+    top: 1.2rem;
+    width: 100%;
+    text-align: right;
+
+    li {
+      pointer-events: all;
+      display: inline-block;
+
+      a {
+        color: $text;
+
+        &.active {
+          background: transparent;
+          border-bottom: solid 4px $purple;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    width: var(--inner-width);
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }
 
 .Open {
   display: block;
 }
+
 .Closing {
   display: block;
 }

@@ -1,0 +1,21 @@
+@import "../../shared";
+
+.Title {
+  margin: 1rem 0 0;
+  font-family: "Chelsea Market";
+  font-weight: 400;
+  font-size: 1.8rem;
+  @apply leading-tight;
+
+  em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: $orange;
+  }
+
+  small {
+    font-style: italic;
+    font-size: 1.4rem;
+    display: block;
+  }
+}

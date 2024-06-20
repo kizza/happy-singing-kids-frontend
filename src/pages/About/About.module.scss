@@ -1,17 +1,15 @@
 @import "../../shared";
 
 .About {
-  text-align: center;
-  padding-bottom: 3em;
-
   .Me {
+    position: relative;
     margin: 1.2em 0;
     max-width: 100%;
     box-shadow: 0 0.6em 2em #cbdea0;
     border: solid 2px #fff;
     display: block;
     @media (min-width: $breakpoint-tablet) {
-      box-shadow: 0.6em 0.6em 1em #cbdea0;
+      box-shadow: 0.6em 0.6em 0 #cbdea0;
       margin: 0 0 1em 1em;
       max-width: 40%;
       display: inline;
@@ -19,21 +17,6 @@
     }
   }
 
-  .Inner {
-    @extend %text-content;
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-    @media (min-width: $breakpoint-tablet) {
-      flex-direction: row;
-      font-size: 1em;
-    }
-
-    .Text {
-      text-align: left;
-      p {
-        font-size: 1.1rem;
-      }
-    }
+  .Children {
   }
 }

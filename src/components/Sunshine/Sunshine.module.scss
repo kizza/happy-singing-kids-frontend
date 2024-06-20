@@ -1,0 +1,20 @@
+@import "../../shared";
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Sunshine {
+  animation: 80s linear 0s infinite spin;
+
+  div {
+    background-image: radial-gradient(circle, yellow, white);
+    height: 50px;
+  }
+}
+

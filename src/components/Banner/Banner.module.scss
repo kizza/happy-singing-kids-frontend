@@ -1,0 +1,97 @@
+@import "../../shared";
+
+%animating {
+  visibility: hidden;
+}
+
+%frame {
+  content: "";
+  display: block;
+  position: absolute;
+  float: left;
+  z-index: 50;
+  width: 70%;
+  height: 70%;
+  opacity: 0;
+  transition: all 0.4s 0.8s ease-out;
+}
+
+.Banner {
+  position: relative;
+  margin-bottom: 2rem;
+
+  &:before {
+    @extend %frame;
+    border-left: solid 0.5rem $aqua;
+    left: -1.5rem;
+    bottom: 0;
+    transform: translate(4rem, -1rem);
+  }
+
+  &:after {
+    @extend %frame;
+    border-right: solid 0.5rem $orange;
+    border-bottom: solid 0.5rem $orange;;
+    right: -1.5rem;
+    bottom: -1.5rem;
+    transform: translate(-4rem, -4rem);
+  }
+
+  .Loading {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    margin-left: -55%;
+    margin-top: -25%;
+  }
+
+  @keyframes circle {
+    0% { clip-path: circle(0); }
+    100% { clip-path: circle(100%); }
+  }
+
+  .Background {
+    @extend %animating;
+    animation: 1.5s ease-out 0.5s 1 circle;
+    clip-path: circle(0);
+    animation-fill-mode: forwards;
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+  }
+
+  // @keyframes popup {
+  //   0% { transform: translateY(100%) }
+  //   10% { transform: translateY(0) }
+  // }
+
+  .Girls {
+    @extend %animating;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .Logo {
+    @extend %animating;
+    position: absolute;
+    width: 34%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5%;
+    animation-delay: 1.1s;
+  }
+
+}
+
+.Animating {
+  &:before, &:after {
+    transform: rotate(-1deg) translate(0, 0);
+    opacity: 1;
+  }
+
+  .Background, .Girls, .Logo {
+    visibility: visible;
+  }
+}

@@ -2,32 +2,21 @@
 
 .Header {
   width: 100%;
+  height: 100%;
   position: relative;
-  overflow: hidden;
-  background-image: linear-gradient(to bottom, #cceef0, #fff);
   display: block;
-  float: left;
-
-  height: 83vw;
-  @media (min-width: $breakpoint-tablet) {
-    height: 49vw;
-  }
-  @media (min-width: $breakpoint-desktop) {
-    height: 30vw;
-  }
+  background-image: linear-gradient(to bottom, #cceef0, #fff);
 
   .Logo {
-    margin-top: 3em;
-    @media (min-width: $breakpoint-tablet) {
-      margin-top: 0.5em;
-    }
-  }
+    position: relative;
+    z-index: 100;
 
-  .Overlay {
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-    margin: 0 auto;
+    width: 13rem;
+    h1 { height: 8rem; }
+
+    @media (min-width: $breakpoint-tablet) {
+      width: 8rem;
+    }
   }
 }
 
@@ -36,28 +25,23 @@
 }
 
 .Sky {
-  @extend %floating;
-  border: solid 1px blue;
+  position: absolute;
+  width: 100%;
+  height: 18rem;
+  height: 12rem;
   top: 0;
-  right: 0;
-  bottom: 0;
-  right: 0;
+
+  .Clouds {
+    position: relative;
+    padding-left: 10rem;
+    height: 100%;
+    bottom: 0;
+  }
 }
 
-.Clouds {
-  @extend %floating;
-  bottom: 0;
-  width: 120%;
-  margin-left: -10rem;
-  height: auto;
-  // animation-duration: 2s; /* don't forget to set a duration! */
-  // --animate-duration: 3s;
-  // --animate-delay: 1s;
-  // --animate-repeat: 1;
-  @media (min-width: $breakpoint-tablet) {
-    width: 60%;
-    margin-left: 10rem;
-  }
+.Hero {
+  position: relative;
+  height: 100%;
 }
 
 .Tree {
@@ -71,10 +55,9 @@
 }
 
 .Grass {
-  @extend %floating;
-  height: 24px;
+  display: flex;
   width: 100%;
-  bottom: -0.5em;
+  margin-top: -1.2em;
   background: $grass;
 }
 
@@ -105,8 +88,8 @@
   font-size: 1.8em;
   position: absolute;
   z-index: 100;
-  top: 0.4em;
-  left: 0.4em;
+  top: 0.6em;
+  left: 0;
   padding: 0.5em;
   width: 1.2em;
   height: 1.2em;
@@ -127,20 +110,6 @@
   }
 
   @media (min-width: $breakpoint-tablet) {
-    background: #afdcde;
-    color: #fff;
-    font-size: 2.2em;
-    right: -0.8em;
-
-    i {
-      color: white;
-    }
-
-    &:hover {
-      background: $primary;
-      color: #fff;
-      i {
-      }
-    }
+    display: none;
   }
 }

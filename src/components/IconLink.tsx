@@ -19,16 +19,19 @@ export default ({icon: Icon, href, label}: Props) => {
 
   const styles = `
     flex items-center space-x-2
-    text-forrest-dark rounded-xl p-3 pr-4
+    text-aqua rounded-lg p-3 pr-4
+    font-bold
     underline
     w-full
     md:w-auto
-    border-solid
-    border-2
-    text-2xl md:text-xl lg:text-base
-    border-forrest-dark
+    text-2xl md:text-xl lg:text-sm
     hover:bg-forrest-light
     hover:text-grape
+    border-solid
+    border-aqua
+    border-2
+    shadow-square
+    shadow-grape
   `
   return (
     <a href={href} className={styles} onClick={trackClick(label)}>

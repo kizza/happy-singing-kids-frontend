@@ -13,9 +13,9 @@ body {
 
   background: #FFFD77;
   background: #FFE882;
-  background: #ffefaa;
+  background: #fff;
 
-  background: url(assets/geometry.png);
+  /* background: #fff url(assets/geometry.png); */
   max-width: 100%;
 }
 
@@ -23,3 +23,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

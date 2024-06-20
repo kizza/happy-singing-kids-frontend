@@ -1,0 +1,30 @@
+@import "../../shared";
+
+@keyframes driftLeft {
+  100% { left: -35rem; }
+}
+
+.Cloud {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: end;
+  animation: 60s linear 0s 1 driftLeft;
+  animation-fill-mode: forwards;
+
+  &.Repeat {
+    animation-iteration-count: infinite;
+  }
+
+  .Mound {
+    @apply bg-white;
+    bottom: 0;
+    border-radius: 9999px;
+    border-color: #d2f0f2;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-left-radius: 2000px 2000px;
+    border-bottom-right-radius: 2000px 2000px;
+  }
+}

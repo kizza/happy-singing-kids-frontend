@@ -11,23 +11,37 @@
 
 # Lift
 org: kizza
-app: happy-singing-kids-frontend
+app: happy-singing-kids
 service: frontend
 frameworkVersion: '3'
 
 provider:
   name: aws
+  stage: ${opt:stage, "dev"}
+  stackName: ${self:app}-${self:service}-${self:provider.stage}
 
 plugins:
   - serverless-lift
+
+# stages: Use stages when using version 4
+custom:
+  dev:
+    params:
+      domain:
+        - dev.happysingingkids.com
+
+  prod:
+    params:
+      domain:
+        - happysingingkids.com
+        - www.happysingingkids.com
 
 constructs:
   react:
     type: single-page-app
     path: build
-    domain:
-      - happysingingkids.com
-      - www.happysingingkids.com
+    domain: ${self:custom.${self:provider.stage}.params.domain}
+    # domain: ${param:domain}
     certificate: arn:aws:acm:us-east-1:373532833815:certificate/e939d16b-4dfd-45d9-a1c1-697a299f29d7
 
 # website:

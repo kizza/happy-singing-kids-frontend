@@ -1,0 +1,123 @@
+@import "../../shared";
+@use "../../shared" as *;
+
+%floating {
+  position: absolute;
+}
+
+.Home {
+  .FullBleed {
+    // background: red;
+    // box-shadow: 0 0 0 100vmax red;
+    // clip-path: inset(0 -100vmax);
+  }
+
+  .Banner {
+    img {
+      margin-inline: auto;
+      border-top: solid 0.5rem white;
+      border-right: solid 1rem white;
+      border-bottom: solid 1rem white;
+      border-left: solid 0.5rem white;
+    }
+  }
+
+  .Left {
+    // "flex flex-col space-y-4 lg:space-y-8 lg:basis-2/3">
+  }
+
+  .Right {
+  }
+
+  .Edinburgh {
+    position: relative;
+    $img-width: 6rem;
+    $img-gap: 1rem;
+    margin-right: $img-gap + $img-width;
+
+    p {
+      margin-top: 1rem;
+    }
+
+    img {
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      margin-right: -1 * ($img-gap + $img-width);
+      width: $img-width;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-right: 0;
+
+      p {
+        margin-left: $img-width;
+      }
+
+      img {
+        position: relative;
+        float: left;
+        margin-left: -1 * $img-gap;
+      }
+    }
+  }
+
+  .Book {
+    @apply basis-1/3;
+    position: relative;
+    $img-width: 8rem;
+    $img-gap: 1rem;
+    margin-right: $img-gap + $img-width;
+
+    p {
+      margin-top: 1rem;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: -1 * ($img-gap + $img-width);
+      width: $img-width;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      $img-width: 6rem;
+      $img-gap: 2rem;
+      margin-right: 0;
+
+      p {
+        margin-right: $img-width;
+      }
+
+      img {
+        position: relative;
+        float: right;
+        margin-top: 0.5rem;
+        margin-right: -1 * $img-gap;
+      }
+    }
+  }
+
+  .Grass {
+    background: linear-gradient(180deg, $grass, #fafafa 20rem);
+  }
+
+  .Polaroids {
+
+  }
+
+  .Tree {
+    @extend %floating;
+    bottom: 0;
+    right: 0;
+    height: 70%;
+    @media (min-width: $breakpoint-desktop) {
+      display: none;
+    }
+  }
+
+  .Children {
+    margin-top: -10rem;
+  }
+}

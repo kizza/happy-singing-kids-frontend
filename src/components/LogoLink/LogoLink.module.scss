@@ -1,0 +1,25 @@
+@import "../../shared";
+
+.LogoLink {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &:hover {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.8rem;
+      border-bottom: solid 4px $orange;
+      transform: rotate(-1deg);
+    }
+  }
+}
