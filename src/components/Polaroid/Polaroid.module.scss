@@ -1,0 +1,45 @@
+@import "../../shared";
+
+.Polaroid {
+  width: 38%;
+  position: relative;
+  margin-left: -14%;
+  margin-top: -10%;
+
+  figure {
+    background: #fff;
+    padding: 1em;
+    padding-bottom: 4em;
+    border-radius: 0.25em;
+    // box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.2);
+    transition: all 0.35s;
+    transform: scale(0.6, 0.6);
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  span {
+    content: '';
+    position: absolute;
+    // z-index: -1;
+    transition: all 0.45s;
+
+    transform: rotate(-6deg);
+    height: 20%;
+    width: 28%;
+    box-shadow: 0 1.1rem 2rem rgba(0, 0, 0, 0.4);
+  }
+
+
+  &:hover{
+    z-index: 5;
+
+    figure {
+      transform: scale(1, 1) rotate(0deg) !important;
+    }
+  }
+}

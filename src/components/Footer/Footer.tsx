@@ -4,8 +4,8 @@ import styles from "./Footer.module.scss";
 
 const Footer = () => (
   <div className={styles.Footer}>
-    <h4>Find more <span className="hidden md:inline">content</span> at</h4>
-    <div className="flex text-3xl items-center flex-wrap justify-center gap-6">
+    <h4>Find more <span className="md:inline">content</span> at</h4>
+    <div className="flex mx-10 text-3xl items-center flex-wrap justify-center gap-6">
       <a href={YOUTUBE_URL}>
         <i className="fab fa-lg fa-fw fa-youtube"></i>
       </a>

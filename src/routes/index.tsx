@@ -1,12 +1,14 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import About from "../pages/About";
+import Contact from "../pages/Contact";
 import Checkout from "../components/Checkout";
 import { Currency } from "../components/CurrencyPicker/CurrencyPicker";
 import Dashboard from "../components/Dashboard";
 import Download from "../components/Download";
 import ExternalRedirect from "../components/ExternalRedirect";
 import Home from "../components/Home";
+import NewHome from "../pages/Home";
 import Resources from "../components/Resources";
 import Success from "../components/Success";
 import { AMAZON_URL, APPLE_URL, GOOGLE_URL, SPOTIFY_URL } from "../consts";
@@ -51,7 +53,8 @@ export default (
   <Switch>
     <Route exact path="/(cancel)?">
       {/* <p style={{ textAlign: "center" }}>Coming soon</p> */}
-      <Home happyPackOne={happyPackOne} />
+      {/* <Home happyPackOne={happyPackOne} /> */}
+      <NewHome />
     </Route>
 
     <Route exact path="/test">
@@ -91,14 +94,7 @@ export default (
     </Route>
 
     <Route path="/contact">
-      <p style={{ textAlign: "center" }}>
-        Get in touch at{" "}
-        <a href="mailto:happysingingkids@gmail.com">
-          happysingingkids@gmail.com
-        </a>
-        ,
-        <br /> we'd love to hear from you!
-      </p>
+      <Contact />
     </Route>
 
     {/* Redirect urls */}

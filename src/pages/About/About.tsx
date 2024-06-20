@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./About.module.scss";
 import me from "../../assets/me.jpg";
+import singingKids from "../../assets/hero/happy-singing-kids.png";
+import Header from "components/Header";
 
 const About = () => (
   <div className={styles.About}>
+    <Header clouds={false} />
     <div className={styles.Inner}>
       <div className={[styles.Text, "space-y-8"].join(" ")}>
         <div className="space-y-6">
-          <h2 className="text-3xl"><strong>Renowned composer and vocalist Susanna O’Leary is a creative powerhouse</strong>, delighting fans young and old with her incredible talent and infectious enthusiasm.</h2>
+          <h2 className="text-2xl"><strong>Renowned composer and vocalist Susanna O’Leary is a creative powerhouse</strong>, delighting fans young and old with her incredible talent and infectious enthusiasm.</h2>
           <h4 className="text-xl">Her latest project, "Happy Singing Kids," is a delightful sonic adventure that captures Susanna’s playful spirit, showcasing fun-loving and sometimes downright silly tunes that have listeners tapping their toes and singing along.</h4>
         </div>
 
@@ -55,7 +58,13 @@ const About = () => (
         She is eagerly anticipating the release of her new book in the near future, as well as her forthcoming
         performances at the Edinburgh Fringe Festival this coming July.</p>
       </div>
+
     </div>
+    <img
+      src={singingKids}
+      className={[styles.Children, "box-content"].join(" ")}
+      alt="Children singing music"
+    />
   </div>
 );
 

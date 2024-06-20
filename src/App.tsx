@@ -14,6 +14,8 @@ import { useToggleState } from "./hooks/useToggleState";
 import "./Typography.module.scss";
 import Footer from "./components/Footer";
 import { useAnalytics } from "./hooks/useAnalytics";
+import { NavContext } from "hooks/useNav";
+import Sunshine from "components/Sunshine";
 
 export default () => {
   const [popupContent, setPopupContent] = useState<string>("");
@@ -64,6 +66,8 @@ export default () => {
   // Now playing
   const [currentSong, setCurrentSong] = useState<string>("");
 
+  const navContext = { openMenu }
+
   const nowPlayingValue = {
     currentSong,
     setCurrentSong: (newSong: string) => {
@@ -81,13 +85,12 @@ export default () => {
       <PopupContext.Provider value={popupContentValue}>
         <Router>
           <div className={bodyClasses}>
-            <Header openMenu={openMenu} />
-            <div
-              className={classnames(styles.Content, showMask && styles.Blurred)}
-            >
-              <NowPlayingContext.Provider value={nowPlayingValue}>
-                <div className={styles.Inner}>{routes}</div>
-              </NowPlayingContext.Provider>
+            <div className={classnames(styles.Content, showMask && styles.Blurred)}>
+              <NavContext.Provider value={navContext}>
+                <NowPlayingContext.Provider value={nowPlayingValue}>
+                  {routes}
+                </NowPlayingContext.Provider>
+              </NavContext.Provider>
             </div>
             <Footer />
           </div>

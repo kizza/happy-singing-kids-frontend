@@ -20,11 +20,15 @@ import amazon from "../../assets/amazon.png";
 import Loading from "../Loading";
 import { ABC_KIDS_URL, SPOTIFY_URL, AMAZON_URL, APPLE_URL } from "../../consts";
 import YouTube from "../YouTube";
+import Photo from "../../assets/polaroids/one.jpg";
+import Photo2 from "../../assets/polaroids/two.jpg";
+import Photo3 from "../../assets/polaroids/three.jpg";
 import { ReactComponent as AmazonIcon } from "../../assets/icons/amazon.svg";
 import { ReactComponent as AppleIcon } from "../../assets/icons/apple.svg";
 import { ReactComponent as SpotifyIcon } from "../../assets/icons/spotify.svg";
 import { ReactComponent as YouTubeIcon } from "../../assets/icons/youtube.svg";
 import IconLink from "../../components/IconLink";
+import Polaroid from "../../components/Polaroid";
 
 interface Props {
   happyPackOne: Record<Currency, CartItem>;
@@ -119,6 +123,18 @@ const Home = ({ happyPackOne }: Props) => {
     <div className="px-2 space-y-2 leading-relaxed">
       <h2 className="font-bold">Kids songs you'll love to sing!</h2>
       <p className="text-2xl">(they're a little bit different)</p>
+    </div>
+
+    <div className={[styles.FullBleed, "flex flex-wrap ml-[14%]"].join(" ")}>
+      <Polaroid src={Photo} />
+      <Polaroid src={Photo2} rotation={-5} />
+      <Polaroid src={Photo3} rotation={2} />
+      <Polaroid src={Photo} />
+
+      <Polaroid src={Photo} rotation={-3} />
+      <Polaroid src={Photo2} rotation={-3} />
+      <Polaroid src={Photo3} rotation={2} />
+      <Polaroid src={Photo} />
     </div>
 
     <div>
