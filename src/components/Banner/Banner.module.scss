@@ -1,4 +1,4 @@
-@import "../../shared";
+@import "@/styles/shared";
 
 %animating {
   visibility: hidden;
@@ -52,9 +52,7 @@
 
   .Background {
     @extend %animating;
-    animation: 1.5s ease-out 0.5s 1 circle;
     clip-path: circle(0);
-    animation-fill-mode: forwards;
     transition-timing-function: ease-out;
     transition-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
   }
@@ -71,7 +69,7 @@
   }
 
   .Logo {
-    @extend %animating;
+    // @extend %animating;
     position: absolute;
     width: 34%;
     top: 0;
@@ -80,9 +78,16 @@
     right: 0;
     margin: auto;
     margin-top: 5%;
-    animation-delay: 1.1s;
-  }
+    animation-delay: 0.4s;
 
+    // Don't show banner logo in mobile
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      & {
+        display: block;
+      }
+    }
+  }
 }
 
 .Animating {
@@ -91,7 +96,12 @@
     opacity: 1;
   }
 
-  .Background, .Girls, .Logo {
+  .Background {
+    visibility: visible;
+    animation: 1.5s ease-out 0s 1 circle forwards;
+  }
+
+  .Girls {
     visibility: visible;
   }
 }

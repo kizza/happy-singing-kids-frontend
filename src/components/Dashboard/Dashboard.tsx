@@ -62,7 +62,7 @@ const Dashboard = (props: Props) => {
 
   const renderItems = (links: CartItem[]) => (
     <>
-      <div className={styles.Inner}>
+      <div className={"inner"}>
         {thankyou && thanks()}
         {instructions()}
       </div>

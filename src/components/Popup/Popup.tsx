@@ -27,7 +27,7 @@ export default ({ showing, closing, content, onClose }: Props) => {
       >
         <div className={styles.PopupInner}>
           <button type="button" onClick={onClose}>
-            <i className="fa fa-fw fa-times"></i>
+            <i className="fa fa-fw fa-times" aria-hidden></i>
           </button>
           <div
             className={styles.PopupContent}

@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
+import Image from "next/image"
 import styles from "./Banner.module.scss";
-import background from "../../assets/hero/banner-background.jpg";
-import girls from "../../assets/hero/banner-girls.png";
-import logo from "../../assets/hero/banner-logo.png";
+import background from "@/assets/hero/banner-background.jpg";
+import girls from "@/assets/hero/banner-girls.png";
+import logo from "@/assets/hero/banner-logo.png";
 import classnames from "classnames"
-import useImagesLoaded from "hooks/useImagesLoaded";
-import Loading from "components/Loading";
+import useImagesLoaded from "@/hooks/useImagesLoaded";
+import Loading from "@/components/Loading";
 
 interface Props {
   onShow?: () => void;
@@ -15,7 +16,7 @@ export default ({onShow}: Props) => {
   const imageContainerRef = useRef(null);
   const imagesLoaded = useImagesLoaded(imageContainerRef);
   const [animate, setAnimate] = useState(false);
-  const delay = 100
+  const delay = 0
 
   useEffect(() => {
     if (imagesLoaded) {
@@ -37,8 +38,8 @@ export default ({onShow}: Props) => {
   >
     { !animate && <Loading className={styles.Loading} /> }
 
-    <img src={background} className={styles.Background} alt="Colourful background"/>
-    <img src={girls}
+    <Image src={background} className={styles.Background} priority={true} alt="Colourful background"/>
+    <Image src={girls}
       className={classnames(
         styles.Girls,
         "animate__fadeIn",
@@ -46,14 +47,14 @@ export default ({onShow}: Props) => {
         animate && "animate__animated",
       )}
       alt="The Happy Singing Kids Team" />
-    <img src={logo}
+    {animate && <Image src={logo}
       className={classnames(
         styles.Logo,
         "animate__jackInTheBox",
         // "animate__zoomInDown",
         // "animate__delay-2s",
-        animate && "animate__animated",
+        "animate__animated",
       )}
-      alt="Happy Singing Kids" />
+      alt="Happy Singing Kids" />}
   </div>
 };

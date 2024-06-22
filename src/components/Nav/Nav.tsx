@@ -1,30 +1,30 @@
 import classnames from "classnames";
 import React, { useEffect, useState } from "react";
-import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
 import { useAnalytics } from "../../hooks/useAnalytics";
 import styles from "./Nav.module.scss";
+import NavLink from "@/components/NavLink";
 
-interface Props extends RouteComponentProps {
+interface Props {
   open: boolean;
   closing: boolean | undefined;
   closeMenu: () => void;
 }
 
-const useRouteChange = (location: RouteComponentProps["location"]) => {
-  const { pathname } = location;
-  const { trackPageView } = useAnalytics();
-  const [trackedPath, setTrackedPath] = useState<string>(pathname);
+// const useRouteChange = (location: RouteComponentProps["location"]) => {
+//   const { pathname } = location;
+//   const { trackPageView } = useAnalytics();
+//   const [trackedPath, setTrackedPath] = useState<string>(pathname);
 
-  useEffect(() => {
-    if (pathname !== trackedPath) {
-      setTrackedPath(pathname);
-      trackPageView(pathname);
-    }
-  }, [pathname]);
-};
+//   useEffect(() => {
+//     if (pathname !== trackedPath) {
+//       setTrackedPath(pathname);
+//       trackPageView(pathname);
+//     }
+//   }, [pathname]);
+// };
 
-const Nav = ({ open, closing, closeMenu, location }: Props) => {
-  useRouteChange(location);
+const Nav = ({ open, closing, closeMenu }: Props) => {
+  // useRouteChange(location);
 
   return (
     <>
@@ -39,17 +39,16 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
       >
         <li>
           <NavLink
-            to="/"
+            href="/"
             onClick={closeMenu}
             activeClassName={styles.active}
-            exact
           >
             Home
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/uh-oh-spaghetti-oh"
+            href="/uh-oh-spaghetti-oh"
             onClick={closeMenu}
             activeClassName={styles.active}
           >
@@ -58,7 +57,7 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
         </li>
         <li>
           <NavLink
-            to="/about"
+            href="/about"
             onClick={closeMenu}
             activeClassName={styles.active}
           >
@@ -76,7 +75,7 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
         {/* </li> */}
         <li>
           <NavLink
-            to="/contact"
+            href="/contact"
             onClick={closeMenu}
             activeClassName={styles.active}
           >
@@ -88,4 +87,4 @@ const Nav = ({ open, closing, closeMenu, location }: Props) => {
   );
 };
 
-export default withRouter(Nav);
+export default Nav;

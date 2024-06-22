@@ -1,8 +1,10 @@
+import Image from "next/image"
 import React from "react";
 import styles from "./Polaroid.module.scss";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface Props {
-  src: string
+  src: string | StaticImport
   rotation?: number
 }
 
@@ -19,7 +21,7 @@ const Polaroid = ({ src, rotation = 5 }: Props) => {
     <div className={styles.Polaroid}>
       <span style={{bottom: '30%', [randomDirection()]: '30%'}}></span>
       <figure style={withRotation(rotation)}>
-        <img src={src} alt="Polaroid photo" />
+        <Image src={src} alt="Polaroid photo" />
       </figure>
     </div>
   )

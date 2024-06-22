@@ -1,7 +1,8 @@
+import Image from "next/image"
 import classnames from "classnames";
 import React from "react";
 import moduleStyles from "./LogoLink.module.scss";
-import WithStyles from "components/WithStyles";
+import WithStyles from "@/components/WithStyles";
 
 interface Props {
   styles?: string[];
@@ -29,7 +30,7 @@ const LogoLink = ({ styles: externalStyles, logo, url, label }: Props) => (
     styles,
     ...(externalStyles || [])
   )}>
-    <img src={logo} alt={label} className="w-full" />
+    <Image src={logo} alt={label} className="w-full" />
   </a>
 );
 

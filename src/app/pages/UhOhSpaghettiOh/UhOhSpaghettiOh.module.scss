@@ -1,0 +1,27 @@
+@import "@/styles/shared";
+
+.Home {
+  text-align: center;
+
+  ul {
+    text-align: left;
+  }
+
+  .BookCover {
+    img {
+      width: clamp(8rem, 80%, 30rem);
+      @apply my-8;
+      @media (min-width: $breakpoint-tablet) {
+      }
+    }
+  }
+
+  .Children {
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: -6rem;
+    }
+  }
+}

@@ -1,11 +1,11 @@
-@import "../../shared";
+@import "@/styles/shared";
 
 .LogoLink {
   position: relative;
   overflow: hidden;
 
   img {
-    width: 100%;
+    width: auto;
     max-width: 100%;
     height: auto;
     object-fit: contain;

@@ -1,19 +1,6 @@
-# name: happy-singing-kids-frontend
-# org: kizza
-# component: website
-# inputs:
-#   src:
-#     src: ./src
-#     hook: npm run build
-#     dist: ./build
-#   bucketName: happy-singing-kids-frontend
-#   domain: happysingingkids.com
-
-# Lift
 org: kizza
 app: happy-singing-kids
 service: frontend
-frameworkVersion: '3'
 
 provider:
   name: aws
@@ -38,18 +25,15 @@ custom:
 
 constructs:
   react:
-    type: single-page-app
-    path: build
+    type: static-website
+    path: out
     domain: ${self:custom.${self:provider.stage}.params.domain}
-    # domain: ${param:domain}
+    redirectToMainDomain: true
     certificate: arn:aws:acm:us-east-1:373532833815:certificate/e939d16b-4dfd-45d9-a1c1-697a299f29d7
 
-# website:
-#   component: '@serverless/website'
-#   inputs:
-#     code:
-#       src: build
-#       hook: npm run build
-#     region: us-east-1
-#     bucketName: oleary-demo-react-app
-#     # domain: purchase.happysingingkids.com
+resources:
+  # Use stackName for automatic outputs (to avoid service-stage class with other apps)
+  Outputs:
+    ServerlessDeploymentBucketName:
+      Export:
+        Name: ${self:provider.stackName}-ServerlessDeploymentBucketName
