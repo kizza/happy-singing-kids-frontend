@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import-normalize;
+
+@import "@/styles/shared";
+
+body {
+  --outer-width: 1000px;
+  --inner-width: 900px
+}
+@media (min-width: $breakpoint-tablet) {
+  body {
+    --outer-width: 1200px;
+    --inner-width: 1000px
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  section {
+    width: unquote("min(100% - 2rem, var(--outer-width))");
+    margin-inline: auto;
+  }
+}
+  /* border-left: dotted 1px purple; */
+  /* border-right: dotted 1px purple; */
+  /* border: solid 1px purple; */
+
+.inner {
+  position: relative; // To fly above the clouds
+  margin-inline: auto;
+  width: unquote("min(100% - 2rem, var(--inner-width))");
+}
+
+// body {
+//   border: solid 1px green;
+//   @media (min-width: $breakpoint-tablet) {
+//     border: solid 1px orange;
+//   }
+//   @media (min-width: $breakpoint-desktop) {
+//       border: solid 1px purple;
+//   }
+// }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'Preahvihear', system-ui, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: #FFFD77;
+  background: #FFE882;
+  background: #fff;
+
+  /* background: #fff url(assets/geometry.png); */
+  max-width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+

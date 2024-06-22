@@ -1,6 +1,5 @@
+import WithStyles from "@/components/WithStyles";
 import classnames from "classnames";
-import WithStyles from "components/WithStyles";
-import React from "react";
 import styles from "./Title.module.scss";
 
 interface Props {

@@ -26,20 +26,20 @@ const Mound = ({ size, classes = "" }: MoundProps) =>
 
 const formations = {
   primary: [
-    <Mound size={'large'} />,
-    <Mound size={'small'} classes="-ml-8"/>,
-    <Mound size={'regular'} classes="-ml-6"/>,
+    <Mound key={1} size={'large'} />,
+    <Mound key={2} size={'small'} classes="-ml-8"/>,
+    <Mound key={3} size={'regular'} classes="-ml-6"/>,
   ],
   secondary: [
-    <Mound size={'medium'} />,
-    <Mound size={'large'} classes="-ml-10"/>,
-    <Mound size={'small'} classes="-ml-8"/>,
+    <Mound key={1} size={'medium'} />,
+    <Mound key={2} size={'large'} classes="-ml-10"/>,
+    <Mound key={3} size={'small'} classes="-ml-8"/>,
   ],
   tertiary: [
-    <Mound size={'small'} />,
-    <Mound size={'medium'} classes="-ml-10"/>,
-    <Mound size={'large'} classes="-ml-8"/>,
-    <Mound size={'small'} classes="-ml-8"/>,
+    <Mound key={1} size={'small'} />,
+    <Mound key={2} size={'medium'} classes="-ml-10"/>,
+    <Mound key={3} size={'large'} classes="-ml-8"/>,
+    <Mound key={4} size={'small'} classes="-ml-8"/>,
   ]
 }
 

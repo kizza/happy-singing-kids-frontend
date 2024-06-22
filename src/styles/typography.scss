@@ -1,0 +1,95 @@
+@import "./shared";
+
+body {
+  font-size: 16px;
+}
+
+/*
+ * Typography
+ */
+
+:root {
+  --size: 400;
+}
+
+html {
+  font-size: calc(16 * 100vw / var(--size));
+}
+
+@media (min-width: $breakpoint-tablet) {
+  :root {
+    --size: 800;
+  }
+
+  html {
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  :root {
+    --size: 1300;
+  }
+
+  html {
+    font-size: 22px;
+  }
+}
+
+/* Rhythm */
+
+h1,
+h2,
+h3 {
+  font-family: var(--title-font);
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 1em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 2.2rem;
+  }
+}
+
+h4 {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1.6rem;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1.4rem;
+  }
+}
+
+p {
+  margin: 0;
+  font-size: 1em;
+  font-family: inherit;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1.3em;
+  }
+}
+
+h2 + p {
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+a {
+  color: $purple;
+  text-decoration: underline;
+
+  &:hover {
+    color: $orange;
+  }
+}

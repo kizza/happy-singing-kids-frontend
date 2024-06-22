@@ -1,9 +1,9 @@
-import React from "react";
-import {AMAZON_URL, SPOTIFY_URL, TIKTOK_URL, YOUTUBE_URL} from "../../consts";
+import classnames from "classnames";
+import { AMAZON_URL, SPOTIFY_URL, TIKTOK_URL, YOUTUBE_URL } from "../../consts";
 import styles from "./Footer.module.scss";
 
 const Footer = () => (
-  <div className={styles.Footer}>
+  <div className={classnames(styles.Footer, "flex flex-col flex-grow")}>
     <h4>Find more <span className="md:inline">content</span> at</h4>
     <div className="flex mx-10 text-3xl items-center flex-wrap justify-center gap-6">
       <a href={YOUTUBE_URL}>

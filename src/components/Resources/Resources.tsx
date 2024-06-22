@@ -21,7 +21,7 @@ export default () => {
 
   const renderForm = () => (
     <>
-      <div className={styles.Inner}>
+      <div className={"inner"}>
         <h2>Chord charts to keep up with the kids!</h2>
         <p>
           Download the chord charts below to play along with the kids - and
@@ -31,7 +31,7 @@ export default () => {
 
       <ResourceList items={items} />
 
-      <div className={styles.Inner}>
+      <div className={"inner"}>
         <p className={styles.Small}>Or download them all as a zip file below</p>
       </div>
 

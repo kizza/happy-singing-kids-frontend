@@ -5,7 +5,7 @@ import { formatPrice } from "../../helpers";
 import { useCartItems } from "../../hooks/useCartItems";
 import Button from "../Button";
 import Loading from "../Loading";
-import SongList from "../SongList";
+// import SongList from "../SongList";
 import styles from "./Checkout.module.scss";
 import { useStripeCheckout } from "../../hooks/useStripeCheckout";
 
@@ -32,11 +32,11 @@ const Checkout = () => {
     await openCheckoutSession(items);
   };
 
+      // <SongList items={items} toggleItem={toggleItem} />
   const renderForm = () => (
     <form onSubmit={handleSubmit}>
       <p>Select the songs you wish to purchase from the list below.</p>
 
-      <SongList items={items} toggleItem={toggleItem} />
 
       <div className={styles.Details}>
         {total && <p className={styles.Total}>Total {formatPrice(total)}</p>}
