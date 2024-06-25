@@ -13,7 +13,7 @@ interface Props {
 
 const styles = `
   flex items-center space-x-2
-  text-aqua rounded-lg py-3 px-5
+  text-aqua rounded-lg
   font-bold
   underline
   border-solid
