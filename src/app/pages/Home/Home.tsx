@@ -116,14 +116,14 @@ const Home = () => {
             styles.FullBleed,
             "flex flex-wrap ml-[14%] pt-[6%]",
           ].join(" ")}>
-            <Polaroid src={Photo} />
+            <Polaroid src={Photo} shadow="right" />
             <Polaroid src={Photo2} rotation={-5} />
             <Polaroid src={Photo3} rotation={2} />
-            <Polaroid src={Photo4} />
+            <Polaroid src={Photo4} shadow="right" />
 
             <Polaroid src={Photo5} rotation={-3} />
             <Polaroid src={Photo2} rotation={-3} />
-            <Polaroid src={Photo3} rotation={2} />
+            <Polaroid src={Photo3} rotation={2} shadow="right" />
             <Polaroid src={Photo4} />
           </div>
 
