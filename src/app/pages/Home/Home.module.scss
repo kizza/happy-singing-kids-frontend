@@ -36,7 +36,7 @@
     margin-right: $img-gap + $img-width;
 
     p {
-      margin-top: 1rem;
+      // margin-top: 1rem;
     }
 
     img {
@@ -69,10 +69,6 @@
     $img-gap: 1rem;
     margin-right: $img-gap + $img-width;
 
-    p {
-      margin-top: 1rem;
-    }
-
     img {
       position: absolute;
       top: 0;
@@ -81,20 +77,31 @@
       width: $img-width;
     }
 
+    @media (min-width: $breakpoint-tablet) {
+      $img-width: 12rem;
+      $img-gap: 1rem;
+      margin-right: $img-gap + $img-width;
+      img {
+        margin-right: -1 * ($img-gap + $img-width);
+        width: $img-width;
+      }
+    }
+
     @media (min-width: $breakpoint-desktop) {
-      $img-width: 6rem;
-      $img-gap: 2rem;
+      $img-width: 7rem;
+      $img-gap: 1rem;
       margin-right: 0;
 
       p {
-        margin-right: $img-width;
+        margin-right: $img-width - $img-gap;
       }
 
       img {
         position: relative;
         float: right;
         margin-top: 0.5rem;
-        margin-right: -1 * $img-gap;
+        margin-right: -2 * $img-gap;
+        width: $img-width;
       }
     }
   }
@@ -118,7 +125,11 @@
   }
 
   .Children {
-    margin-top: -10rem;
     margin-bottom: -1rem;
+
+    margin-top: -5rem;
+    @media (min-width: $breakpoint-desktop) {
+      margin-top: -10rem;
+    }
   }
 }

@@ -7,7 +7,7 @@ import styles from "./Contact.module.scss";
 const Contact = () => (
   <div className={classnames(styles.Contact, "flex flex-col")}>
     <Header />
-    <div className={"inner"}>
+    <div className="inner">
       <p className="mt-4 text-xl text-center">
         Get in touch at{" "}
         <a href="mailto:happysingingkids@gmail.com">

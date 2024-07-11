@@ -1,17 +1,10 @@
 "use client"
 
-import AmazonIcon from "@/assets/icons/amazon.svg";
-import AppleIcon from "@/assets/icons/apple.svg";
-import SpotifyIcon from "@/assets/icons/spotify.svg";
-import YouTubeIcon from "@/assets/icons/youtube.svg";
 import Cloud from "@/components/Cloud";
-import IconLink from "@/components/IconLink";
 import Logo from "@/components/Logo";
 import Sunshine from "@/components/Sunshine";
-import Title from "@/components/Title";
 import { NavContext } from "@/hooks/useNav";
 import { ReactNode, useContext } from "react";
-import { AMAZON_URL, APPLE_URL, SPOTIFY_URL } from "../../consts";
 import styles from "./Header.module.scss";
 
 interface Props {
@@ -31,22 +24,6 @@ const Header = ({ children, clouds = true }: Props) => {
             <path d="M3 6.00092H21M3 12.0009H21M3 18.0009H21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
-
-        {false && <>
-          <Title>
-            Kids songs <em>you'll love</em> to sing!
-            <small>(They're a little bit different)</small>
-          </Title>
-
-          <div className="pb-6 -ml-3 -mt-2">
-            <div className="flex justify-left flex-wrap gap-4 px-4 md:px-1">
-              <IconLink icon={YouTubeIcon} label="YouTube" href="https://www.youtube.com/@happysingingkids" />
-              <IconLink icon={SpotifyIcon} label="Spotify" href={SPOTIFY_URL} />
-              <IconLink icon={AmazonIcon} label="Amazon Music" href={AMAZON_URL} />
-              <IconLink icon={AppleIcon} label="Apple Music" href={APPLE_URL} />
-            </div>
-          </div>
-        </>}
       </div>
 
       <Sunshine />

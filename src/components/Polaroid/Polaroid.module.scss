@@ -1,24 +1,27 @@
 @import "@/styles/shared";
 
 .Polaroid {
-  width: 38%;
   position: relative;
-  margin-left: -14%;
-  margin-top: -10%;
 
   figure {
     background: #fff;
-    padding: 1em;
-    padding-bottom: 4em;
     border-radius: 0.25em;
+    padding: 0.5rem;
     // box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
     box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.2);
-    transition: all 0.35s;
-    transform: scale(0.6, 0.6);
 
     img {
       max-width: 100%;
       height: auto;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      transform: scale(1, 1) !important;
+    }
+    @media (min-width: $breakpoint-tablet) {
+      padding: 1em;
+      padding-bottom: 4em;
+      transition: all 0.35s;
     }
   }
 
@@ -34,12 +37,17 @@
     box-shadow: 0 1.1rem 2rem rgba(0, 0, 0, 0.4);
   }
 
+  @media (min-width: $breakpoint-tablet) {
+    width: 38%;
+    margin-left: -14%;
+    margin-top: -10%;
 
-  &:hover{
-    z-index: 5;
+    &:hover{
+      z-index: 5;
 
-    figure {
-      transform: scale(1, 1) rotate(0deg) !important;
+      figure {
+        transform: scale(1, 1) rotate(0deg) !important;
+      }
     }
   }
 }

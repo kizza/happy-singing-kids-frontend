@@ -8,11 +8,25 @@
   }
 
   .BookCover {
+    // width: clamp(8rem, 80%, 30rem);
+    @apply my-8;
+    @media (min-width: $breakpoint-tablet) {
+    }
+  }
+
+  .Links {
+    @media (max-width: $breakpoint-mobile) {
+      @apply grid grid-cols-2 gap-4;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      @apply mt-4 flex-col space-y-2;
+    }
+
     img {
-      width: clamp(8rem, 80%, 30rem);
-      @apply my-8;
-      @media (min-width: $breakpoint-tablet) {
-      }
+      height: 3rem;
+      margin-top: -0.5rem;
+      margin-bottom: -0.5rem;
     }
   }
 
@@ -21,7 +35,7 @@
     margin-bottom: -1rem;
 
     @media (min-width: $breakpoint-tablet) {
-      margin-top: -6rem;
+      margin-top: -7rem;
     }
   }
 }

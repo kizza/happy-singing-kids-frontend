@@ -3,16 +3,19 @@ import classnames from "classnames";
 import styles from "./Title.module.scss";
 
 interface Props {
+  level?: number,
+  layout?: boolean,
   styles?: string[];
   animate?: boolean;
   children: any;
 }
 
-const Title = ({ styles: customStyles, children, animate = true }: Props) =>
+const Title = ({ level = 1, layout = true, styles: customStyles, children, animate = true }: Props) =>
   <h2 className={classnames(
     styles.Title,
+    layout && styles.WithLayout,
+    styles[`Level${level}`],
     "animate__bounceIn",
-    // "animate__delay-1s",
     animate && "animate__animated",
     ...(customStyles || []),
   )}>{ children }</h2>

@@ -16,6 +16,18 @@
   transition: all 0.4s 0.8s ease-out;
 }
 
+
+%zoom {
+  transform: scale(1.3);
+  margin-top: 2rem;
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin-top: 0;
+      transform: scale(1);
+    }
+  }
+}
+
 .Banner {
   position: relative;
   margin-bottom: 2rem;
@@ -39,10 +51,13 @@
 
   .Loading {
     position: absolute;
-    top: 100%;
-    left: 100%;
-    margin-left: -55%;
-    margin-top: -25%;
+    width: 100%;
+
+    img {
+      margin-top: 10%;
+      margin-inline: auto;
+      max-width: 14vw;
+    }
   }
 
   @keyframes circle {
@@ -55,21 +70,25 @@
     clip-path: circle(0);
     transition-timing-function: ease-out;
     transition-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
-  }
 
-  // @keyframes popup {
-  //   0% { transform: translateY(100%) }
-  //   10% { transform: translateY(0) }
-  // }
+    // Taller hero for mobile
+    height: 12rem;
+    @media (min-width: $breakpoint-tablet) {
+      & {
+        // Show peek of foot when larger
+        height: clamp(10rem, 34vw, 19rem);
+      }
+    }
+  }
 
   .Girls {
     @extend %animating;
+    @extend %zoom;
     position: absolute;
     bottom: 0;
   }
 
   .Logo {
-    // @extend %animating;
     position: absolute;
     width: 34%;
     top: 0;
@@ -98,7 +117,7 @@
 
   .Background {
     visibility: visible;
-    animation: 1.5s ease-out 0s 1 circle forwards;
+    animation: 1.1s ease-out 0s 1 circle forwards;
   }
 
   .Girls {

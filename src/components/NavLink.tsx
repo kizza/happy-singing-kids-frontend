@@ -10,6 +10,11 @@ interface Props {
 
 export default function NavLink ({href, children, onClick, activeClassName}: Props) {
   const pathname = usePathname();
+
+  if (!href.endsWith("/")) {
+    href = `${href}/`
+  }
+
   const props: Record<string, any> = {
     href: href
   }

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import classnames from "classnames";
 import React from "react";
+import { styles as buttonStyles } from "@/components/IconLink";
 import moduleStyles from "./LogoLink.module.scss";
 import WithStyles from "@/components/WithStyles";
 
@@ -11,23 +12,11 @@ interface Props {
   label: string;
 }
 
-const styles = `
-  flex items-center space-x-2
-  text-aqua rounded-lg
-  font-bold
-  underline
-  border-solid
-  border-aqua
-  border-2
-  shadow-square
-  shadow-grape
-  hover:bg-grape-100
-`
-
 const LogoLink = ({ styles: externalStyles, logo, url, label }: Props) => (
   <a href={url} className={classnames(
     moduleStyles.LogoLink,
-    styles,
+    "flex",
+    buttonStyles,
     ...(externalStyles || [])
   )}>
     <Image src={logo} alt={label} className="w-full" />
