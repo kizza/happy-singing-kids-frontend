@@ -47,7 +47,7 @@ export default () => {
         <Title styles={["text-aqua !mb-4"]}>
           Don't have the book yet?
         </Title>
-        <p>Get in touch to <a href="mailto:happysingingkids@gmail.com" className="underline">get your copy!</a></p>
+        <p>Get in touch to <a href="mailto:contact@happysingingkids.com" className="underline">get your copy!</a></p>
       </div>
     </section>
 

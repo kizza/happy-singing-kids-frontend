@@ -10,8 +10,8 @@ const Contact = () => (
     <div className="inner">
       <p className="mt-4 text-xl text-center">
         Get in touch at{" "}
-        <a href="mailto:happysingingkids@gmail.com">
-          happysingingkids@gmail.com
+        <a href="mailto:contact@happysingingkids.com">
+          contact@happysingingkids.com
         </a>
         ,
         <br /> we'd love to hear from you!

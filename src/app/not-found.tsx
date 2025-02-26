@@ -14,7 +14,7 @@ export default function NotFound() {
       <Title level={2} styles={["text-aqua"]} >Oh, gosh - so sorry... <br />we can't find this content!?</Title>
       <p className="md:w-1/2 md:m-auto mt-4 text-lg text-center">
         Perhaps try one of the links above or {" "}
-        <a href="mailto:happysingingkids@gmail.com">
+        <a href="mailto:contact@happysingingkids.com">
           get in touch
         </a> to ask any questions.
       </p>
