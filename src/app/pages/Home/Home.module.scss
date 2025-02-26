@@ -123,13 +123,4 @@
       display: none;
     }
   }
-
-  .Children {
-    margin-bottom: -1rem;
-
-    margin-top: -5rem;
-    @media (min-width: $breakpoint-desktop) {
-      margin-top: -10rem;
-    }
-  }
 }

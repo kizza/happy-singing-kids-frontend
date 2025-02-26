@@ -97,7 +97,7 @@ const Home = () => {
 
           <Image
             src={singingKids}
-            className={[styles.Children, "box-content"].join(" ")}
+            className="box-content -mb-[1rem] -mt-[5rem] md:-mt-[10rem]"
             alt="Children singing music"
           />
         </section>
