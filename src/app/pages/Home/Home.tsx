@@ -35,21 +35,6 @@ const Home = () => {
       <section>
         <div className={classnames("flex flex-col  lg:flex-row lg:space-x-6", "inner")}>
           <div className={classnames(styles.Left, "space-y-8 md:space-y-12")}>
-            <div className={styles.Edinburgh}>
-              <Title styles={["text-aqua"]}>
-                Edinburgh Festival Fringe
-              </Title>
-              <Image src={fringe} alt="Performing at the Edinburgh Festival Fringe 2024" />
-              <p>
-                So excited to be performing at the Edinburgh Festival Fringe 2024.
-                If you're in town for this exciting event come say hi! {" "}
-                <a href="https://www.pleasance.co.uk/events/location/Edinburgh?keywords=happy%20singing%20kids">Tickets available now</a> via Pleasance Theatre
-              </p>
-              <p>
-                <IconLink href="/edinburgh-festival-fringe-2024/">Learn more</IconLink>
-              </p>
-            </div>
-
             <div>
               <Title styles={["text-grape"]}>
                 Sing along with...
@@ -61,6 +46,19 @@ const Home = () => {
                 <LogoLink label="Apple Music" logo={apple} url={APPLE_URL} styles={["basis-[25%]"]}/>
                 <LogoLink label="Amazon Music" logo={amazon} url={AMAZON_URL} styles={["basis-[35%]"]}/>
               </div>
+            </div>
+
+            <div className={styles.Edinburgh}>
+              <Title styles={["text-aqua"]}>
+                Edinburgh Festival Fringe
+              </Title>
+              <Image src={fringe} alt="Performing at the Edinburgh Festival Fringe 2024" />
+              <p>
+                The 2024 Edinburgh Festival Fringe was a blast! Was such a joy to meet so many new people - and share the happiness of playful songs together.
+              </p>
+              <p>
+                <IconLink href="/edinburgh-festival-fringe-2024/">Learn more</IconLink>
+              </p>
             </div>
           </div>
 

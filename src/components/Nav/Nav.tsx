@@ -48,15 +48,6 @@ const Nav = ({ open, closing, closeMenu }: Props) => {
         </li>
         <li>
           <NavLink
-            href="/edinburgh-festival-fringe-2024"
-            onClick={closeMenu}
-            activeClassName={styles.active}
-          >
-            Fringe Festival
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             href="/uh-oh-spaghetti-oh"
             onClick={closeMenu}
             activeClassName={styles.active}

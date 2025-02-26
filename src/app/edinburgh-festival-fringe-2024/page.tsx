@@ -13,8 +13,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "We're performing at the Edinburgh Festival Fringe 2024",
-  description: "Looking to find vibrant Kids shows and family fun? We've got two of them! Come see us at the Edinburgh Festival Fringe 2024 at Pleasance Theatre",
+  title: "We performed at the Edinburgh Festival Fringe 2024",
+  description: "Was such a joy to meet so many new people - and share the happiness of playful songs together.",
 };
 
 export default function UhOhSpaghettiOhRoute() {
@@ -24,18 +24,17 @@ export default function UhOhSpaghettiOhRoute() {
         <div className="inner">
           <Image src={fringe} className="max-w-[9rem] m-auto md:float-right" alt="Performing at the Edinburgh Festival Fringe 2024" />
           <Title layout={false} styles={["text-orange text-center mt-4 mb-6 md:text-left"]} >
-            We're performing at the <span className="text-grape md:block">Edinburgh Festival Fringe 2024!</span>
+            We performed at the <span className="text-grape md:block">Edinburgh Festival Fringe 2024!</span>
           </Title>
           <p className="">
-            Looking for fun family activities and shows at the Edinburgh Festival Fringe this year?
-            Come sing along with Happy Singing Kids
-            at the <Link href="https://www.pleasance.co.uk/events?keywords=happy%20singing%20kids">Pleasance Theatre</Link> from the 31st of July till 13th August.
+            The 2014 Edinburgh Festival Fringe was a blast! Was such a joy to meet so many new people - and share the happiness of playful songs together.
+            Big thank you to the <Link href="https://www.pleasance.co.uk">Pleasance Theatre</Link> for partnering with us - their team was wonderful to work with.
           </p>
-          <p>
+          {/*<p>
             <IconLink href="https://www.pleasance.co.uk/events/location/Edinburgh?keywords=happy%20singing%20kids">
               Book your tickets
             </IconLink>
-          </p>
+          </p>*/}
         </div>
       </section>
     </Header>
@@ -43,9 +42,8 @@ export default function UhOhSpaghettiOhRoute() {
     <section className="">
       <div className="inner mt-10 mb-2 md:text-center">
         <Title level={3} styles={["text-aqua"]}>
-          We'll be performing two different shows daily...
+          We performed two different shows daily...
         </Title>
-        <p>So come and enjoy the variety - we'd love to see you at both!</p>
       </div>
 
       <div className="inner md:text-center">
@@ -62,11 +60,6 @@ export default function UhOhSpaghettiOhRoute() {
             </a>
             <p><b>Where</b>: Pleasance Courtyard, The Green</p>
             <p><b>When</b>: 10:00am and 11:30 daily <br />31st of July till 13th August</p>
-            <p>
-              <IconLink href="https://www.pleasance.co.uk/event/uh-oh-spaghetti-oh">
-                Tickets available here
-              </IconLink>
-            </p>
           </div>
           <div className="">
             <Title level={2} layout={true} styles={["text-teal-500"]} >
@@ -80,9 +73,6 @@ export default function UhOhSpaghettiOhRoute() {
             </a>
             <p><b>Where</b>: Pleasance Courtyard, The Green</p>
             <p><b>When</b>: 10:45am daily <br />31st of July till 13th August</p>
-            <p>
-              <IconLink href="https://www.pleasance.co.uk/event/reading-through-singing-time">Tickets available here</IconLink>
-            </p>
           </div>
         </div>
       </div>
