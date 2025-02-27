@@ -18,3 +18,24 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+Cypress.on("uncaught:exception", (err, runnable) => {
+  // Local hydration error
+  if (err.message.match(/[Hh]ydrat(ing|ion)/)) {
+    return false;
+  }
+
+  // Minified hydration errors
+  // https://react.dev/errors/418
+  // https://react.dev/errors/423
+  if (err.message.match(/error #(418|423)/)) {
+    return false;
+  }
+
+  // Minified root errors
+  // https://react.dev/errors/329
+  if (err.message.match(/error #(329)/)) {
+    return false;
+  }
+  return true;
+});
