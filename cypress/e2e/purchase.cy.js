@@ -47,7 +47,7 @@ context(`Purchase ${Cypress.config().baseUrl}`, () => {
 
       // Line items
       const lineItems = session.line_items.data;
-      console.log(lineItems)
+      cy.task('log', lineItems);
       expect(lineItems).to.have.length(1);
       expect(lineItems[0]).to.deep.include({
         description: "Uh Oh Spaghetti-oh",
