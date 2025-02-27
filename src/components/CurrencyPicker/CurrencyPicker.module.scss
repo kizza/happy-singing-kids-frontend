@@ -1,30 +1,11 @@
-@import "../../shared";
+@import "@/styles/shared";
 
 $margin: 0.5em;
 $width: 12em;
 
 .CurrencyPicker {
   --animate-duration: 0.3s;
-  font-size: 0.8em;
   position: relative;
-
-  .PickerLink {
-    @extend %no-tap-highlight;
-    @extend %link-button;
-    text-align: center;
-    color: $text;
-    width: $width;
-    text-decoration: underline;
-    padding: 0.8em;
-    display: inline-block;
-
-    &:focus {
-    }
-
-    @media (min-width: $breakpoint-tablet) {
-      // margin-left: $margin;
-    }
-  }
 
   ul {
     margin: 0;
@@ -34,32 +15,22 @@ $width: 12em;
   li {
     list-style-type: none;
   }
-
-  // Mobile
-  margin-top: 1em;
 }
 
 .List {
   button {
-    padding: 1.0em 0.8em 0.6em;
     clear: both;
-    display: block;
     text-decoration: none;
     @extend %no-tap-highlight;
-    @extend %link-button;
-    width: $width;
     &:hover {
       background: $light-green;
+      text-decoration: underline;
     }
   }
 }
 
 .Flag {
   width: 2em;
-  position: relative;
-  float: left;
-  top: -0.1em;
-  margin-right: 0.4em;
 }
 
 .Closed {
@@ -67,23 +38,19 @@ $width: 12em;
 }
 
 .Open {
+  background: #eee;
   .PickerLink {
-    // background: #ccc;
+    color: purple;
   }
 }
 
 .Options {
   position: absolute;
-  top: 2.4em;
+  z-index: 1;
+  top: 2.6em;
   background: white;
-  left: 50%;
-  transform: translate(-50%, 0);
+  right: 0;
   margin: 0 auto;
   box-shadow: 0 0.8em 1em rgba(100, 100, 100, 0.5);
   text-align: left;
-
-  font-size: 1.4em;
-  @media (min-width: $breakpoint-tablet) {
-    font-size: 1.2em;
-  }
 }

@@ -3,24 +3,9 @@
 .Loading {
   text-align: center;
   position: relative;
-  font-size: 1.2em;
-  top: 2em;
-  margin-bottom: 2em;
 
   img {
     animation: rotation 1.4s infinite linear;
-    width: 4em;
-  }
-
-  em {
-    display: block;
-    font-style: normal;
-  }
-
-  @media (min-width: $breakpoint-tablet) {
-  }
-
-  @media (min-width: $breakpoint-desktop) {
   }
 }
 

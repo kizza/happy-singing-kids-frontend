@@ -8,18 +8,16 @@
   }
 
   .BookCover {
-    // width: clamp(8rem, 80%, 30rem);
     @apply my-8;
     @media (min-width: $breakpoint-tablet) {
     }
   }
 
   .Links {
-    @media (max-width: $breakpoint-mobile) {
-      @apply grid grid-cols-2 gap-4;
-    }
+    @apply grid grid-cols-2 gap-4;
 
     @media (min-width: $breakpoint-tablet) {
+      @apply block grid-cols-none; // Undo grid styling
       @apply mt-4 flex-col space-y-2;
     }
 

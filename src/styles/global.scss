@@ -23,6 +23,16 @@ body {
     margin-inline: auto;
   }
 }
+
+// Don't show arrow buttons on number inputs
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
   /* border-left: dotted 1px purple; */
   /* border-right: dotted 1px purple; */
   /* border: solid 1px purple; */

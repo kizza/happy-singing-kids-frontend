@@ -1,55 +1,64 @@
-import React, { useState } from "react";
+"use client"
+
+import React, { useEffect, useRef, useState, MouseEvent } from "react";
 import styles from "./CurrencyPicker.module.scss";
 import classnames from "classnames";
-import ausFlag from "../../assets/flags/australia.svg";
-import ukFlag from "../../assets/flags/uk.svg";
-import usaFlag from "../../assets/flags/usa.svg";
+import ausFlag from "@/assets/flags/australia.svg";
+import ukFlag from "@/assets/flags/uk.svg";
+import usaFlag from "@/assets/flags/usa.svg";
+import Image from "next/image"
+import { Currency } from "@/hooks/useCurrency"
 import { useAnalytics } from "../../hooks/useAnalytics";
 
-export type Currency = "AUD" | "GBP" | "USD" | "TEST";
-
-interface Props {
+export interface Props {
   currency: Currency;
+  symbol: string,
   change: (currency: Currency) => void;
 }
 
-console.log(process.env.REACT_APP_IS_DEV === "true")
-const currencies = [
-  "AUD", "USD", "GBP", process.env.REACT_APP_IS_DEV === "true" && "TEST"
-].filter(Boolean) as Currency[]
+const currencies: Currency[] = ["AUD", "USD", "GBP"]
 
 const labels: Record<Currency, string> = {
   AUD: "Australian Dollar",
   USD: "US Dollar",
   GBP: "British Pound",
-  TEST: "Test",
 };
 
 const flags: Record<Currency, string> = {
   AUD: ausFlag,
   USD: usaFlag,
   GBP: ukFlag,
-  TEST: ausFlag,
 };
 
-export default ({ currency, change }: Props) => {
-  const symbol = currency === "GBP" ? "£" : "$";
+export default ({currency, symbol, change}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
-  const { trackEvent } = useAnalytics();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  // const { trackEvent } = useAnalytics();
+
+  // Close the dropdown if the user clicks outside
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (dropdownRef.current && !dropdownRef.current?.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const toggle = () => setOpen(!open);
   const flag = (key: Currency) => (
-    <img className={styles.Flag} src={flags[key]} alt={`${key} flag`} />
+    <Image className={styles.Flag} src={flags[key]} alt={`${key} flag`} />
   );
 
   const clickCurrency = (clicked: Currency) => {
     setOpen(false);
     change(clicked);
-    trackEvent({
-      category: "Purchasing",
-      action: "Changed currency",
-      label: currency,
-    });
+    // trackEvent({
+    //   category: "Purchasing",
+    //   action: "Changed currency",
+    //   label: currency,
+    // });
   };
 
   const renderList = () =>
@@ -57,25 +66,30 @@ export default ({ currency, change }: Props) => {
       .filter(each => each !== currency)
       .map(each => (
         <li key={each}>
-          <button type="button" onClick={() => clickCurrency(each)}>
+          <button type="button"
+            className="flex items-center space-x-2 whitespace-nowrap w-full p-3"
+            onClick={() => clickCurrency(each)}
+          >
             {flag(each)}
-            {labels[each]}
+            <span>{labels[each]}</span>
           </button>
         </li>
       ));
 
   return (
-    <div
-      className={classnames(styles.CurrencyPicker, {
+    <div className={classnames(styles.CurrencyPicker, "inline-block", {
         [styles.Open]: open,
       })}
+      ref={dropdownRef}
     >
-      <button type="button" className={styles.PickerLink} onClick={toggle}>
-        {symbol}
-        {currency} <i className="fa fa-chevron-down"></i>
+      <button type="button" className={`${styles.PickerLink} p-2 appearance-none text-xs flex items-center space-x-1`}
+        onFocus={() => setOpen(true)}
+      >
+        {flag(currency)}
+        <div>{currency} <i className="fa fa-chevron-down" aria-hidden></i></div>
       </button>
       <div
-        className={classnames({
+        className={classnames("w-max text-xs", {
           animate__animated: open,
           animate__fadeIn: open,
           [styles.Options]: true,

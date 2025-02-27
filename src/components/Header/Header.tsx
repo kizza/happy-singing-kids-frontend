@@ -26,12 +26,12 @@ const Header = ({ children, clouds = true }: Props) => {
         </a>
       </div>
 
-      <Sunshine />
+      {clouds && <Sunshine />}
 
       <div className={styles.Sky}>
         <div className={styles.Clouds}>
           {clouds && <Cloud variant={'primary'} left={34} top={3} repeat={false} />}
-          <Cloud variant={'secondary'} left={110} top={4} />
+          {clouds && <Cloud variant={'secondary'} left={110} top={4} />}
           {clouds && <Cloud variant={'tertiary'} left={110} top={10} delay={8} />}
         </div>
       </div>
