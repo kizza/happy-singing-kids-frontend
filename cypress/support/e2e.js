@@ -19,6 +19,16 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
+// Ignore requests to '__nextjs_original-stack-frame'
+// Cypress.on('test:before:run', () => {
+// });
+beforeEach(() => {
+  cy.intercept('/__nextjs_original-stack-frame', (req) => {
+    console.log("GOT NEXT JS")
+    req.destroy();
+  }).as('ignoredRequest');
+})
+
 Cypress.on("uncaught:exception", (err, runnable) => {
   // Local hydration error
   if (err.message.match(/[Hh]ydrat(ing|ion)/)) {
