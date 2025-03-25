@@ -1,3 +1,5 @@
+"use client"
+
 import singingKids from "@/assets/hero/happy-singing-kids.png";
 import amazon from "@/assets/logos/amazon.png";
 import apple from "@/assets/logos/apple.png";
@@ -12,7 +14,7 @@ import Image from "next/image";
 import styles from "./UhOhSpaghettiOh.module.scss";
 
 export default () => {
-  return <div className={styles.Home}>
+  return <div className={classnames(styles.Home, "text-center")}>
     <Header>
       <section>
         <div className={classnames("inner", "space-y-2")}>
@@ -23,14 +25,14 @@ export default () => {
           Truthfully I always had in mind that Uh Oh Spaghetti-oh felt like a book, and now it is!</p>
           <div className="md:flex md:flex-row md:space-x-8 md:items-center">
             <div>
-              <Image className={[styles.BookCover, "inline -rotate-[1deg]"].join(" ")} src={bookCover} alt="Uh oh spaghetti-oh cover" />
+              <Image className="my-8 inline -rotate-[1deg]" src={bookCover} alt="Uh oh spaghetti-oh cover" />
             </div>
             <div className="md:text-left">
               <Title styles={["text-orange !my-2"]}>
                 Sing along and <span className="italic">stream</span> the song!
               </Title>
               <p>Listen now via your favourite platform to sing along with the book!</p>
-              <div className={classnames(styles.Links, "mt-2 mb-4")}>
+              <div className={classnames(styles.Links, "grid grid-cols-2 gap-4 mt-2 mb-4 md:block md:mt-4 md:space-y-2")}>
                 <LogoLink label="YouTube" logo={youtube} url="https://www.youtube.com/watch?v=fdd5Wd6mDB4" />
                 <LogoLink label="Spotify" logo={spotify} url="https://open.spotify.com/track/0EMeGN35XRp4fPn0ySoQ4y?si=03b60bf81fc94519" />
                 <LogoLink label="Apple Music" logo={apple} url="https://music.apple.com/us/album/uh-oh-spaghetti-oh/1553353479?i=1553353480" />
@@ -47,7 +49,9 @@ export default () => {
         <Title styles={["text-aqua !mb-4"]}>
           Don't have the book yet?
         </Title>
-        <p>Get in touch to <a href="mailto:contact@happysingingkids.com" className="underline">get your copy!</a></p>
+        {process.env.NEXT_PUBLIC_STAGE === "dev"
+          ? <p>Get in touch to <a href="/buy/uh-oh-spaghetti-oh/" className="underline">get your copy!</a></p>
+          : <p>Get in touch to <a href="mailto:contact@happysingingkids.com" className="underline">get your copy!</a></p>}
       </div>
     </section>
 

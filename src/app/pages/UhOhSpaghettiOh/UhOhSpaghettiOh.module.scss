@@ -1,39 +1,18 @@
 @import "@/styles/shared";
 
-.Home {
-  text-align: center;
-
-  ul {
-    text-align: left;
+.Links {
+  img {
+    height: 3rem;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
   }
+}
 
-  .BookCover {
-    @apply my-8;
-    @media (min-width: $breakpoint-tablet) {
-    }
-  }
+.Children {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
 
-  .Links {
-    @apply grid grid-cols-2 gap-4;
-
-    @media (min-width: $breakpoint-tablet) {
-      @apply block grid-cols-none; // Undo grid styling
-      @apply mt-4 flex-col space-y-2;
-    }
-
-    img {
-      height: 3rem;
-      margin-top: -0.5rem;
-      margin-bottom: -0.5rem;
-    }
-  }
-
-  .Children {
-    margin-top: -1rem;
-    margin-bottom: -1rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      margin-top: -7rem;
-    }
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: -7rem;
   }
 }
