@@ -62,17 +62,17 @@ const Home = () => {
             </div>
           </div>
 
-          <div className={classnames(styles.Right, "mt-4 md:mt-0 mb-4")}>
+          <div className={classnames(styles.Right, "mt-4 lg:mt-0 mb-4")}>
             <div className={styles.Book}>
               <Title styles={["text-orange whitespace-nowrap"]}>
                 Get the book!
               </Title>
               <Image src={bookCover} className="shadow-lg rotate-[3deg] mb-4" alt="Uh Oh Spaghetti-oh out now!" />
-              <p>Sing along as happy little readers! <br /><a href="/uh-oh-spaghetti-oh/">Learn more.</a></p>
-              {false && <Button
-                label="Learn more"
-                url="/uh-oh-spaghetti-oh"
-              />}
+              <p>Sing along as happy little readers!</p>
+              <p className="leading-10">
+                <IconLink variant="primary" href="/buy/uh-oh-spaghetti-oh/">Buy&nbsp;now</IconLink>
+                or <a href="/books/uh-oh-spaghetti-oh/">learn more.</a>
+              </p>
             </div>
           </div>
         </div>

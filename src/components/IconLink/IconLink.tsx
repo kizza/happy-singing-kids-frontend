@@ -36,6 +36,7 @@ const variants: Record<Variant, string> = {
     hover:text-white
   `,
   secondary: `
+    bg-white
     hover:bg-grape-100
     border-aqua
     shadow-grape

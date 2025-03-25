@@ -12,6 +12,7 @@ import Title from "@/components/Title";
 import classnames from "classnames";
 import Image from "next/image";
 import styles from "./UhOhSpaghettiOh.module.scss";
+import IconLink from "@/components/IconLink";
 
 export default () => {
   return <div className={classnames(styles.Home, "text-center")}>
@@ -23,6 +24,22 @@ export default () => {
           </Title>
           <p>In finding happy places amongst other books and literacy in general it made sense to dive in.
           Truthfully I always had in mind that Uh Oh Spaghetti-oh felt like a book, and now it is!</p>
+        </div>
+      </section>
+
+      <section>
+        <div className={classnames("inner", "my-10")}>
+          <Title styles={["text-aqua !mb-4"]}>
+            Don't have the book yet?
+          </Title>
+          <p>
+            <IconLink variant="primary" href="/buy/uh-oh-spaghetti-oh/">Get your copy here</IconLink>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div className={classnames("inner", "space-y-2")}>
           <div className="md:flex md:flex-row md:space-x-8 md:items-center">
             <div>
               <Image className="my-8 inline -rotate-[1deg]" src={bookCover} alt="Uh oh spaghetti-oh cover" />
@@ -43,17 +60,6 @@ export default () => {
         </div>
       </section>
     </Header>
-
-    <section>
-      <div className={classnames("inner", "mt-10")}>
-        <Title styles={["text-aqua !mb-4"]}>
-          Don't have the book yet?
-        </Title>
-        {process.env.NEXT_PUBLIC_STAGE === "dev"
-          ? <p>Get in touch to <a href="/buy/uh-oh-spaghetti-oh/" className="underline">get your copy!</a></p>
-          : <p>Get in touch to <a href="mailto:contact@happysingingkids.com" className="underline">get your copy!</a></p>}
-      </div>
-    </section>
 
     <Image
       src={singingKids}
