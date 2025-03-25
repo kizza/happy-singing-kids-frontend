@@ -1,4 +1,4 @@
-import UhOhSpaghettiOh from "@/app/pages/UhOhSpaghettiOh"
+import UhOhSpaghettiOh from "@/app/pages/purchased/UhOhSpaghettiOh"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
