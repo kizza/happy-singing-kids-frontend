@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import "@/styles/global.scss";
 import "@/styles/typography.scss";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "animate.css/animate.min.css";
 import classnames from "classnames";
 import { Metadata, Viewport } from "next";
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <GoogleTagManager gtmId="G-GMNZ6WPJE1" />
+        <GoogleAnalytics gaId="G-GMNZ6WPJE1" />
 
         {/* Font awesome icons */}
         <script src="https://kit.fontawesome.com/42b2b1537e.js" crossOrigin="anonymous"></script>
