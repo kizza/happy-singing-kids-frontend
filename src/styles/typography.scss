@@ -78,6 +78,14 @@ p {
   }
 }
 
+li {
+  font-size: 1em;
+  font-family: inherit;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 1.3em;
+  }
+}
+
 h2 + p {
 }
 
