@@ -79,6 +79,8 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={classnames(font.className, titleFont.variable)}>
+        {process.env.NEXT_PUBLIC_STAGE == "dev"
+          && <div className="fixed z-[9999] w-full text-center bg-orange-100 p-1 border border-dashed border-orange-300">Development.</div>}
         <Layout>
           {children}
         </Layout>
