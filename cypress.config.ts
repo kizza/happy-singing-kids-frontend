@@ -14,9 +14,7 @@ const getStageEnv = (key) => {
 
 // Returns BASE_URL_${VARIANT} for different stages
 const getBaseUrl = () => {
-  const variant = process.env.CYPRESS_VARIANT ? `_${process.env.CYPRESS_VARIANT.toUpperCase()}` : "";
-  config({ path: `.env.test` })
-  return process.env[`BASE_URL${variant}`]
+  return getStageEnv('BASE_URL');
 }
 
 export default defineConfig({

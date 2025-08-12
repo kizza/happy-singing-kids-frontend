@@ -13,21 +13,28 @@
     "react": "^18",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^18",
-    "serverless": "^4.1.5"
+    "serverless": "^4.4.16"
   },
   "scripts": {
     "info": "serverless info",
+    "predev": "cp .env.dev .env.local",
     "dev": "next dev -p 8080",
+    "start": "yarn build:dev && serve -l 8080 out",
+    "build:dev": "cp .env.dev .env.local && yarn build",
+    "build:prod": "cp .env.prod .env.local && yarn build",
     "build": "next build && node ./bin/minify-images",
-    "predeploy": "yarn test && yarn build",
-    "deploy": "serverless deploy",
-    "destroy": "serverless remove",
-    "test": "next test",
-    "e2e": "cypress open",
-    "cypress:open": "cypress open"
-  },
-  "eslintConfig": {
-    "extends": "serverless-react-app"
+    "start:dev": "cp .env.dev .env.local && yarn start",
+    "start:prod": "cp .env.prod .env.local && yarn start",
+    "predeploy:dev": "yarn build:dev",
+    "deploy:dev": "serverless deploy --stage dev",
+    "predeploy:prod": "yarn build:prod",
+    "deploy:prod": "serverless deploy --stage prod",
+    "test": "cypress run e2e",
+    "test:dev": "CYPRESS_VARIANT=dev cypress run e2e",
+    "test:prod": "CYPRESS_VARIANT=prod cypress run e2e",
+    "test:next": "next test",
+    "cypress:open": "cypress open",
+    "destroy": "serverless remove"
   },
   "browserslist": {
     "production": [
@@ -55,12 +62,16 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-ga": "^2.3.0",
     "@types/react-router-dom": "^5.1.3",
-    "cypress": "^6.3.0",
+    "cypress": "^13.17.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.17.0",
+    "eslint-plugin-next": "^0.0.0",
     "react-test-renderer": "^16.13.1",
     "sass": "^1.77.6",
+    "serve": "^14.2.4",
     "serverless-lift": "^1.29.0",
-    "sharp": "^0.33.4",
-    "tailwindcss": "^3.4.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.16",
     "ts-jest": "^26.1.0",
     "typescript": "^5"
   },

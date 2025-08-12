@@ -1,69 +1,68 @@
-import queryString from "query-string";
-import React from "react";
-import { withRouter } from "react-router";
-import { RouteComponentProps } from "react-router-dom";
-import { useLiveProcessing } from "../../hooks/useLiveProcessing";
-/* import { CheckoutSession, NextAction } from "../../models/stripe"; */
-import Loading from "../Loading";
-import styles from "./Success.module.scss";
+"use client"
+
+import { shop } from "@/api";
+import Loading from "@/components/Loading";
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from "react";
 /* import { useCheckoutSession } from "../../hooks/useCheckoutSession"; */
 
-/* const handleNextAction = (nextAction: NextAction) => { */
-/*   if (nextAction.type === "redirect_to_url") { */
-/*     console.log(`Redirecting to ${nextAction.redirect_to_url.url}`); */
-/*     window.location = nextAction.redirect_to_url.url as any; */
-/*   } */
-/* }; */
+// const retrieveCheckoutSession = (checkoutSessionId: string): Promise<any> =>
+//   shop(`checkout/session/${checkoutSessionId}`);
 
-/* const processCheckoutSession = (session: CheckoutSession) => { */
-/*   const { payment_intent: paymentIntent } = session; */
-/*   const { next_action: nextAction } = paymentIntent; */
-/*   if (nextAction) { */
-/*     handleNextAction(nextAction); */
-/*   } */
-/* }; */
+const fulfillCheckoutSession = (checkoutSessionId: string): Promise<any> =>
+  shop(`checkout/session/${checkoutSessionId}`, {});
 
-const Success = ({ location }: RouteComponentProps) => {
-  const { session_id: sessionId } = queryString.parse(location.search) as {
-    session_id: string;
-  };
+const Success = () => {
+  const searchParams = useSearchParams()
+  const sessionId = searchParams.get('session_id') || ""
 
-  /* const [loading, error, checkoutSession] = useCheckoutSession(sessionId); */
+  const [purchase, setPurchase] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error>();
 
-  const [processing, error, result] = useLiveProcessing(sessionId);
+  useEffect(() => {
+    fulfillCheckoutSession(sessionId)
+      .then(session => {
+        if (session?.customer_details?.email) {
+          setPurchase(session);
+        } else {
+          setError(new Error("No email found in order"))
+        }
+      })
+      .catch(setError)
+      .finally(() => setLoading(false));
+  }, [sessionId]);
 
-  /* if (result) { */
-  /*   processCheckoutSession(result); */
-  /* } */
-
-  const redirect = () => {
-    if (result) {
-      const { redirectToUrl } = result;
-      window.location.href = redirectToUrl;
-    }
-  };
-
-  const displayError = () => {
-    if (error) {
-      return (
-        <p>
-          Sorry, something seems to have gone wrong.
-          <pre>
-            <code>{JSON.stringify(error, null, 2)}</code>
-          </pre>
+  const PurchaseMessage = ({purchase}: any) => {
+    return (
+      <>
+        <p className="text-aqua font-bold">
+          A confirmation email has been sent to <span className="text-grape">{purchase?.customer_details.email}</span>
         </p>
-      );
-    }
+        <p>Thank you so much for your support!</p>
+      </>
+    )
   };
 
-  const loadingLabel = processing ? "One moment..." : "Processing...";
+  const ErrorMessage = ({error}: {error: Error}) => {
+    return (
+      <>
+        <p title={error.message} className="text-aqua font-bold">
+          Hmmm, we weren't able to retrieve your order... but you should expect a confirmation email shortly.
+        </p>
+        <p>If you do not, please <a href="mailto:contact@happysingingkids.com">contact us</a> and we'll ensure everything is sorted!</p>
+        <p>Thank you so much for your support</p>
+      </>
+    )
+  };
 
   return (
-    <div className={styles.Success}>
-      {processing ? <Loading label={loadingLabel} /> : redirect()}
-      {displayError()}
-    </div>
+    <>
+      {loading && <Loading size={20} label="One moment..." styles={[]}/>}
+      {purchase && <PurchaseMessage purchase={purchase}/>}
+      {error && <ErrorMessage error={error}/>}
+    </>
   );
 };
 
-export default withRouter(Success);
+export default Success;

@@ -4,11 +4,12 @@ import { usePathname } from "next/navigation";
 interface Props {
   href: string
   children: React.ReactNode;
+  className?: string,
   activeClassName?: string,
-  onClick: (e: any) => void,
+  onClick?: (e: any) => void,
 }
 
-export default function NavLink ({href, children, onClick, activeClassName}: Props) {
+export default function NavLink ({href, children, className, onClick, activeClassName}: Props) {
   const pathname = usePathname();
 
   if (!href.endsWith("/")) {
@@ -16,11 +17,12 @@ export default function NavLink ({href, children, onClick, activeClassName}: Pro
   }
 
   const props: Record<string, any> = {
-    href: href
+    href: href,
+    className: className || "",
   }
 
   if (activeClassName && (pathname == href || pathname == `${href}/`)) {
-    props["className"] = activeClassName
+    props["className"]+= " " + activeClassName
   }
 
   if (onClick) {

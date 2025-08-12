@@ -1,6 +1,8 @@
+import { Currency } from "@/hooks/useCurrency";
 import { CartItem, CartTotal } from "./hooks/useCartItems";
 
-export const formatPrice = ({ amount, currency }: CartItem | CartTotal) => {
+// export const formatPrice = ({ amount, currency }: CartItem | CartTotal) => {
+export const formatPrice = (amount: number, currency: Currency) => {
   const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
