@@ -37,7 +37,7 @@ const Nav = ({ open, closing, closeMenu }: Props) => {
           animate__animated: open || closing,
         })}
       >
-        <li>
+        <li className="md:!hidden">
           <NavLink
             href="/"
             onClick={closeMenu}
