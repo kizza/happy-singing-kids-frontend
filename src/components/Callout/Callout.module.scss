@@ -1,0 +1,49 @@
+@import "@/styles/shared";
+
+$thickness: 0.2rem;
+
+%animating {
+  visibility: hidden;
+}
+
+%frame {
+  content: "";
+  display: block;
+  position: absolute;
+  float: left;
+  z-index: 50;
+  width: 70%;
+  height: 70%;
+  opacity: 0;
+  transition: all 0.4s 0s ease-out;
+}
+
+.Banner {
+  position: relative;
+
+  &:before {
+    @extend %frame;
+    border-left: solid $thickness $light-green;
+    border-bottom: solid $thickness $light-green;
+    left: 0.5rem;
+    bottom: -2.2rem;
+    transform: translate(4rem, -1rem);
+  }
+
+  &:after {
+    @extend %frame;
+    border-right: solid $thickness $orange;
+    // border-bottom: solid $thickness $orange;;
+    right: -0.5rem;
+    bottom: -1.5rem;
+    height: 160%;
+    transform: translate(-4rem, -4rem);
+  }
+}
+
+.Animating {
+  &:before, &:after {
+    transform: rotate(-0.5deg) translate(0, 0);
+    opacity: 1;
+  }
+}

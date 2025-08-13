@@ -59,8 +59,8 @@ const config: Config = {
       teal: {
         DEFAULT: "#08898D",
         "50": "#f0fdfc",
-        "100": "#cafdf8",
-        "200": "#96f9f2",
+        "100": "#f0fffe",
+        "200": "#e4faf8",
         "300": "#59efe9",
         "400": "#28d9d8",
         "500": "#0fbbbd",

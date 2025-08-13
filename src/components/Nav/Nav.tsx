@@ -48,6 +48,15 @@ const Nav = ({ open, closing, closeMenu }: Props) => {
         </li>
         <li>
           <NavLink
+            href="/kindergarten-and-daycare-uplift-programs"
+            onClick={closeMenu}
+            activeClassName={styles.active}
+          >
+            Kindy Uplift
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             href="/books/uh-oh-spaghetti-oh"
             onClick={closeMenu}
             activeClassName={styles.active}
