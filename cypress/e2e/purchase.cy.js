@@ -53,7 +53,7 @@ context(`Purchase ${Cypress.config().baseUrl}`, () => {
       expect(session).to.have.property('billing_address_collection', 'required');
       expect(session.currency).to.equal('aud');
       expect(session.success_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/success/?session_id={CHECKOUT_SESSION_ID}`);
-      expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/`);
+      expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/uh-oh-spaghetti-oh/`);
 
       // total_details: { amount_discount: 0, amount_shipping: 0, amount_tax: 0 },
 
@@ -107,7 +107,7 @@ context(`Purchase ${Cypress.config().baseUrl}`, () => {
         expect(session).to.have.property('billing_address_collection', 'required');
         expect(session.currency).to.equal('aud');
         expect(session.success_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/success/?session_id={CHECKOUT_SESSION_ID}`);
-        expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/`);
+        expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/uh-oh-spaghetti-oh/`);
 
         // total_details: { amount_discount: 0, amount_shipping: 0, amount_tax: 0 },
 
@@ -161,7 +161,7 @@ context(`Purchase ${Cypress.config().baseUrl}`, () => {
         expect(session).to.have.property('billing_address_collection', 'required');
         expect(session.currency).to.equal('aud');
         expect(session.success_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/success/?session_id={CHECKOUT_SESSION_ID}`);
-        expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/`);
+        expect(session.cancel_url).to.equal(`${Cypress.env('SESSION_URL')}/buy/uh-oh-spaghetti-oh/`);
 
         // Line items
         const lineItems = session.line_items.data;
