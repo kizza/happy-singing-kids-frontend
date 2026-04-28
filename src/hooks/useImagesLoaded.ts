@@ -1,6 +1,6 @@
 import { useState, useEffect, RefObject } from 'react';
 
-const useImagesLoaded = (ref: RefObject<HTMLDivElement>) => {
+const useImagesLoaded = (ref: RefObject<HTMLDivElement | null>) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

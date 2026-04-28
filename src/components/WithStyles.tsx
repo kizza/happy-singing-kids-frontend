@@ -5,10 +5,10 @@ export interface StyledProps {
   styles: string[];
 }
 
-type Stylable = (...props: any) => JSX.Element
+type Stylable<P = {}> = (props: P) => React.ReactNode
 
 // The original component parameters + our styled props
-type WithStyledProps<T extends Stylable> = Parameters<T> & StyledProps
+type WithStyledProps<P> = P & StyledProps
 
 // The augmented styled props, minus our styled props (explicit for typescript)
 // type WithoutStyledProps<T extends Stylable> = Pick<WithStyledProps<T>, Exclude<keyof Parameters<T>, "styles">>
@@ -19,19 +19,23 @@ type WithStyledProps<T extends Stylable> = Parameters<T> & StyledProps
 
 interface StyledOptions { wrap: boolean }
 
-const WithStyles = <T extends Stylable>(func: T, options: StyledOptions) => {
-  return (...args: WithStyledProps<T>) => {
+const WithStyles = <P,>(
+  func: (props: P) => React.ReactNode,
+  options: StyledOptions
+) => {
+  return (props: P & Partial<StyledProps>) => {
+    const styles = props.styles ?? []
+    const { styles: _, ...rest } = props
+
     if (options.wrap === false) {
       return func({
-        ...args[0],
-        styles: args[0].styles || [],
-      } as WithStyledProps<T>)
+        ...(rest as P),
+        styles,
+      } as P)
     } else {
-      const { styles, ...other } = args
       return (
         <div className={classnames(styles)}>
-          test
-          {func(other)}
+          {func(rest as P)}
         </div>
       )
     }

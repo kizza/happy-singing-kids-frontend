@@ -50,6 +50,14 @@ yarn deploy:dev
 yarn deploy:prod
 ```
 
+### Updating
+
+Update everything to the latest version
+```
+npx npm-check-updates -u
+yarn install
+```
+
 ### Testing
 
 The primary focus is on the integration with our `shop` backend.
