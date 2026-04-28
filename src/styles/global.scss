@@ -1,10 +1,11 @@
+@use "@/styles/shared" as *;
+@use "sass:string"; // For string.unquote
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import-normalize;
-
-@import "@/styles/shared";
 
 body {
   --outer-width: 1000px;
@@ -19,7 +20,7 @@ body {
 
 @media (min-width: $breakpoint-tablet) {
   section {
-    width: unquote("min(100% - 2rem, var(--outer-width))");
+    width: string.unquote("min(100% - 2rem, var(--outer-width))");
     margin-inline: auto;
   }
 }
@@ -40,7 +41,7 @@ body {
 .inner {
   position: relative; // To fly above the clouds
   margin-inline: auto;
-  width: unquote("min(100% - 2rem, var(--inner-width))");
+  width: string.unquote("min(100% - 2rem, var(--inner-width))");
 }
 
 // body {
