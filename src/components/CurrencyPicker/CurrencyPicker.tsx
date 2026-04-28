@@ -9,6 +9,7 @@ import usaFlag from "@/assets/flags/usa.svg";
 import Image from "next/image"
 import { Currency } from "@/hooks/useCurrency"
 import { useAnalytics } from "../../hooks/useAnalytics";
+import posthog from "posthog-js";
 
 export interface Props {
   currency: Currency;
@@ -54,11 +55,10 @@ export default ({currency, symbol, change}: Props) => {
   const clickCurrency = (clicked: Currency) => {
     setOpen(false);
     change(clicked);
-    // trackEvent({
-    //   category: "Purchasing",
-    //   action: "Changed currency",
-    //   label: currency,
-    // });
+    posthog.capture("currency_changed", {
+      from_currency: currency,
+      to_currency: clicked,
+    });
   };
 
   const renderList = () =>

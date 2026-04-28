@@ -1,3 +1,5 @@
+"use client"
+
 import singingKids from "@/assets/hero/happy-singing-kids.png";
 import Callout from "@/components/Callout";
 import Header from "@/components/Header";
@@ -6,8 +8,14 @@ import Title from "@/components/Title";
 import classnames from "classnames";
 import Image from "next/image";
 import styles from "./KindyUplift.module.scss";
+import posthog from "posthog-js";
+import { useEffect } from "react";
 
 export default () => {
+  useEffect(() => {
+    posthog.capture("kindy_uplift_page_viewed");
+  }, []);
+
   const ProgramHeading = ({title, subtitle}: {title: string, subtitle: string}) =>
     <Title level={2} styles={["text-grape leading-snug text-center md:text-left"]}>
       <strong className="text-2xl text-orange block">{title}</strong> <span className="text-xl">{subtitle}</span>
@@ -120,7 +128,7 @@ export default () => {
           </Title>
           <p>
             We'd love to talk further about what's relevant and impactful for your organisation.
-            You can contact us for a free quote and conversation at <a href="mailto:contact@happysingingkids.com">
+            You can contact us for a free quote and conversation at <a href="mailto:contact@happysingingkids.com" onClick={() => posthog.capture("contact_email_clicked", { source: "kindy_uplift_page" })}>
               contact@happysingingkids.com
             </a>
           </p>

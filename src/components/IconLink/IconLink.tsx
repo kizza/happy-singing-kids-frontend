@@ -2,6 +2,7 @@ import classnames from "classnames";
 import React from "react";
 import moduleStyles from "./IconLink.module.scss";
 import WithStyles from "@/components/WithStyles";
+import { CaptureResult } from "posthog-js";
 
 type Variant = "primary" | "secondary" | "clear";
 
@@ -11,6 +12,7 @@ interface SharedProps {
   variant?: Variant,
   styles?: string[];
   disabled?: boolean;
+  onClick?: () => CaptureResult | undefined;
 }
 
 interface LinkProps {

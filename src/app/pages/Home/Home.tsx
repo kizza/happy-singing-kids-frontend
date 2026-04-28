@@ -21,6 +21,7 @@ import classnames from "classnames";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./Home.module.scss";
+import posthog from "posthog-js";
 
 const Home = () => {
   const [_showing, setShowing] = useState<boolean>(false);
@@ -70,8 +71,8 @@ const Home = () => {
               <Image src={bookCover} className="shadow-lg rotate-[3deg] mb-4" alt="Uh Oh Spaghetti-oh out now!" />
               <p>Sing along as happy little readers!</p>
               <p className="leading-10">
-                <IconLink variant="primary" href="/buy/uh-oh-spaghetti-oh/">Buy&nbsp;now</IconLink>
-                or <a href="/books/uh-oh-spaghetti-oh/">learn more.</a>
+                <IconLink variant="primary" href="/buy/uh-oh-spaghetti-oh/" onClick={() => posthog.capture("buy_now_cta_clicked", { source: "home_page" })}>Buy&nbsp;now</IconLink>
+                or <a href="/books/uh-oh-spaghetti-oh/" onClick={() => posthog.capture("book_learn_more_clicked", { source: "home_page" })}>learn more.</a>
               </p>
             </div>
           </div>

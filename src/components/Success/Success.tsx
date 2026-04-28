@@ -4,6 +4,7 @@ import { shop } from "@/api";
 import Loading from "@/components/Loading";
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 /* import { useCheckoutSession } from "../../hooks/useCheckoutSession"; */
 
 // const retrieveCheckoutSession = (checkoutSessionId: string): Promise<any> =>
@@ -25,11 +26,24 @@ const Success = () => {
       .then(session => {
         if (session?.customer_details?.email) {
           setPurchase(session);
+          posthog.identify(session.customer_details.email, {
+            email: session.customer_details.email,
+            name: session.customer_details.name,
+          });
+          posthog.capture("purchase_completed", {
+            session_id: sessionId,
+            email: session.customer_details.email,
+            currency: session.currency,
+            amount_total: session.amount_total,
+          });
         } else {
           setError(new Error("No email found in order"))
         }
       })
-      .catch(setError)
+      .catch((err) => {
+        posthog.captureException(err);
+        setError(err);
+      })
       .finally(() => setLoading(false));
   }, [sessionId]);
 

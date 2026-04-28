@@ -1,9 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import classnames from "classnames";
 import React from "react";
 import { styles as buttonStyles } from "@/components/IconLink";
 import moduleStyles from "./LogoLink.module.scss";
 import WithStyles from "@/components/WithStyles";
+import posthog from "posthog-js";
 
 interface Props {
   styles?: string[];
@@ -18,7 +21,7 @@ const LogoLink = ({ styles: externalStyles, logo, url, label }: Props) => (
     "flex",
     buttonStyles,
     ...(externalStyles || [])
-  )}>
+  )} onClick={() => posthog.capture("streaming_platform_clicked", { platform: label, url })}>
     <Image src={logo} alt={label} className="w-full" />
   </a>
 );

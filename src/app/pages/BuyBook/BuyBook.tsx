@@ -10,6 +10,7 @@ import useCurrency, { Currency } from "@/hooks/useCurrency";
 import useWindowEvent from "@/hooks/useWindowEvent";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 
 interface RowProps {
   index: number,
@@ -97,7 +98,13 @@ const BuyBook = () => {
   const action = `${process.env.NEXT_PUBLIC_SHOP_URL!}checkout/session`;
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const cartItem = cartItems[selectedIndex]
-  const change = (index: number) => setSelectedIndex(index)
+  const change = (index: number) => {
+    setSelectedIndex(index)
+    posthog.capture("book_option_selected", {
+      option: cartItems[index]?.description,
+      quantity: cartItems[index]?.quantity,
+    })
+  }
 
   const [customQuantity, _setCustomQuantity] = useState(3)
   const setCustomQuantity = (value: number) => {
@@ -196,7 +203,14 @@ const BuyBook = () => {
           { currency == "AUD" ? priceList : notAvailableInCurrency }
 
           { currency == "AUD" &&
-            <form action={action} onSubmit={() => setRedirecting(true)} method="post" className="text-center pb-10">
+            <form action={action} onSubmit={() => {
+              setRedirecting(true)
+              posthog.capture("checkout_started", {
+                option: selectedCartItem?.description,
+                quantity: selectedCartItem?.quantity,
+                currency,
+              })
+            }} method="post" className="text-center pb-10">
               {selectedCartItem && <>
                 <input name="currency" type="hidden" value={currency.toLowerCase()} />
                 <input name="item[0][code]" type="hidden" value={selectedCartItem.code} />

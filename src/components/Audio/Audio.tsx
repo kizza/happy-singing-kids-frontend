@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import useAudioPlayer from "../../hooks/useAudioPlayer";
 import useAudioElement from "../../hooks/useAudioElement";
 import styles from "./Audio.module.scss";
+import posthog from "posthog-js";
 
 interface Props {
   label: string;
@@ -47,7 +48,11 @@ export default ({
       loadAudioElement();
     }
     setNowPlaying(label);
-    setPlaying(!playing);
+    const nowPlaying = !playing;
+    setPlaying(nowPlaying);
+    if (nowPlaying) {
+      posthog.capture("song_played", { song: label });
+    }
   };
 
   const icon = playing ? "pause" : "play";
@@ -80,7 +85,10 @@ export default ({
         <i className="fa fa-lg fa-download"></i>
       </a>
 
-      <button type="button" className={styles.LyricsLink} onClick={openLyrics}>
+      <button type="button" className={styles.LyricsLink} onClick={() => {
+        openLyrics();
+        posthog.capture("song_lyrics_viewed", { song: label });
+      }}>
         <strong>Sing along</strong>
       </button>
 
