@@ -1,4 +1,4 @@
-import bookCover from "@/assets/jungle-jamboree-book1.jpg";
+import bookCover from "@/assets/jungle-jamboree-book4.jpg";
 import Header from "@/components/Header";
 import Title from "@/components/Title";
 import YouTube from "@/components/YouTube";
@@ -18,21 +18,21 @@ export default function KindyUpliftRoute() {
       <div className={classnames("inner", "space-y-8 mb-10")}>
         <Title styles={["text-grape leading-[1.2]"]}>
           Phonics sing and colour
-          <span className="text-orange block">Jungle Jamboree Book 1</span>
+          <span className="text-orange block">Jungle Jamboree Book 4</span>
         </Title>
 
         <div className="text-left flex flex-row space-x-8">
           <div className="basis-1/3">
-            <Image src={bookCover} alt="Jungle Jamboree book cover" loading="eager"
+            <Image src={bookCover} alt="Jungle Jamboree book 4 cover" loading="eager"
               className="-rotate-2 rounded-lg shadow-lg" />
           </div>
           <div className="basis-2/3">
-            <p><b>Swing into a jungle adventure filled with fun, music, and learning!</b><br />
-            Jungle Jamboree helps young children explore tricky phonics sounds through playful colouring activities and sing-along moments.</p>
+            <p><b>Leap into the next jungle jamboree with more songs on the way!</b><br />
+            Book 4 gathers a giraffe, koala, frog, platypus, dolphin, and jellyfish by the river for another colouring adventure through joyful phonics practice.</p>
           </div>
         </div>
 
-        <YouTube id="h0bNt2pwtQs" title="Jungle Jamboree | An Educational & Fun Consonant Safari Adventure!" />
+        <p className="text-grape text-xl font-bold">Video coming soon.</p>
       </div>
     </section>
   </div>
