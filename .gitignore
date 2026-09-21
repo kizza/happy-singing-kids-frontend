@@ -2,6 +2,7 @@
 .next
 .serverless
 .yarn-error.log
+.yarn/install-state.gz
 .DS_Store
 node_modules
 build
